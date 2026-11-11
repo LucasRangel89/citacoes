@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de Citações — Painel Interativo para Redação e Concursos</title>
+  <meta name="description" content="Painel interativo de citações organizadas por eixo temático, tipo de repertório, argumento e uso na redação, com modo simulado e flashcards.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">“”</div>
+          <div class="brand-text">
+            <div class="brand-title-row">
+              <h1>Banco de Citações</h1>
+              <span class="pool-badge" id="poolBadge">Carregando…</span>
+            </div>
+            <p class="brand-subtitle">Repertório sociocultural para redação, treinos e simulados</p>
+          </div>
+        </div>
+
+        <nav class="header-actions" aria-label="Ações principais">
+          <button type="button" class="btn btn-ghost" id="btnFavoritesFilter" aria-pressed="false" title="Filtrar apenas citações favoritadas">
+            <span class="icon" aria-hidden="true">☆</span>
+            <span>Favoritos</span>
+            <span class="count-pill" id="favoritesCount">0</span>
+          </button>
+
+          <button type="button" class="btn btn-accent" id="btnStartFlashcards" title="Treinar as citações filtradas em modo Flashcards">
+            <span class="icon" aria-hidden="true">⚡</span>
+            <span>Treinar (Flashcards)</span>
+          </button>
+
+          <button type="button" class="btn btn-secondary" id="btnOpenNewModal" title="Criar nova citação em JSON ou testar no painel">
+            <span class="icon" aria-hidden="true">+</span>
+            <span>Nova Citação</span>
+          </button>
+
+          <button type="button" class="btn btn-secondary" id="btnOpenExportModal" title="Exportar citações em JSON, Markdown ou Texto">
+            <span class="icon" aria-hidden="true">↓</span>
+            <span>Exportar</span>
+          </button>
+
+          <button type="button" class="btn btn-icon" id="btnThemeToggle" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro">
+            <span id="themeIcon" aria-hidden="true">☾</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      <!-- Search & Facet Controls -->
+      <section class="controls-panel" aria-label="Busca e filtros">
+        <div class="search-row">
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Buscar por citação, autor, obra, tema, argumento, ID (ex: EDU01) ou #tag…"
+              autocomplete="off"
+              aria-label="Buscar citações"
+            >
+            <kbd class="kbd-hint" aria-hidden="true">/</kbd>
+            <button type="button" class="search-clear" id="btnClearSearch" aria-label="Limpar busca" hidden>×</button>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-filters-toggle" id="btnToggleFilters" aria-expanded="true" aria-controls="facetsPanel">
+            <span>Filtros avançados</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </button>
+        </div>
+
+        <!-- Eixos Temáticos Quick Strip -->
+        <div class="axes-strip-wrapper">
+          <div class="axes-strip-header">
+            <span class="strip-label">Eixos Temáticos</span>
+            <span class="strip-hint" id="axesHint">Clique para filtrar por eixo</span>
+          </div>
+          <div class="axes-strip" id="axesStrip" role="group" aria-label="Filtrar por eixo temático"></div>
+        </div>
+
+        <!-- Multi-dimensional Facets -->
+        <div class="facets-panel" id="facetsPanel">
+          <div class="facets-grid">
+            <div class="facet-field">
+              <label for="filterUso">Uso na redação</label>
+              <select id="filterUso">
+                <option value="">Todos os momentos</option>
+              </select>
+            </div>
+
+            <div class="facet-field">
+              <label for="filterTipo">Tipo de repertório</label>
+              <select id="filterTipo">
+                <option value="">Todos os tipos</option>
+              </select>
+            </div>
+
+            <div class="facet-field">
+              <label for="filterArg">Argumento-chave</label>
+              <select id="filterArg">
+                <option value="">Todos os argumentos</option>
+              </select>
+            </div>
+
+            <div class="facet-field">
+              <label for="filterTom">Tom</label>
+              <select id="filterTom">
+                <option value="">Todos os tons</option>
+              </select>
+            </div>
+
+            <div class="facet-field">
+              <label for="filterAutor">Autor</label>
+              <select id="filterAutor">
+                <option value="">Todos os autores</option>
+              </select>
+            </div>
+
+            <div class="facet-field">
+              <label for="filterVerificacao">Verificação</label>
+              <select id="filterVerificacao">
+                <option value="">Todas</option>
+              </select>
+            </div>
+
+            <div class="facet-field">
+              <label for="sortOrder">Ordenar por</label>
+              <select id="sortOrder">
+                <option value="default">Eixo e ID (padrão)</option>
+                <option value="author">Autor (A–Z)</option>
+                <option value="year-desc">Ano (mais recente)</option>
+                <option value="length-asc">Mais curtas primeiro</option>
+                <option value="favorites">Favoritos primeiro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Filter Pills -->
+        <div class="active-filters-bar" id="activeFiltersBar" hidden>
+          <span class="active-filters-label">Filtros ativos:</span>
+          <div class="active-filters-list" id="activeFiltersList"></div>
+          <button type="button" class="btn-link" id="btnClearAllFilters">Limpar todos</button>
+        </div>
+      </section>
+
+      <!-- Workspace Toolbar -->
+      <section class="toolbar" aria-label="Controles de exibição">
+        <div class="toolbar-left">
+          <p class="results-counter" id="resultsCounter" aria-live="polite">Carregando citações…</p>
+        </div>
+
+        <div class="toolbar-right">
+          <label class="simulado-switch" title="Oculta autor, obra e como usar para você testar seu conhecimento">
+            <input type="checkbox" id="toggleSimulado">
+            <span class="switch-track" aria-hidden="true">
+              <span class="switch-thumb"></span>
+            </span>
+            <span class="switch-label">Modo Simulado <small>(ocultar respostas)</small></span>
+          </label>
+
+          <div class="copy-format-group">
+            <label for="copyFormat" class="sr-only">Formato de cópia rápida</label>
+            <select id="copyFormat" title="Formato usado ao clicar em Copiar">
+              <option value="citation-author">Copiar: Citação + Autor</option>
+              <option value="quote-only">Copiar: Só a citação</option>
+              <option value="full">Copiar: Completa + Como usar</option>
+            </select>
+          </div>
+
+          <div class="view-segmented" role="group" aria-label="Modo de visualização">
+            <button type="button" class="view-btn active" id="btnViewCards" data-view="cards" aria-pressed="true">
+              Cartões
+            </button>
+            <button type="button" class="view-btn" id="btnViewTable" data-view="table" aria-pressed="false">
+              Tabela
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Simulado Banner -->
+      <div class="simulado-banner" id="simuladoBanner" hidden>
+        <div class="simulado-banner-info">
+          <strong>Modo Simulado ativo:</strong> Autor, obra e orientações de uso estão ocultos. Tente lembrar de memória antes de revelar!
+        </div>
+        <div class="simulado-banner-actions">
+          <button type="button" class="btn btn-sm btn-secondary" id="btnRevealAll">Revelar todas</button>
+          <button type="button" class="btn btn-sm btn-secondary" id="btnHideAll">Ocultar todas</button>
+        </div>
+      </div>
+
+      <!-- Data Fallback Notice (only shown if fetch fails) -->
+      <div class="error-banner" id="errorBanner" hidden>
+        <div>
+          <strong>Não foi possível carregar <code>citacoes.json</code> automaticamente.</strong>
+          <p>Se você abriu o arquivo diretamente via <code>file://</code>, inicie um servidor local (ex.: <code>python3 -m http.server</code>) ou selecione manualmente o arquivo <code>citacoes.json</code> abaixo:</p>
+        </div>
+        <label class="btn btn-primary">
+          Carregar citacoes.json
+          <input type="file" id="manualJsonInput" accept=".json,application/json" hidden>
+        </label>
+      </div>
+
+      <!-- Results Container -->
+      <section id="resultsRegion" aria-label="Lista de citações">
+        <div class="cards-grid" id="cardsGrid"></div>
+
+        <div class="table-wrapper" id="tableWrapper" hidden>
+          <table class="quotes-table" id="quotesTable">
+            <thead>
+              <tr>
+                <th class="sortable" data-sort="id">ID</th>
+                <th class="sortable" data-sort="eixo">Eixo</th>
+                <th>Citação</th>
+                <th class="sortable" data-sort="author">Autor</th>
+                <th class="sortable" data-sort="year">Fonte / Ano</th>
+                <th>Tema Principal</th>
+                <th>Como Usar na Redação</th>
+                <th>Tags</th>
+                <th>Verificação</th>
+                <th class="col-actions">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon" aria-hidden="true">∅</div>
+          <h2>Nenhuma citação encontrada</h2>
+          <p>Nenhuma citação corresponde aos filtros ou termos de busca atuais.</p>
+          <button type="button" class="btn btn-primary" id="btnResetFromEmpty">Limpar filtros</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          Banco de Citações · Dados estruturados em <code>citacoes.json</code> · 100% estático e pronto para GitHub Pages.
+        </p>
+        <p class="footer-shortcuts">
+          Atalhos: <kbd>/</kbd> buscar · <kbd>Esc</kbd> limpar/fechar
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Flashcards / Modo Simulado Interativo Modal -->
+  <div class="modal-backdrop" id="flashcardModal" hidden role="dialog" aria-modal="true" aria-labelledby="flashcardModalTitle">
+    <div class="modal-card modal-flashcard">
+      <header class="modal-header">
+        <div>
+          <h2 id="flashcardModalTitle">Treino em Flashcards</h2>
+          <p class="modal-subtitle" id="flashcardDeckInfo">0 cartas no baralho atual</p>
+        </div>
+        <div class="modal-header-actions">
+          <button type="button" class="btn btn-sm btn-ghost" id="btnShuffleDeck" title="Embaralhar cartas">↻ Embaralhar</button>
+          <button type="button" class="btn btn-icon" id="btnCloseFlashcards" aria-label="Fechar treino">×</button>
+        </div>
+      </header>
+
+      <div class="flashcard-progress-wrap">
+        <div class="flashcard-stats">
+          <span id="fcProgressLabel">Carta 1 de 10</span>
+          <span class="fc-score">
+            <span class="score-good">Dominei: <strong id="fcKnownCount">0</strong></span>
+            <span class="score-review">Revisar: <strong id="fcReviewCount">0</strong></span>
+          </span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="fcProgressBar" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="flashcard-stage" id="fcStage">
+        <div class="fc-meta">
+          <span class="id-badge" id="fcId">EDU01</span>
+          <span class="axis-pill" id="fcAxis">Educação</span>
+        </div>
+
+        <blockquote class="fc-quote" id="fcQuote"></blockquote>
+
+        <div class="fc-tags" id="fcTags"></div>
+
+        <div class="fc-answer" id="fcAnswer" hidden>
+          <div class="fc-answer-grid">
+            <div>
+              <span class="fc-label">Autor</span>
+              <p class="fc-value" id="fcAuthor"></p>
+            </div>
+            <div>
+              <span class="fc-label">Fonte / Obra / Ano</span>
+              <p class="fc-value" id="fcSource"></p>
+            </div>
+          </div>
+          <div class="fc-usage-box">
+            <span class="fc-label">Tema principal: <strong id="fcTheme"></strong></span>
+            <p id="fcHowToUse"></p>
+          </div>
+        </div>
+
+        <div class="fc-controls">
+          <button type="button" class="btn btn-primary btn-lg" id="btnFcReveal">
+            Revelar Autor e Aplicação <kbd>Espaço</kbd>
+          </button>
+
+          <div class="fc-eval-buttons" id="fcEvalButtons" hidden>
+            <button type="button" class="btn btn-review" id="btnFcReview">
+              ↻ Preciso revisar <kbd>1</kbd>
+            </button>
+            <button type="button" class="btn btn-secondary" id="btnFcCopy">
+              Copiar <kbd>C</kbd>
+            </button>
+            <button type="button" class="btn btn-success" id="btnFcKnown">
+              ✓ Dominei <kbd>2</kbd>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flashcard-summary" id="fcSummary" hidden>
+        <div class="summary-badge">✓</div>
+        <h3>Sessão concluída!</h3>
+        <p id="fcSummaryText"></p>
+        <div class="summary-actions">
+          <button type="button" class="btn btn-accent" id="btnFcRetryWrong" hidden>Revisar apenas as marcadas</button>
+          <button type="button" class="btn btn-primary" id="btnFcRestart">Recomeçar baralho</button>
+          <button type="button" class="btn btn-secondary" id="btnFcFinish">Voltar ao painel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Export Modal -->
+  <div class="modal-backdrop" id="exportModal" hidden role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+    <div class="modal-card">
+      <header class="modal-header">
+        <div>
+          <h2 id="exportModalTitle">Exportar Citações</h2>
+          <p class="modal-subtitle">Leve sua seleção para revisões, anotações ou atualize o repositório.</p>
+        </div>
+        <button type="button" class="btn btn-icon" id="btnCloseExport" aria-label="Fechar exportação">×</button>
+      </header>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exportScope">Conjunto de dados</label>
+          <select id="exportScope">
+            <option value="filtered">Seleção filtrada atual</option>
+            <option value="favorites">Apenas favoritas</option>
+            <option value="all">Pool completo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exportFormat">Formato</label>
+          <select id="exportFormat">
+            <option value="json">JSON estruturado (.json)</option>
+            <option value="markdown">Tabela Markdown (.md)</option>
+            <option value="txt">Resumo de Estudo (.txt)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exportPreview">Pré-visualização</label>
+          <textarea id="exportPreview" rows="10" readonly></textarea>
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnCopyExport">Copiar conteúdo</button>
+        <button type="button" class="btn btn-primary" id="btnDownloadExport">Baixar arquivo</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Nova Citação Modal -->
+  <div class="modal-backdrop" id="newQuoteModal" hidden role="dialog" aria-modal="true" aria-labelledby="newQuoteModalTitle">
+    <div class="modal-card modal-wide">
+      <header class="modal-header">
+        <div>
+          <h2 id="newQuoteModalTitle">Adicionar / Gerar JSON de Nova Citação</h2>
+          <p class="modal-subtitle">Crie um registro no esquema padrão para testar localmente ou colar em <code>citacoes.json</code>.</p>
+        </div>
+        <button type="button" class="btn btn-icon" id="btnCloseNewQuote" aria-label="Fechar formulário">×</button>
+      </header>
+
+      <form id="newQuoteForm" class="modal-body">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="nqId">ID *</label>
+            <input type="text" id="nqId" required placeholder="Ex: EDU11">
+          </div>
+          <div class="form-group">
+            <label for="nqEixo">Eixo temático *</label>
+            <input type="text" id="nqEixo" list="eixosDatalist" required placeholder="Ex: Educação">
+            <datalist id="eixosDatalist"></datalist>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nqCitacao">Citação em português *</label>
+          <textarea id="nqCitacao" rows="2" required placeholder="Texto da citação sem aspas externas"></textarea>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label for="nqAutor">Autor *</label>
+            <input type="text" id="nqAutor" required placeholder="Ex: Paulo Freire">
+          </div>
+          <div class="form-group">
+            <label for="nqFonte">Fonte / Obra *</label>
+            <input type="text" id="nqFonte" required placeholder="Ex: Pedagogia da Autonomia">
+          </div>
+          <div class="form-group">
+            <label for="nqAno">Ano (opcional)</label>
+            <input type="text" id="nqAno" placeholder="Ex: 1996">
+          </div>
+        </div>
+
+        <div class="form-grid-4">
+          <div class="form-group">
+            <label for="nqTipo">Tipo</label>
+            <select id="nqTipo">
+              <option value="#tipo-filosofica">Filosófica</option>
+              <option value="#tipo-cientifica">Científica</option>
+              <option value="#tipo-juridica">Jurídica</option>
+              <option value="#tipo-historica">Histórica</option>
+              <option value="#tipo-literaria">Literária</option>
+              <option value="#tipo-popular">Popular</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="nqUso">Uso na redação</label>
+            <select id="nqUso">
+              <option value="#uso-introducao">Introdução</option>
+              <option value="#uso-tese">Tese</option>
+              <option value="#uso-desenvolvimento">Desenvolvimento</option>
+              <option value="#uso-contrargumento">Contrargumento</option>
+              <option value="#uso-conclusao">Conclusão</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="nqArg">Argumento</label>
+            <select id="nqArg">
+              <option value="#arg-dignidade-humana">Dignidade humana</option>
+              <option value="#arg-justica">Justiça</option>
+              <option value="#arg-eficiencia">Eficiência</option>
+              <option value="#arg-participacao">Participação</option>
+              <option value="#arg-solidariedade">Solidariedade</option>
+              <option value="#arg-igualdade">Igualdade</option>
+              <option value="#arg-liberdade">Liberdade</option>
+              <option value="#arg-prevencao">Prevenção</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="nqTom">Tom</label>
+            <select id="nqTom">
+              <option value="#tom-formal">Formal</option>
+              <option value="#tom-reflexivo">Reflexivo</option>
+              <option value="#tom-critico">Crítico</option>
+              <option value="#tom-propositivo">Propositivo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="nqTema">Tema principal *</label>
+            <input type="text" id="nqTema" required placeholder="Ex: Autonomia escolar">
+          </div>
+          <div class="form-group">
+            <label for="nqVerificacao">Verificação</label>
+            <select id="nqVerificacao">
+              <option value="#fonte-confirmada">#fonte-confirmada</option>
+              <option value="#verificar-fonte">#verificar-fonte</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nqComoUsar">Como usar na redação *</label>
+          <textarea id="nqComoUsar" rows="2" required placeholder="Para fundamentar a tese de que..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="nqJsonPreview">JSON gerado automaticamente</label>
+          <textarea id="nqJsonPreview" rows="6" readonly class="mono-textarea"></textarea>
+        </div>
+
+        <div class="modal-footer modal-footer-between">
+          <div class="drafts-info" id="localDraftsInfo"></div>
+          <div class="modal-footer-actions">
+            <button type="button" class="btn btn-secondary" id="btnCopyNewJson">Copiar JSON</button>
+            <button type="submit" class="btn btn-primary">Salvar rascunho no painel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
