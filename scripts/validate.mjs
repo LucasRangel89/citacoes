@@ -1,11 +1,24 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { buildCitationsFromMarkdown } from "./sync-markdown.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const JSON_PATH = path.join(ROOT, "citacoes.json");
 
+function normalizeForDupCheck(str) {
+  return String(str || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function main() {
+  const checkSync = process.argv.includes("--check-sync");
+
   if (!fs.existsSync(JSON_PATH)) {
     console.error("Erro: citacoes.json não encontrado.");
     process.exit(1);
@@ -30,13 +43,16 @@ function main() {
     "citacao",
     "autor",
     "fonte",
+    "conceito_chave",
     "tema_principal",
     "como_usar",
     "verificacao",
   ];
 
   const seenIds = new Set();
+  const seenQuotes = new Map();
   const errors = [];
+  const warnings = [];
 
   data.forEach((item, index) => {
     const label = item?.id || `#${index + 1}`;
@@ -55,6 +71,17 @@ function main() {
     }
     seenIds.add(item.id);
 
+    const normQuote = normalizeForDupCheck(item.citacao);
+    if (seenQuotes.has(normQuote)) {
+      errors.push(`[${label}] Citação duplicada em relação a ${seenQuotes.get(normQuote)}.`);
+    } else {
+      seenQuotes.set(normQuote, label);
+    }
+
+    if (!["#fonte-confirmada", "#verificar-fonte"].includes(item.verificacao)) {
+      errors.push(`[${label}] Verificação inválida: ${item.verificacao}`);
+    }
+
     if (!Array.isArray(item.tags) || item.tags.length === 0) {
       errors.push(`[${label}] Campo 'tags' deve ser um array não vazio.`);
     } else {
@@ -69,8 +96,35 @@ function main() {
       if (!item.tags.includes(item.verificacao)) {
         errors.push(`[${label}] A verificação (${item.verificacao}) deve constar nas tags.`);
       }
+      if (item.tags.includes("#autor-generico")) {
+        errors.push(`[${label}] Tag #autor-generico encontrada; utilize autoria específica verificável.`);
+      }
+    }
+
+    if (item.verificacao === "#verificar-fonte") {
+      warnings.push(`[${label}] Marcada como #verificar-fonte (${item.autor}).`);
     }
   });
+
+  if (checkSync) {
+    try {
+      const { allItems } = buildCitationsFromMarkdown();
+      const expected = JSON.stringify(allItems, null, 2) + "\n";
+      const actual = fs.readFileSync(JSON_PATH, "utf8");
+      if (expected !== actual) {
+        errors.push(
+          "citacoes.json está fora de sincronia com dados/*.md. Execute `node scripts/sync-markdown.mjs`."
+        );
+      }
+    } catch (err) {
+      errors.push(`Falha ao verificar sincronia com dados/*.md: ${err.message}`);
+    }
+  }
+
+  if (warnings.length > 0) {
+    console.log(`Avisos (${warnings.length}):`);
+    for (const w of warnings) console.log(" !", w);
+  }
 
   if (errors.length > 0) {
     console.error(`Validação falhou com ${errors.length} erro(s):`);
@@ -79,7 +133,10 @@ function main() {
   }
 
   const eixos = new Set(data.map((d) => d.eixo));
-  console.log(`Validação concluída com sucesso: ${data.length} citações válidas em ${eixos.size} eixos temáticos.`);
+  const confirmedCount = data.filter((d) => d.verificacao === "#fonte-confirmada").length;
+  console.log(
+    `Validação concluída com sucesso: ${data.length} citações válidas em ${eixos.size} eixos temáticos (${confirmedCount} confirmadas, ${data.length - confirmedCount} para verificação).`
+  );
 }
 
 main();

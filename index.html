@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banco de Citações — Painel Interativo para Redação e Concursos</title>
-  <meta name="description" content="Painel interativo de citações organizadas por eixo temático, tipo de repertório, argumento e uso na redação, com modo simulado e flashcards.">
+  <meta name="description" content="Painel interativo de citações organizadas por eixo temático, conceito-chave, tipo de repertório e uso na redação, com modo simulado, flashcards com repetição espaçada e mesa de redação.">
+  <meta name="theme-color" content="#1d3557">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,6 +20,7 @@
             <div class="brand-title-row">
               <h1>Banco de Citações</h1>
               <span class="pool-badge" id="poolBadge">Carregando…</span>
+              <span class="offline-badge" id="offlineBadge" hidden>Modo offline</span>
             </div>
             <p class="brand-subtitle">Repertório sociocultural para redação, treinos e simulados</p>
           </div>
@@ -29,19 +33,36 @@
             <span class="count-pill" id="favoritesCount">0</span>
           </button>
 
-          <button type="button" class="btn btn-accent" id="btnStartFlashcards" title="Treinar as citações filtradas em modo Flashcards">
+          <button type="button" class="btn btn-secondary" id="btnOpenMesa" title="Abrir Mesa de Redação para montar projeto de texto">
+            <span class="icon" aria-hidden="true">▤</span>
+            <span>Mesa</span>
+            <span class="count-pill" id="mesaCount">0/4</span>
+          </button>
+
+          <button type="button" class="btn btn-secondary" id="btnToggleChallenge" aria-pressed="false" title="Iniciar ou ocultar Desafio Cronometrado de 5 minutos">
+            <span class="icon" aria-hidden="true">⏱</span>
+            <span>Desafio 5m</span>
+          </button>
+
+          <button type="button" class="btn btn-accent" id="btnStartFlashcards" title="Treinar em Flashcards com Repetição Espaçada (SRS)">
             <span class="icon" aria-hidden="true">⚡</span>
-            <span>Treinar (Flashcards)</span>
+            <span>Treinar</span>
+            <span class="count-pill count-pill-light" id="srsDueHeaderCount" hidden>0</span>
+          </button>
+
+          <button type="button" class="btn btn-secondary" id="btnOpenProgress" title="Ver domínio e estatísticas SRS por eixo temático">
+            <span class="icon" aria-hidden="true">◔</span>
+            <span>Progresso</span>
           </button>
 
           <button type="button" class="btn btn-secondary" id="btnOpenNewModal" title="Criar nova citação em JSON ou testar no painel">
             <span class="icon" aria-hidden="true">+</span>
-            <span>Nova Citação</span>
+            <span>Nova</span>
           </button>
 
-          <button type="button" class="btn btn-secondary" id="btnOpenExportModal" title="Exportar citações em JSON, Markdown ou Texto">
+          <button type="button" class="btn btn-secondary" id="btnOpenExportModal" title="Exportar citações ou fazer backup pessoal">
             <span class="icon" aria-hidden="true">↓</span>
-            <span>Exportar</span>
+            <span>Dados</span>
           </button>
 
           <button type="button" class="btn btn-icon" id="btnThemeToggle" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro">
@@ -50,6 +71,32 @@
         </nav>
       </div>
     </header>
+
+    <!-- Desafio Cronometrado Bar -->
+    <section class="challenge-bar" id="challengeBar" hidden aria-label="Desafio cronometrado de redação">
+      <div class="container challenge-inner">
+        <div class="challenge-prompt-wrap">
+          <span class="challenge-tag">DESAFIO DE REDAÇÃO</span>
+          <input
+            type="text"
+            id="challengePromptInput"
+            class="challenge-prompt-input"
+            aria-label="Tema do desafio de redação"
+            placeholder="Digite um tema ou sorteie abaixo…"
+          >
+          <button type="button" class="btn btn-sm btn-secondary" id="btnDrawPrompt">↻ Sortear tema</button>
+        </div>
+
+        <div class="challenge-timer-wrap">
+          <span class="challenge-clock" id="challengeClock" aria-live="off">05:00</span>
+          <button type="button" class="btn btn-sm btn-primary" id="btnTimerToggle">Iniciar</button>
+          <button type="button" class="btn btn-sm btn-secondary" id="btnTimerAddMin" title="Adicionar 1 minuto">+1m</button>
+          <button type="button" class="btn btn-sm btn-secondary" id="btnTimerReset">Reiniciar</button>
+          <button type="button" class="btn btn-sm btn-accent" id="btnFinishChallenge">Ver Projeto na Mesa</button>
+          <button type="button" class="btn btn-sm btn-ghost" id="btnCloseChallenge" aria-label="Fechar desafio">×</button>
+        </div>
+      </div>
+    </section>
 
     <main class="container main-content">
       <!-- Search & Facet Controls -->
@@ -60,7 +107,7 @@
             <input
               type="search"
               id="searchInput"
-              placeholder="Buscar por citação, autor, obra, tema, argumento, ID (ex: EDU01) ou #tag…"
+              placeholder="Buscar por citação, conceito-chave, autor, obra, tema, ID (ex: EDU01) ou #tag…"
               autocomplete="off"
               aria-label="Buscar citações"
             >
@@ -132,6 +179,7 @@
               <label for="sortOrder">Ordenar por</label>
               <select id="sortOrder">
                 <option value="default">Eixo e ID (padrão)</option>
+                <option value="srs-due">Pendentes de revisão primeiro</option>
                 <option value="author">Autor (A–Z)</option>
                 <option value="year-desc">Ano (mais recente)</option>
                 <option value="length-asc">Mais curtas primeiro</option>
@@ -145,7 +193,10 @@
         <div class="active-filters-bar" id="activeFiltersBar" hidden>
           <span class="active-filters-label">Filtros ativos:</span>
           <div class="active-filters-list" id="activeFiltersList"></div>
-          <button type="button" class="btn-link" id="btnClearAllFilters">Limpar todos</button>
+          <div class="active-filters-actions">
+            <button type="button" class="btn-link" id="btnCopyFilterLink">Copiar link</button>
+            <button type="button" class="btn-link" id="btnClearAllFilters">Limpar todos</button>
+          </div>
         </div>
       </section>
 
@@ -156,7 +207,7 @@
         </div>
 
         <div class="toolbar-right">
-          <label class="simulado-switch" title="Oculta autor, obra e como usar para você testar seu conhecimento">
+          <label class="simulado-switch" title="Oculta autor, obra, conceito e como usar para você testar seu conhecimento">
             <input type="checkbox" id="toggleSimulado">
             <span class="switch-track" aria-hidden="true">
               <span class="switch-thumb"></span>
@@ -187,7 +238,7 @@
       <!-- Simulado Banner -->
       <div class="simulado-banner" id="simuladoBanner" hidden>
         <div class="simulado-banner-info">
-          <strong>Modo Simulado ativo:</strong> Autor, obra e orientações de uso estão ocultos. Tente lembrar de memória antes de revelar!
+          <strong>Modo Simulado ativo:</strong> Autor, fonte, conceito-chave e orientações de uso estão ocultos. Tente lembrar de memória antes de revelar!
         </div>
         <div class="simulado-banner-actions">
           <button type="button" class="btn btn-sm btn-secondary" id="btnRevealAll">Revelar todas</button>
@@ -195,7 +246,7 @@
         </div>
       </div>
 
-      <!-- Data Fallback Notice (only shown if fetch fails) -->
+      <!-- Data Fallback Notice -->
       <div class="error-banner" id="errorBanner" hidden>
         <div>
           <strong>Não foi possível carregar <code>citacoes.json</code> automaticamente.</strong>
@@ -220,7 +271,7 @@
                 <th>Citação</th>
                 <th class="sortable" data-sort="author">Autor</th>
                 <th class="sortable" data-sort="year">Fonte / Ano</th>
-                <th>Tema Principal</th>
+                <th>Conceito-chave</th>
                 <th>Como Usar na Redação</th>
                 <th>Tags</th>
                 <th>Verificação</th>
@@ -243,7 +294,7 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>
-          Banco de Citações · Dados estruturados em <code>citacoes.json</code> · 100% estático e pronto para GitHub Pages.
+          Banco de Citações · Base em <code>citacoes.json</code> · PWA offline e pronto para GitHub Pages.
         </p>
         <p class="footer-shortcuts">
           Atalhos: <kbd>/</kbd> buscar · <kbd>Esc</kbd> limpar/fechar
@@ -252,16 +303,51 @@
     </footer>
   </div>
 
-  <!-- Flashcards / Modo Simulado Interativo Modal -->
+  <!-- Mesa de Redação Slide-Over Drawer -->
+  <div class="drawer-backdrop" id="mesaDrawer" hidden role="dialog" aria-modal="true" aria-labelledby="mesaTitle">
+    <aside class="drawer-panel">
+      <header class="modal-header">
+        <div>
+          <h2 id="mesaTitle">Mesa de Redação</h2>
+          <p class="modal-subtitle">Monte seu projeto de texto com até 4 citações por parágrafo.</p>
+        </div>
+        <button type="button" class="btn btn-icon" id="btnCloseMesa" aria-label="Fechar Mesa de Redação">×</button>
+      </header>
+
+      <div class="drawer-body">
+        <div class="form-group">
+          <label for="mesaThemeInput">Tema da redação (opcional)</label>
+          <input type="text" id="mesaThemeInput" placeholder="Ex: Desafios da saúde mental no trabalho contemporâneo">
+        </div>
+
+        <div class="mesa-slots" id="mesaSlots"></div>
+      </div>
+
+      <footer class="modal-footer modal-footer-between">
+        <button type="button" class="btn btn-ghost btn-sm" id="btnClearMesa">Limpar mesa</button>
+        <div class="modal-footer-actions">
+          <button type="button" class="btn btn-secondary" id="btnDownloadMesa">Baixar .md</button>
+          <button type="button" class="btn btn-primary" id="btnCopyMesa">Copiar Projeto</button>
+        </div>
+      </footer>
+    </aside>
+  </div>
+
+  <!-- Flashcards / SRS Modal -->
   <div class="modal-backdrop" id="flashcardModal" hidden role="dialog" aria-modal="true" aria-labelledby="flashcardModalTitle">
     <div class="modal-card modal-flashcard">
       <header class="modal-header">
         <div>
-          <h2 id="flashcardModalTitle">Treino em Flashcards</h2>
+          <h2 id="flashcardModalTitle">Treino em Flashcards (SRS)</h2>
           <p class="modal-subtitle" id="flashcardDeckInfo">0 cartas no baralho atual</p>
         </div>
         <div class="modal-header-actions">
-          <button type="button" class="btn btn-sm btn-ghost" id="btnShuffleDeck" title="Embaralhar cartas">↻ Embaralhar</button>
+          <select id="fcDeckSource" class="fc-deck-select" aria-label="Origem das cartas">
+            <option value="filtered">Seleção do painel</option>
+            <option value="due">Pendentes de revisão (SRS)</option>
+            <option value="unseen">Ainda não estudadas</option>
+          </select>
+          <button type="button" class="btn btn-sm btn-ghost" id="btnShuffleDeck" title="Embaralhar cartas">↻</button>
           <button type="button" class="btn btn-icon" id="btnCloseFlashcards" aria-label="Fechar treino">×</button>
         </div>
       </header>
@@ -283,6 +369,7 @@
         <div class="fc-meta">
           <span class="id-badge" id="fcId">EDU01</span>
           <span class="axis-pill" id="fcAxis">Educação</span>
+          <span class="srs-pill" id="fcSrsInfo" hidden></span>
         </div>
 
         <blockquote class="fc-quote" id="fcQuote"></blockquote>
@@ -298,6 +385,10 @@
             <div>
               <span class="fc-label">Fonte / Obra / Ano</span>
               <p class="fc-value" id="fcSource"></p>
+            </div>
+            <div>
+              <span class="fc-label">Conceito-chave</span>
+              <p class="fc-value" id="fcConcept"></p>
             </div>
           </div>
           <div class="fc-usage-box">
@@ -338,46 +429,109 @@
     </div>
   </div>
 
-  <!-- Export Modal -->
-  <div class="modal-backdrop" id="exportModal" hidden role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
-    <div class="modal-card">
+  <!-- Progresso & SRS Modal -->
+  <div class="modal-backdrop" id="progressModal" hidden role="dialog" aria-modal="true" aria-labelledby="progressModalTitle">
+    <div class="modal-card modal-wide">
       <header class="modal-header">
         <div>
-          <h2 id="exportModalTitle">Exportar Citações</h2>
-          <p class="modal-subtitle">Leve sua seleção para revisões, anotações ou atualize o repositório.</p>
+          <h2 id="progressModalTitle">Progresso de Estudo (Repetição Espaçada)</h2>
+          <p class="modal-subtitle">Acompanhe seu domínio por eixo temático e agende revisões.</p>
+        </div>
+        <button type="button" class="btn btn-icon" id="btnCloseProgress" aria-label="Fechar progresso">×</button>
+      </header>
+
+      <div class="modal-body">
+        <div class="progress-kpis" id="progressKpis"></div>
+        <div class="progress-axes-list" id="progressAxesList"></div>
+      </div>
+
+      <footer class="modal-footer modal-footer-between">
+        <button type="button" class="btn btn-ghost btn-sm" id="btnResetSrs">Zerar histórico SRS</button>
+        <div class="modal-footer-actions">
+          <button type="button" class="btn btn-accent" id="btnTrainDueFromProgress">Treinar pendentes agora</button>
+          <button type="button" class="btn btn-secondary" id="btnCloseProgressFooter">Fechar</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Export & Backup Modal -->
+  <div class="modal-backdrop" id="exportModal" hidden role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+    <div class="modal-card modal-wide">
+      <header class="modal-header">
+        <div>
+          <h2 id="exportModalTitle">Exportar & Backup Pessoal</h2>
+          <p class="modal-subtitle">Exporte citações do acervo ou faça backup dos seus favoritos, SRS e Mesa de Redação.</p>
         </div>
         <button type="button" class="btn btn-icon" id="btnCloseExport" aria-label="Fechar exportação">×</button>
       </header>
 
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="exportScope">Conjunto de dados</label>
-          <select id="exportScope">
-            <option value="filtered">Seleção filtrada atual</option>
-            <option value="favorites">Apenas favoritas</option>
-            <option value="all">Pool completo</option>
-          </select>
-        </div>
+      <div class="modal-tabs" role="tablist">
+        <button type="button" class="tab-btn active" id="tabExportQuotes" role="tab" aria-selected="true">Exportar Citações</button>
+        <button type="button" class="tab-btn" id="tabUserBackup" role="tab" aria-selected="false">Backup do Usuário</button>
+      </div>
 
-        <div class="form-group">
-          <label for="exportFormat">Formato</label>
-          <select id="exportFormat">
-            <option value="json">JSON estruturado (.json)</option>
-            <option value="markdown">Tabela Markdown (.md)</option>
-            <option value="txt">Resumo de Estudo (.txt)</option>
-          </select>
+      <div class="modal-body" id="panelExportQuotes">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="exportScope">Conjunto de dados</label>
+            <select id="exportScope">
+              <option value="filtered">Seleção filtrada atual</option>
+              <option value="favorites">Apenas favoritas</option>
+              <option value="mesa">Mesa de Redação</option>
+              <option value="all">Pool completo</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exportFormat">Formato</label>
+            <select id="exportFormat">
+              <option value="json">JSON estruturado (.json)</option>
+              <option value="markdown">Tabela Markdown (.md)</option>
+              <option value="txt">Resumo de Estudo (.txt)</option>
+            </select>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="exportPreview">Pré-visualização</label>
           <textarea id="exportPreview" rows="10" readonly></textarea>
         </div>
+
+        <div class="modal-footer modal-footer-inline">
+          <button type="button" class="btn btn-secondary" id="btnCopyExport">Copiar conteúdo</button>
+          <button type="button" class="btn btn-primary" id="btnDownloadExport">Baixar arquivo</button>
+        </div>
       </div>
 
-      <footer class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="btnCopyExport">Copiar conteúdo</button>
-        <button type="button" class="btn btn-primary" id="btnDownloadExport">Baixar arquivo</button>
-      </footer>
+      <div class="modal-body" id="panelUserBackup" hidden>
+        <div class="backup-summary" id="backupSummary"></div>
+
+        <div class="backup-actions-box">
+          <div>
+            <h3>Salvar backup completo</h3>
+            <p class="modal-subtitle">Gera um arquivo <code>.json</code> com favoritos, histórico de flashcards (SRS), Mesa de Redação e rascunhos locais.</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnDownloadBackup">Baixar Backup (.json)</button>
+        </div>
+
+        <div class="backup-actions-box">
+          <div>
+            <h3>Restaurar de um backup</h3>
+            <p class="modal-subtitle">Selecione um arquivo de backup exportado anteriormente. Os dados serão mesclados/restaurados no navegador atual.</p>
+          </div>
+          <div class="backup-import-controls">
+            <select id="backupMergeMode" aria-label="Modo de restauração">
+              <option value="merge">Mesclar com dados atuais</option>
+              <option value="replace">Substituir dados atuais</option>
+            </select>
+            <label class="btn btn-secondary">
+              Selecionar Backup (.json)
+              <input type="file" id="backupFileInput" accept=".json,application/json" hidden>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -393,7 +547,7 @@
       </header>
 
       <form id="newQuoteForm" class="modal-body">
-        <div class="form-grid-2">
+        <div class="form-grid-3">
           <div class="form-group">
             <label for="nqId">ID *</label>
             <input type="text" id="nqId" required placeholder="Ex: EDU11">
@@ -402,6 +556,10 @@
             <label for="nqEixo">Eixo temático *</label>
             <input type="text" id="nqEixo" list="eixosDatalist" required placeholder="Ex: Educação">
             <datalist id="eixosDatalist"></datalist>
+          </div>
+          <div class="form-group">
+            <label for="nqConceito">Conceito-chave *</label>
+            <input type="text" id="nqConceito" required placeholder="Ex: Educação emancipadora">
           </div>
         </div>
 

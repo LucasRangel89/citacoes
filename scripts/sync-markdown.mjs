@@ -43,15 +43,16 @@ function formatEixo(raw) {
 function cleanQuote(raw) {
   let s = raw.trim();
   let parafrase = false;
-  if (/\(Paráfrase\)$/i.test(s)) {
-    parafrase = true;
-    s = s.replace(/\s*\(Paráfrase\)$/i, "").trim();
+  if (/\(Paráfrase(?:\s+conceitual)?\)$/i.test(s)) {
+    const match = s.match(/\((Paráfrase(?:\s+conceitual)?)\)$/i);
+    parafrase = match[1];
+    s = s.replace(/\s*\(Paráfrase(?:\s+conceitual)?\)$/i, "").trim();
   }
   if ((s.startsWith("“") && s.endsWith("”")) || (s.startsWith('"') && s.endsWith('"'))) {
     s = s.slice(1, -1).trim();
   }
   if (parafrase) {
-    s = `${s} (Paráfrase)`;
+    s = `${s} (${parafrase})`;
   }
   return s;
 }
@@ -76,11 +77,12 @@ function parseFonte(raw) {
   return { fonte, ano, pagina };
 }
 
-function parseMarkdownFile(filePath) {
+export function parseMarkdownFile(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
   const lines = content.split(/\r?\n/);
   const items = [];
   let currentEixo = "";
+  let hasConceptCol = false;
 
   for (const line of lines) {
     const trimmed = line.trim();
@@ -91,12 +93,24 @@ function parseMarkdownFile(filePath) {
     }
 
     if (!trimmed.startsWith("|")) continue;
-    if (/^\|\s*ID\s*\|/i.test(trimmed) || /^\|\s*:?-+:?\s*\|/.test(trimmed)) continue;
+    if (/^\|\s*ID\s*\|/i.test(trimmed)) {
+      hasConceptCol = /Conceito-chave/i.test(trimmed);
+      continue;
+    }
+    if (/^\|\s*:?-+:?\s*\|/.test(trimmed)) continue;
 
     const cols = trimmed.split("|").slice(1, -1).map((c) => c.trim());
     if (cols.length < 8) continue;
 
-    const [id, citacaoRaw, autor, fonteRaw, tagsRaw, temaPrincipal, comoUsar, verificacao] = cols;
+    let id, citacaoRaw, autor, fonteRaw, conceitoChave, tagsRaw, temaPrincipal, comoUsar, verificacao;
+
+    if (hasConceptCol || cols.length >= 9) {
+      [id, citacaoRaw, autor, fonteRaw, conceitoChave, tagsRaw, temaPrincipal, comoUsar, verificacao] = cols;
+    } else {
+      [id, citacaoRaw, autor, fonteRaw, tagsRaw, temaPrincipal, comoUsar, verificacao] = cols;
+      conceitoChave = temaPrincipal;
+    }
+
     const { fonte, ano, pagina } = parseFonte(fonteRaw);
     const tags = tagsRaw.split(/\s+/).filter(Boolean);
 
@@ -108,6 +122,7 @@ function parseMarkdownFile(filePath) {
       fonte,
       ano,
       ...(pagina ? { pagina } : {}),
+      conceito_chave: conceitoChave,
       tags,
       tema_principal: temaPrincipal,
       como_usar: comoUsar,
@@ -120,10 +135,9 @@ function parseMarkdownFile(filePath) {
   return items;
 }
 
-function main() {
+export function buildCitationsFromMarkdown() {
   if (!fs.existsSync(DADOS_DIR)) {
-    console.error("Diretório dados/ não encontrado.");
-    process.exit(1);
+    throw new Error("Diretório dados/ não encontrado.");
   }
 
   const mdFiles = fs
@@ -138,16 +152,24 @@ function main() {
     const parsed = parseMarkdownFile(path.join(DADOS_DIR, file));
     for (const item of parsed) {
       if (seenIds.has(item.id)) {
-        console.error(`ID duplicado encontrado: ${item.id} (em ${file})`);
-        process.exit(1);
+        throw new Error(`ID duplicado encontrado: ${item.id} (em ${file})`);
       }
       seenIds.add(item.id);
       allItems.push(item);
     }
   }
 
-  fs.writeFileSync(OUTPUT_JSON, JSON.stringify(allItems, null, 2) + "\n", "utf8");
-  console.log(`Sincronizado com sucesso: ${allItems.length} citações geradas em citacoes.json a partir de ${mdFiles.length} arquivo(s).`);
+  return { allItems, fileCount: mdFiles.length };
 }
 
-main();
+function main() {
+  const { allItems, fileCount } = buildCitationsFromMarkdown();
+  fs.writeFileSync(OUTPUT_JSON, JSON.stringify(allItems, null, 2) + "\n", "utf8");
+  console.log(
+    `Sincronizado com sucesso: ${allItems.length} citações geradas em citacoes.json a partir de ${fileCount} arquivo(s).`
+  );
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}
