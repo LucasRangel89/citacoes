@@ -35,6 +35,9 @@
     "Desinformação, esfera pública e preservação da democracia participativa",
     "Efetivação dos direitos humanos diante do racismo estrutural no Brasil",
     "Inclusão produtiva e garantia de autonomia para a pessoa idosa e com deficiência",
+    "Desafios para valorizar o trabalho de cuidado e alcançar a equidade de gênero no Brasil",
+    "Direito à cidade, especulação imobiliária e déficit habitacional nas metrópoles",
+    "Letramento científico e combate à desinformação na esfera pública digital",
   ];
 
   const TAG_LABELS = {
@@ -203,6 +206,7 @@
       "fcTags",
       "fcAnswer",
       "fcAuthor",
+      "fcAuthorInfo",
       "fcSource",
       "fcConcept",
       "fcTheme",
@@ -248,6 +252,7 @@
       "nqConceito",
       "nqCitacao",
       "nqAutor",
+      "nqAutorInfo",
       "nqFonte",
       "nqAno",
       "nqTipo",
@@ -354,7 +359,7 @@
     }
 
     const savedCopyFormat = localStorage.getItem(STORAGE_KEYS.copyFormat);
-    if (["citation-author", "quote-only", "full"].includes(savedCopyFormat)) {
+    if (["citation-author", "essay", "quote-only", "full"].includes(savedCopyFormat)) {
       state.copyFormat = savedCopyFormat;
       dom.copyFormat.value = savedCopyFormat;
     }
@@ -491,15 +496,71 @@
     document.body.removeChild(ta);
   }
 
+  function formatSourceInline(q) {
+    const parts = [];
+    if (q.fonte) parts.push(q.fonte);
+    if (q.ano) parts.push(q.ano);
+    if (q.pagina) parts.push(q.pagina);
+    return parts.join(", ");
+  }
+
+  function formatEssayQuote(q) {
+    const srcInline = formatSourceInline(q);
+    const info = (q.autor_info || "").trim();
+    const art = (q.autor_artigo || "").trim();
+    const isAllusion = /\(Alusão\s+literária\)$/i.test(q.citacao);
+    let cleanQuote = q.citacao
+      .replace(/\s*\((?:Paráfrase(?:\s+conceitual)?|Alusão\s+literária)\)$/i, "")
+      .trim();
+
+    if (isAllusion) {
+      if (q.fonte) {
+        const escapedFonte = q.fonte.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        cleanQuote = cleanQuote.replace(new RegExp(`^Em\\s+${escapedFonte},\\s*`, "i"), "");
+      }
+      const lowered = cleanQuote.charAt(0).toLowerCase() + cleanQuote.slice(1);
+      const authorWithInfo = info ? `${q.autor} (${info})` : q.autor;
+      const ref = srcInline ? `${srcInline}, de ${authorWithInfo}` : authorWithInfo;
+      return `Na obra ${ref}, observa-se que ${lowered}`;
+    }
+
+    if (q.autor_tipo === "norma") {
+      const lead = art ? `${art} ${q.autor}` : q.autor;
+      const aposto = info ? `, ${info}` : "";
+      const ref = srcInline ? ` (${srcInline})` : "";
+      return `Conforme dispõe ${lead}${aposto}${ref}, “${cleanQuote}”`;
+    }
+
+    if (q.autor_tipo === "instituicao") {
+      const lead = art ? `${art} ${q.autor}` : q.autor;
+      const aposto = info ? `, ${info}` : "";
+      const ref = srcInline ? ` (${srcInline})` : "";
+      return `Segundo ${lead}${aposto}${ref}, “${cleanQuote}”`;
+    }
+
+    if (info && !info.includes(",")) {
+      const lead = art ? `${art} ${info}` : info;
+      const ref = srcInline ? ` (${srcInline})` : "";
+      return `Segundo ${lead} ${q.autor}${ref}, “${cleanQuote}”`;
+    }
+
+    const aposto = info ? `, ${info}` : "";
+    const ref = srcInline ? ` (${srcInline})` : "";
+    return `Segundo ${q.autor}${aposto}${ref}, “${cleanQuote}”`;
+  }
+
   function formatQuoteForCopy(q) {
-    const sourceText = formatSourceFull(q);
+    const srcInline = formatSourceInline(q);
+    if (state.copyFormat === "essay") {
+      return formatEssayQuote(q);
+    }
     if (state.copyFormat === "quote-only") {
       return `“${q.citacao}”`;
     }
     if (state.copyFormat === "full") {
-      return `“${q.citacao}” — ${q.autor}${sourceText ? ` (${sourceText})` : ""}\nConceito-chave: ${q.conceito_chave || q.tema_principal}\nComo usar: ${q.como_usar}`;
+      return `“${q.citacao}” — ${q.autor}${q.autor_info ? ` (${q.autor_info})` : ""}${srcInline ? ` · ${srcInline}` : ""}\nConceito-chave: ${q.conceito_chave || q.tema_principal}\nComo usar: ${q.como_usar}`;
     }
-    return `“${q.citacao}” — ${q.autor}${sourceText ? ` (${sourceText})` : ""}`;
+    return `“${q.citacao}” — ${q.autor}${q.autor_info ? `, ${q.autor_info}` : ""}${srcInline ? ` (${srcInline})` : ""}`;
   }
 
   /* Data Normalization */
@@ -515,6 +576,9 @@
       eixo: String(item.eixo || inferEixoFromTags(item.tags) || "Geral"),
       citacao: String(item.citacao || ""),
       autor: String(item.autor || "Autor"),
+      autor_info: String(item.autor_info || ""),
+      autor_artigo: String(item.autor_artigo || ""),
+      autor_tipo: String(item.autor_tipo || "pessoa"),
       fonte: String(item.fonte || ""),
       ano: item.ano != null ? String(item.ano) : "",
       pagina: item.pagina != null ? String(item.pagina) : "",
@@ -544,6 +608,7 @@
           q.eixo,
           q.citacao,
           q.autor,
+          q.autor_info,
           q.fonte,
           q.ano,
           q.conceito_chave,
@@ -1243,6 +1308,15 @@
         });
         attrRow.appendChild(authorBtn);
 
+        if (q.autor_info) {
+          const infoSpan = document.createElement("span");
+          infoSpan.className = "author-info-text";
+          infoSpan.appendChild(document.createTextNode("("));
+          appendHighlightedText(infoSpan, q.autor_info, state.search);
+          infoSpan.appendChild(document.createTextNode(")"));
+          attrRow.appendChild(infoSpan);
+        }
+
         const srcText = formatSourceFull(q);
         if (srcText) {
           const sep = document.createElement("span");
@@ -1362,6 +1436,12 @@
           applyFilters();
         });
         tdAuthor.appendChild(authorBtn);
+        if (q.autor_info) {
+          const infoDiv = document.createElement("div");
+          infoDiv.className = "table-author-info";
+          appendHighlightedText(infoDiv, q.autor_info, state.search);
+          tdAuthor.appendChild(infoDiv);
+        }
       }
       tr.appendChild(tdAuthor);
 
@@ -1534,7 +1614,8 @@
 
         const pMeta = document.createElement("div");
         pMeta.className = "mesa-slot-meta";
-        pMeta.textContent = `${quote.id} · ${quote.autor} (${quote.conceito_chave || quote.tema_principal})`;
+        const authorCred = quote.autor_info ? ` — ${quote.autor_info}` : "";
+        pMeta.textContent = `${quote.id} · ${quote.autor}${authorCred} (${quote.conceito_chave || quote.tema_principal})`;
         card.appendChild(pMeta);
       } else {
         card.appendChild(header);
@@ -1558,8 +1639,10 @@
         continue;
       }
       const src = formatSourceFull(quote);
+      const authorLabel = quote.autor_info ? `${quote.autor} (${quote.autor_info})` : quote.autor;
       lines.push(`- **Repertório (${quote.id} — ${quote.eixo}):** “${quote.citacao}”`);
-      lines.push(`- **Autor/Fonte:** ${quote.autor}${src ? ` (${src})` : ""}`);
+      lines.push(`- **Autor/Fonte:** ${authorLabel}${src ? ` · ${src}` : ""}`);
+      lines.push(`- **Modelo na redação:** ${formatEssayQuote(quote)}`);
       lines.push(`- **Conceito-chave:** ${quote.conceito_chave || quote.tema_principal}`);
       lines.push(`- **Como aplicar:** ${quote.como_usar}`, "");
     }
@@ -1730,6 +1813,8 @@
     }
 
     dom.fcAuthor.textContent = q.autor;
+    dom.fcAuthorInfo.textContent = q.autor_info || "";
+    dom.fcAuthorInfo.hidden = !q.autor_info;
     dom.fcSource.textContent = formatSourceFull(q) || "Sem fonte específica";
     dom.fcConcept.textContent = q.conceito_chave || q.tema_principal;
     dom.fcTheme.textContent = q.tema_principal;
@@ -1895,7 +1980,8 @@
       return items
         .map((q) => {
           const src = formatSourceFull(q);
-          return `[${q.id} · ${q.eixo}] “${q.citacao}”\nAutor: ${q.autor}${src ? ` — ${src}` : ""}\nConceito-chave: ${q.conceito_chave || q.tema_principal}\nTema: ${q.tema_principal}\nComo usar: ${q.como_usar}\nTags: ${q.tags.join(" ")}\n`;
+          const authorCred = q.autor_info ? ` (${q.autor_info})` : "";
+          return `[${q.id} · ${q.eixo}] “${q.citacao}”\nAutor: ${q.autor}${authorCred}${src ? ` — ${src}` : ""}\nModelo na redação: ${formatEssayQuote(q)}\nConceito-chave: ${q.conceito_chave || q.tema_principal}\nTema: ${q.tema_principal}\nComo usar: ${q.como_usar}\nTags: ${q.tags.join(" ")}\n`;
         })
         .join("\n----------------------------------------\n\n");
     }
@@ -2025,6 +2111,7 @@
     const conceito_chave = dom.nqConceito.value.trim();
     const citacao = dom.nqCitacao.value.trim().replace(/^[“"]|[”"]$/g, "");
     const autor = dom.nqAutor.value.trim() || "Autor";
+    const autor_info = dom.nqAutorInfo.value.trim();
     const fonte = dom.nqFonte.value.trim() || "Fonte";
     const ano = dom.nqAno.value.trim();
     const tipo = dom.nqTipo.value;
@@ -2043,6 +2130,7 @@
       eixo,
       citacao,
       autor,
+      ...(autor_info ? { autor_info } : {}),
       fonte,
       ano,
       conceito_chave: conceito_chave || tema_principal,

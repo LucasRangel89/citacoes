@@ -1,0 +1,802 @@
+{
+  "Abdias do Nascimento": {
+    "artigo": "o",
+    "info": "escritor, artista e ativista pan-africanista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Abraham Lincoln": {
+    "artigo": "o",
+    "info": "16º presidente dos Estados Unidos",
+    "tipo": "pessoa"
+  },
+  "Acordo de Paris (ONU / Decreto nº 9.073)": {
+    "artigo": "o",
+    "info": "tratado internacional da ONU sobre mudanças climáticas",
+    "tipo": "norma"
+  },
+  "Ailton Krenak": {
+    "artigo": "o",
+    "info": "líder indígena, ambientalista e filósofo brasileiro",
+    "tipo": "pessoa"
+  },
+  "Alba Zaluar": {
+    "artigo": "a",
+    "info": "antropóloga e pesquisadora brasileira da violência urbana",
+    "tipo": "pessoa"
+  },
+  "Alexis de Tocqueville": {
+    "artigo": "o",
+    "info": "cientista político e historiador francês",
+    "tipo": "pessoa"
+  },
+  "Aluísio Azevedo": {
+    "artigo": "o",
+    "info": "escritor naturalista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Alvin Toffler": {
+    "artigo": "o",
+    "info": "escritor e futurista norte-americano",
+    "tipo": "pessoa"
+  },
+  "Amartya Sen": {
+    "artigo": "o",
+    "info": "economista e filósofo indiano, Nobel de Economia",
+    "tipo": "pessoa"
+  },
+  "Angela Davis": {
+    "artigo": "a",
+    "info": "filósofa e ativista antirracista norte-americana",
+    "tipo": "pessoa"
+  },
+  "Anísio Teixeira": {
+    "artigo": "o",
+    "info": "jurista e educador brasileiro, defensor da escola pública",
+    "tipo": "pessoa"
+  },
+  "Antonio Candido": {
+    "artigo": "o",
+    "info": "sociólogo e crítico literário brasileiro",
+    "tipo": "pessoa"
+  },
+  "Ariano Suassuna": {
+    "artigo": "o",
+    "info": "dramaturgo, romancista e poeta brasileiro",
+    "tipo": "pessoa"
+  },
+  "Aristóteles": {
+    "artigo": "o",
+    "info": "filósofo grego da Antiguidade",
+    "tipo": "pessoa"
+  },
+  "Arthur Schopenhauer": {
+    "artigo": "o",
+    "info": "filósofo alemão",
+    "tipo": "pessoa"
+  },
+  "Barack Obama": {
+    "artigo": "o",
+    "info": "ex-presidente dos Estados Unidos",
+    "tipo": "pessoa"
+  },
+  "Baruch Espinosa": {
+    "artigo": "o",
+    "info": "filósofo racionalista neerlandês",
+    "tipo": "pessoa"
+  },
+  "bell hooks": {
+    "artigo": "a",
+    "info": "educadora e teórica feminista norte-americana",
+    "tipo": "pessoa"
+  },
+  "Boaventura de Sousa Santos": {
+    "artigo": "o",
+    "info": "sociólogo português",
+    "tipo": "pessoa"
+  },
+  "Byung-Chul Han": {
+    "artigo": "o",
+    "info": "filósofo sul-coreano radicado na Alemanha",
+    "tipo": "pessoa"
+  },
+  "Carl Sagan": {
+    "artigo": "o",
+    "info": "astrônomo e divulgador científico norte-americano",
+    "tipo": "pessoa"
+  },
+  "Carlos Drummond de Andrade": {
+    "artigo": "o",
+    "info": "poeta e cronista modernista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Carolina Maria de Jesus": {
+    "artigo": "a",
+    "info": "escritora e memorialista brasileira",
+    "tipo": "pessoa"
+  },
+  "Cathy O'Neil": {
+    "artigo": "a",
+    "info": "matemática e cientista de dados norte-americana",
+    "tipo": "pessoa"
+  },
+  "Celso Antônio Bandeira de Mello": {
+    "artigo": "o",
+    "info": "jurista e administrativista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Celso Furtado": {
+    "artigo": "o",
+    "info": "economista desenvolvimentista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Celso Lafer (a partir de Hannah Arendt)": {
+    "artigo": "o",
+    "info": "jurista e diplomata brasileiro",
+    "tipo": "pessoa"
+  },
+  "Cesare Beccaria": {
+    "artigo": "o",
+    "info": "jurista e filósofo iluminista italiano",
+    "tipo": "pessoa"
+  },
+  "Chimamanda Ngozi Adichie": {
+    "artigo": "a",
+    "info": "escritora nigeriana",
+    "tipo": "pessoa"
+  },
+  "Cícero": {
+    "artigo": "o",
+    "info": "filósofo, orador e estadista romano",
+    "tipo": "pessoa"
+  },
+  "Clarice Lispector": {
+    "artigo": "a",
+    "info": "escritora e jornalista brasileira",
+    "tipo": "pessoa"
+  },
+  "Clifford Geertz": {
+    "artigo": "o",
+    "info": "antropólogo norte-americano",
+    "tipo": "pessoa"
+  },
+  "Código Penal Brasileiro (Decreto-Lei nº 2.848)": {
+    "artigo": "o",
+    "info": "diploma legal penal brasileiro de 1940",
+    "tipo": "norma"
+  },
+  "Comissão Mundial sobre Meio Ambiente e Desenvolvimento (ONU)": {
+    "artigo": "a",
+    "info": "comissão da ONU autora do Relatório Brundtland",
+    "tipo": "instituicao"
+  },
+  "Conceição Evaristo": {
+    "artigo": "a",
+    "info": "escritora e pesquisadora brasileira",
+    "tipo": "pessoa"
+  },
+  "Constituição Federal de 1988": {
+    "artigo": "a",
+    "info": "Lei Maior do ordenamento jurídico brasileiro",
+    "tipo": "norma"
+  },
+  "Darcy Ribeiro": {
+    "artigo": "o",
+    "info": "antropólogo, educador e escritor brasileiro",
+    "tipo": "pessoa"
+  },
+  "David Harvey": {
+    "artigo": "o",
+    "info": "geógrafo e teórico social britânico",
+    "tipo": "pessoa"
+  },
+  "Debora Diniz": {
+    "artigo": "a",
+    "info": "antropóloga e bioeticista brasileira",
+    "tipo": "pessoa"
+  },
+  "Djamila Ribeiro": {
+    "artigo": "a",
+    "info": "filósofa e escritora brasileira",
+    "tipo": "pessoa"
+  },
+  "Dom Demétrio Valentini": {
+    "artigo": "o",
+    "info": "bispo brasileiro e autor sobre inclusão social",
+    "tipo": "pessoa"
+  },
+  "Domenico De Masi": {
+    "artigo": "o",
+    "info": "sociólogo italiano",
+    "tipo": "pessoa"
+  },
+  "Ecléa Bosi": {
+    "artigo": "a",
+    "info": "psicóloga social e escritora brasileira",
+    "tipo": "pessoa"
+  },
+  "Émile Durkheim": {
+    "artigo": "o",
+    "info": "sociólogo francês",
+    "tipo": "pessoa"
+  },
+  "Ermínia Maricato": {
+    "artigo": "a",
+    "info": "arquiteta e urbanista brasileira",
+    "tipo": "pessoa"
+  },
+  "Estatuto da Cidade (Lei nº 10.257)": {
+    "artigo": "o",
+    "info": "lei federal brasileira de política urbana",
+    "tipo": "norma"
+  },
+  "Estatuto da Criança e do Adolescente (ECA — Lei nº 8.069)": {
+    "artigo": "o",
+    "info": "marco legal brasileiro de proteção infantojuvenil",
+    "tipo": "norma"
+  },
+  "Estatuto da Pessoa Idosa (Lei nº 10.741)": {
+    "artigo": "o",
+    "info": "legislação brasileira de proteção à pessoa idosa",
+    "tipo": "norma"
+  },
+  "Euclides da Cunha": {
+    "artigo": "o",
+    "info": "escritor, engenheiro e jornalista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Eugênio Bucci": {
+    "artigo": "o",
+    "info": "jornalista e professor universitário brasileiro",
+    "tipo": "pessoa"
+  },
+  "Evgeny Morozov": {
+    "artigo": "o",
+    "info": "pesquisador e escritor sobre tecnologia",
+    "tipo": "pessoa"
+  },
+  "Fiódor Dostoiévski": {
+    "artigo": "o",
+    "info": "romancista e pensador russo",
+    "tipo": "pessoa"
+  },
+  "George Orwell": {
+    "artigo": "o",
+    "info": "escritor e jornalista britânico",
+    "tipo": "pessoa"
+  },
+  "Gilberto Gil": {
+    "artigo": "o",
+    "info": "músico, compositor e ex-ministro da Cultura brasileiro",
+    "tipo": "pessoa"
+  },
+  "Gilmar Mendes": {
+    "artigo": "o",
+    "info": "jurista e ministro do Supremo Tribunal Federal",
+    "tipo": "pessoa"
+  },
+  "Graciliano Ramos": {
+    "artigo": "o",
+    "info": "escritor modernista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Guita Grin Debert": {
+    "artigo": "a",
+    "info": "antropóloga brasileira pesquisadora do envelhecimento",
+    "tipo": "pessoa"
+  },
+  "Hannah Arendt": {
+    "artigo": "a",
+    "info": "filósofa política alemã de origem judaica",
+    "tipo": "pessoa"
+  },
+  "Hans Jonas": {
+    "artigo": "o",
+    "info": "filósofo alemão",
+    "tipo": "pessoa"
+  },
+  "Helen Keller": {
+    "artigo": "a",
+    "info": "escritora e ativista norte-americana surdocega",
+    "tipo": "pessoa"
+  },
+  "Hely Lopes Meirelles": {
+    "artigo": "o",
+    "info": "jurista e administrativista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Henri Lefebvre": {
+    "artigo": "o",
+    "info": "filósofo e sociólogo francês",
+    "tipo": "pessoa"
+  },
+  "Hipócrates": {
+    "artigo": "o",
+    "info": "médico grego da Antiguidade",
+    "tipo": "pessoa"
+  },
+  "Immanuel Kant": {
+    "artigo": "o",
+    "info": "filósofo iluminista alemão",
+    "tipo": "pessoa"
+  },
+  "Isaac Asimov": {
+    "artigo": "o",
+    "info": "escritor e bioquímico russo-americano",
+    "tipo": "pessoa"
+  },
+  "James Heckman": {
+    "artigo": "o",
+    "info": "economista norte-americano, Nobel de Economia",
+    "tipo": "pessoa"
+  },
+  "Jane Jacobs": {
+    "artigo": "a",
+    "info": "jornalista e teórica urbana norte-americana",
+    "tipo": "pessoa"
+  },
+  "Janusz Korczak": {
+    "artigo": "o",
+    "info": "pediatra, pedagogo e escritor polonês",
+    "tipo": "pessoa"
+  },
+  "Jean Piaget": {
+    "artigo": "o",
+    "info": "biólogo e psicólogo epistemólogo suíço",
+    "tipo": "pessoa"
+  },
+  "Jean-Jacques Rousseau": {
+    "artigo": "o",
+    "info": "filósofo iluminista genebrino",
+    "tipo": "pessoa"
+  },
+  "Jean-Paul Sartre": {
+    "artigo": "o",
+    "info": "filósofo existencialista e escritor francês",
+    "tipo": "pessoa"
+  },
+  "Jessé Souza": {
+    "artigo": "o",
+    "info": "sociólogo brasileiro",
+    "tipo": "pessoa"
+  },
+  "João Cabral de Melo Neto": {
+    "artigo": "o",
+    "info": "poeta e diplomata brasileiro",
+    "tipo": "pessoa"
+  },
+  "John Dewey": {
+    "artigo": "o",
+    "info": "filósofo e pedagogo norte-americano",
+    "tipo": "pessoa"
+  },
+  "John Rawls": {
+    "artigo": "o",
+    "info": "filósofo político norte-americano",
+    "tipo": "pessoa"
+  },
+  "John Stuart Mill": {
+    "artigo": "o",
+    "info": "filósofo e economista britânico",
+    "tipo": "pessoa"
+  },
+  "Jorge Amado": {
+    "artigo": "o",
+    "info": "escritor modernista brasileiro",
+    "tipo": "pessoa"
+  },
+  "José Murilo de Carvalho": {
+    "artigo": "o",
+    "info": "historiador e cientista político brasileiro",
+    "tipo": "pessoa"
+  },
+  "Josué de Castro": {
+    "artigo": "o",
+    "info": "médico, geógrafo e nutrólogo brasileiro",
+    "tipo": "pessoa"
+  },
+  "Judith Butler": {
+    "artigo": "a",
+    "info": "filósofa e teórica norte-americana",
+    "tipo": "pessoa"
+  },
+  "Jürgen Habermas": {
+    "artigo": "o",
+    "info": "filósofo e sociólogo alemão",
+    "tipo": "pessoa"
+  },
+  "Karl Marx": {
+    "artigo": "o",
+    "info": "filósofo, economista e sociólogo alemão",
+    "tipo": "pessoa"
+  },
+  "Karl Marx e Friedrich Engels": {
+    "artigo": "os",
+    "info": "filósofos e teóricos sociais alemães",
+    "tipo": "pessoa"
+  },
+  "Karl Popper": {
+    "artigo": "o",
+    "info": "filósofo da ciência austro-britânico",
+    "tipo": "pessoa"
+  },
+  "Lei Brasileira de Inclusão (LBI — Lei nº 13.146)": {
+    "artigo": "a",
+    "info": "Estatuto da Pessoa com Deficiência brasileiro",
+    "tipo": "norma"
+  },
+  "Lei da Reforma Psiquiátrica (Lei nº 10.216)": {
+    "artigo": "a",
+    "info": "lei brasileira da rede de atenção psicossocial",
+    "tipo": "norma"
+  },
+  "Lei de Acesso à Informação (LAI — Lei nº 12.527)": {
+    "artigo": "a",
+    "info": "lei brasileira de transparência pública",
+    "tipo": "norma"
+  },
+  "Lei de Diretrizes e Bases da Educação Nacional (LDB — Lei nº 9.394)": {
+    "artigo": "a",
+    "info": "lei estruturante da educação brasileira",
+    "tipo": "norma"
+  },
+  "Lei de Responsabilidade Fiscal (LC nº 101)": {
+    "artigo": "a",
+    "info": "norma brasileira de finanças públicas",
+    "tipo": "norma"
+  },
+  "Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709)": {
+    "artigo": "a",
+    "info": "legislação brasileira de privacidade e proteção de dados",
+    "tipo": "norma"
+  },
+  "Lei Maria da Penha (Lei nº 11.340)": {
+    "artigo": "a",
+    "info": "lei brasileira de enfrentamento à violência contra a mulher",
+    "tipo": "norma"
+  },
+  "Lei Orgânica da Saúde (Lei nº 8.080)": {
+    "artigo": "a",
+    "info": "lei reguladora do Sistema Único de Saúde (SUS)",
+    "tipo": "norma"
+  },
+  "Lélia Gonzalez": {
+    "artigo": "a",
+    "info": "antropóloga, filósofa e intelectual negra brasileira",
+    "tipo": "pessoa"
+  },
+  "Leonardo Boff": {
+    "artigo": "o",
+    "info": "teólogo, filósofo e ambientalista brasileiro",
+    "tipo": "pessoa"
+  },
+  "Lev Vygotsky": {
+    "artigo": "o",
+    "info": "psicólogo e teórico do desenvolvimento soviético",
+    "tipo": "pessoa"
+  },
+  "Lima Barreto": {
+    "artigo": "o",
+    "info": "escritor e jornalista brasileiro pré-modernista",
+    "tipo": "pessoa"
+  },
+  "Loïc Wacquant": {
+    "artigo": "o",
+    "info": "sociólogo francês",
+    "tipo": "pessoa"
+  },
+  "Lord Acton": {
+    "artigo": "o",
+    "info": "historiador e político britânico",
+    "tipo": "pessoa"
+  },
+  "Louis Brandeis": {
+    "artigo": "o",
+    "info": "jurista e juiz da Suprema Corte norte-americana",
+    "tipo": "pessoa"
+  },
+  "Luiz Carlos Bresser-Pereira": {
+    "artigo": "o",
+    "info": "economista, cientista político e ex-ministro brasileiro",
+    "tipo": "pessoa"
+  },
+  "Luiz Eduardo Soares": {
+    "artigo": "o",
+    "info": "antropólogo e cientista político brasileiro",
+    "tipo": "pessoa"
+  },
+  "Machado de Assis": {
+    "artigo": "o",
+    "info": "escritor realista brasileiro, fundador da Academia Brasileira de Letras",
+    "tipo": "pessoa"
+  },
+  "Malala Yousafzai": {
+    "artigo": "a",
+    "info": "ativista paquistanesa pela educação, Nobel da Paz",
+    "tipo": "pessoa"
+  },
+  "Manuel Castells": {
+    "artigo": "o",
+    "info": "sociólogo espanhol",
+    "tipo": "pessoa"
+  },
+  "Marcelo Rubens Paiva": {
+    "artigo": "o",
+    "info": "escritor e dramaturgo brasileiro",
+    "tipo": "pessoa"
+  },
+  "Marco Civil da Internet (Lei nº 12.965)": {
+    "artigo": "o",
+    "info": "lei brasileira de princípios e garantias digitais",
+    "tipo": "norma"
+  },
+  "Maria Teresa Eglér Mantoan": {
+    "artigo": "a",
+    "info": "pedagoga brasileira especialista em educação inclusiva",
+    "tipo": "pessoa"
+  },
+  "Mario Sergio Cortella": {
+    "artigo": "o",
+    "info": "filósofo e educador brasileiro",
+    "tipo": "pessoa"
+  },
+  "Marshall McLuhan": {
+    "artigo": "o",
+    "info": "teórico da comunicação e filósofo canadense",
+    "tipo": "pessoa"
+  },
+  "Martha Nussbaum": {
+    "artigo": "a",
+    "info": "filósofa norte-americana",
+    "tipo": "pessoa"
+  },
+  "Martin Heidegger": {
+    "artigo": "o",
+    "info": "filósofo alemão",
+    "tipo": "pessoa"
+  },
+  "Martin Luther King Jr.": {
+    "artigo": "o",
+    "info": "líder dos direitos civis norte-americano, Nobel da Paz",
+    "tipo": "pessoa"
+  },
+  "Max Weber": {
+    "artigo": "o",
+    "info": "sociólogo e jurista alemão",
+    "tipo": "pessoa"
+  },
+  "Michel de Montaigne": {
+    "artigo": "o",
+    "info": "filósofo e ensaísta francês",
+    "tipo": "pessoa"
+  },
+  "Michel Foucault": {
+    "artigo": "o",
+    "info": "filósofo e historiador das ideias francês",
+    "tipo": "pessoa"
+  },
+  "Milton Santos": {
+    "artigo": "o",
+    "info": "geógrafo e intelectual brasileiro",
+    "tipo": "pessoa"
+  },
+  "Montesquieu": {
+    "artigo": "o",
+    "info": "filósofo e jurista iluminista francês",
+    "tipo": "pessoa"
+  },
+  "Movimento Internacional das Pessoas com Deficiência / ONU": {
+    "artigo": "o",
+    "info": "movimento global pelos direitos das pessoas com deficiência",
+    "tipo": "instituicao"
+  },
+  "Nelson Mandela": {
+    "artigo": "o",
+    "info": "líder antiapartheid e ex-presidente sul-africano, Nobel da Paz",
+    "tipo": "pessoa"
+  },
+  "Nise da Silveira": {
+    "artigo": "a",
+    "info": "médica psiquiatra brasileira, pioneira da reforma psiquiátrica",
+    "tipo": "pessoa"
+  },
+  "Norberto Bobbio": {
+    "artigo": "o",
+    "info": "filósofo político e jurista italiano",
+    "tipo": "pessoa"
+  },
+  "Organização das Nações Unidas (ONU)": {
+    "artigo": "a",
+    "info": "organismo multilateral de cooperação internacional",
+    "tipo": "instituicao"
+  },
+  "Organização Internacional do Trabalho (OIT)": {
+    "artigo": "a",
+    "info": "agência da ONU dedicada às normas do trabalho",
+    "tipo": "instituicao"
+  },
+  "Organização Mundial da Saúde (OMS)": {
+    "artigo": "a",
+    "info": "agência especializada da ONU em saúde pública",
+    "tipo": "instituicao"
+  },
+  "Paul Singer": {
+    "artigo": "o",
+    "info": "economista austro-brasileiro, referência em economia solidária",
+    "tipo": "pessoa"
+  },
+  "Paulo Freire": {
+    "artigo": "o",
+    "info": "pedagogo e filósofo brasileiro, patrono da educação nacional",
+    "tipo": "pessoa"
+  },
+  "Peter Drucker": {
+    "artigo": "o",
+    "info": "professor e teórico da administração austríaco-americano",
+    "tipo": "pessoa"
+  },
+  "Pierre Bourdieu": {
+    "artigo": "o",
+    "info": "sociólogo francês",
+    "tipo": "pessoa"
+  },
+  "Política Nacional do Meio Ambiente (Lei nº 6.938)": {
+    "artigo": "a",
+    "info": "lei estruturante da proteção ambiental no Brasil",
+    "tipo": "norma"
+  },
+  "Protágoras (por Platão)": {
+    "artigo": "o",
+    "info": "filósofo sofista grego",
+    "tipo": "pessoa"
+  },
+  "Rachel Carson": {
+    "artigo": "a",
+    "info": "bióloga e escritora ambientalista norte-americana",
+    "tipo": "pessoa"
+  },
+  "Racionais MC's": {
+    "artigo": "o",
+    "info": "grupo brasileiro de rap de referência cultural e social",
+    "tipo": "instituicao"
+  },
+  "Raquel Rolnik": {
+    "artigo": "a",
+    "info": "arquiteta e urbanista brasileira",
+    "tipo": "pessoa"
+  },
+  "Raymundo Faoro": {
+    "artigo": "o",
+    "info": "jurista, historiador e sociólogo brasileiro",
+    "tipo": "pessoa"
+  },
+  "Ricardo Antunes": {
+    "artigo": "o",
+    "info": "sociólogo do trabalho brasileiro",
+    "tipo": "pessoa"
+  },
+  "Richard Sennett": {
+    "artigo": "o",
+    "info": "sociólogo norte-americano",
+    "tipo": "pessoa"
+  },
+  "Robert Butler": {
+    "artigo": "o",
+    "info": "médico geriatra norte-americano",
+    "tipo": "pessoa"
+  },
+  "Rudolf Virchow": {
+    "artigo": "o",
+    "info": "médico patologista e sanitarista alemão",
+    "tipo": "pessoa"
+  },
+  "Sêneca": {
+    "artigo": "o",
+    "info": "filósofo estoico romano",
+    "tipo": "pessoa"
+  },
+  "Sérgio Adorno": {
+    "artigo": "o",
+    "info": "sociólogo brasileiro estudioso da violência",
+    "tipo": "pessoa"
+  },
+  "Sérgio Arouca": {
+    "artigo": "o",
+    "info": "médico sanitarista brasileiro, líder da Reforma Sanitária",
+    "tipo": "pessoa"
+  },
+  "Sérgio Buarque de Holanda": {
+    "artigo": "o",
+    "info": "historiador e sociólogo brasileiro",
+    "tipo": "pessoa"
+  },
+  "Shoshana Zuboff": {
+    "artigo": "a",
+    "info": "professora e teórica norte-americana",
+    "tipo": "pessoa"
+  },
+  "Silvia Federici": {
+    "artigo": "a",
+    "info": "filósofa e historiadora feminista ítalo-americana",
+    "tipo": "pessoa"
+  },
+  "Silvio Almeida": {
+    "artigo": "o",
+    "info": "jurista, filósofo e professor brasileiro",
+    "tipo": "pessoa"
+  },
+  "Simone de Beauvoir": {
+    "artigo": "a",
+    "info": "filósofa existencialista e escritora francesa",
+    "tipo": "pessoa"
+  },
+  "Sócrates (por Platão)": {
+    "artigo": "o",
+    "info": "filósofo grego clássico",
+    "tipo": "pessoa"
+  },
+  "Steven Levitsky e Daniel Ziblatt": {
+    "artigo": "os",
+    "info": "cientistas políticos norte-americanos",
+    "tipo": "pessoa"
+  },
+  "Stuart Hall": {
+    "artigo": "o",
+    "info": "teórico cultural e sociólogo jamaicano-britânico",
+    "tipo": "pessoa"
+  },
+  "T.S. Eliot": {
+    "artigo": "o",
+    "info": "poeta e ensaísta anglo-americano, Nobel de Literatura",
+    "tipo": "pessoa"
+  },
+  "Theodor Adorno e Max Horkheimer": {
+    "artigo": "os",
+    "info": "filósofos e sociólogos alemães da Escola de Frankfurt",
+    "tipo": "pessoa"
+  },
+  "Thomas Hobbes": {
+    "artigo": "o",
+    "info": "filósofo contratualista inglês",
+    "tipo": "pessoa"
+  },
+  "Thomas Kuhn": {
+    "artigo": "o",
+    "info": "físico e filósofo da ciência norte-americano",
+    "tipo": "pessoa"
+  },
+  "Thomas Piketty": {
+    "artigo": "o",
+    "info": "economista francês",
+    "tipo": "pessoa"
+  },
+  "Ulysses Guimarães": {
+    "artigo": "o",
+    "info": "político brasileiro, presidente da Constituinte de 1988",
+    "tipo": "pessoa"
+  },
+  "UNESCO": {
+    "artigo": "a",
+    "info": "agência da ONU para educação, ciência e cultura",
+    "tipo": "instituicao"
+  },
+  "William Wordsworth": {
+    "artigo": "o",
+    "info": "poeta romântico inglês",
+    "tipo": "pessoa"
+  },
+  "Winston Churchill": {
+    "artigo": "o",
+    "info": "estadista britânico e Nobel de Literatura",
+    "tipo": "pessoa"
+  },
+  "Yuval Noah Harari": {
+    "artigo": "o",
+    "info": "historiador e escritor israelense",
+    "tipo": "pessoa"
+  },
+  "Zygmunt Bauman": {
+    "artigo": "o",
+    "info": "sociólogo e filósofo polonês",
+    "tipo": "pessoa"
+  }
+}

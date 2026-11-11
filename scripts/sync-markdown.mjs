@@ -4,6 +4,7 @@ import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const DADOS_DIR = path.join(ROOT, "dados");
+const AUTORES_JSON = path.join(DADOS_DIR, "autores.json");
 const OUTPUT_JSON = path.join(ROOT, "citacoes.json");
 
 const EIXO_LABELS = {
@@ -29,6 +30,11 @@ const EIXO_LABELS = {
   "IDOSO": "Idoso",
   "PESSOA COM DEFICIENCIA": "Pessoa com Deficiência",
   "PESSOA COM DEFICIÊNCIA": "Pessoa com Deficiência",
+  "IGUALDADE DE GENERO": "Igualdade de Gênero",
+  "IGUALDADE DE GÊNERO": "Igualdade de Gênero",
+  "URBANISMO E MORADIA": "Urbanismo e Moradia",
+  "COMUNICACAO E CIENCIA": "Comunicação e Ciência",
+  "COMUNICAÇÃO E CIÊNCIA": "Comunicação e Ciência",
 };
 
 function formatEixo(raw) {
@@ -42,17 +48,17 @@ function formatEixo(raw) {
 
 function cleanQuote(raw) {
   let s = raw.trim();
-  let parafrase = false;
-  if (/\(Paráfrase(?:\s+conceitual)?\)$/i.test(s)) {
-    const match = s.match(/\((Paráfrase(?:\s+conceitual)?)\)$/i);
-    parafrase = match[1];
-    s = s.replace(/\s*\(Paráfrase(?:\s+conceitual)?\)$/i, "").trim();
+  let suffix = "";
+  const suffixMatch = s.match(/\((Paráfrase(?:\s+conceitual)?|Alusão\s+literária)\)$/i);
+  if (suffixMatch) {
+    suffix = suffixMatch[1];
+    s = s.replace(/\s*\((?:Paráfrase(?:\s+conceitual)?|Alusão\s+literária)\)$/i, "").trim();
   }
   if ((s.startsWith("“") && s.endsWith("”")) || (s.startsWith('"') && s.endsWith('"'))) {
     s = s.slice(1, -1).trim();
   }
-  if (parafrase) {
-    s = `${s} (${parafrase})`;
+  if (suffix) {
+    s = `${s} (${suffix})`;
   }
   return s;
 }
@@ -135,11 +141,19 @@ export function parseMarkdownFile(filePath) {
   return items;
 }
 
+export function loadAuthorsMetadata() {
+  if (!fs.existsSync(AUTORES_JSON)) {
+    return {};
+  }
+  return JSON.parse(fs.readFileSync(AUTORES_JSON, "utf8"));
+}
+
 export function buildCitationsFromMarkdown() {
   if (!fs.existsSync(DADOS_DIR)) {
     throw new Error("Diretório dados/ não encontrado.");
   }
 
+  const authorsMeta = loadAuthorsMetadata();
   const mdFiles = fs
     .readdirSync(DADOS_DIR)
     .filter((f) => f.endsWith(".md"))
@@ -155,11 +169,30 @@ export function buildCitationsFromMarkdown() {
         throw new Error(`ID duplicado encontrado: ${item.id} (em ${file})`);
       }
       seenIds.add(item.id);
-      allItems.push(item);
+      const authorEntry = authorsMeta[item.autor];
+      allItems.push({
+        ...item,
+        autor_info: authorEntry?.info || "",
+        autor_artigo: authorEntry?.artigo || "",
+        autor_tipo: authorEntry?.tipo || "pessoa",
+      });
     }
   }
 
-  return { allItems, fileCount: mdFiles.length };
+  const groupedByEixo = new Map();
+  for (const item of allItems) {
+    if (!groupedByEixo.has(item.eixo)) {
+      groupedByEixo.set(item.eixo, []);
+    }
+    groupedByEixo.get(item.eixo).push(item);
+  }
+
+  const orderedItems = [];
+  for (const group of groupedByEixo.values()) {
+    orderedItems.push(...group);
+  }
+
+  return { allItems: orderedItems, fileCount: mdFiles.length };
 }
 
 function main() {
