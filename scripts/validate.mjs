@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
-import { buildCitationsFromMarkdown } from "./sync-markdown.mjs";
+import { buildCitationsFromMarkdown, loadAuthorsMetadata } from "./sync-markdown.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const JSON_PATH = path.join(ROOT, "citacoes.json");
@@ -42,6 +42,7 @@ function main() {
     "eixo",
     "citacao",
     "autor",
+    "autor_info",
     "fonte",
     "conceito_chave",
     "tema_principal",
@@ -108,12 +109,18 @@ function main() {
 
   if (checkSync) {
     try {
+      const authorsMeta = loadAuthorsMetadata();
+      for (const item of data) {
+        if (!authorsMeta[item.autor]?.info) {
+          errors.push(`[${item.id}] Autor "${item.autor}" ausente ou sem descrição em dados/autores.json.`);
+        }
+      }
       const { allItems } = buildCitationsFromMarkdown();
       const expected = JSON.stringify(allItems, null, 2) + "\n";
       const actual = fs.readFileSync(JSON_PATH, "utf8");
       if (expected !== actual) {
         errors.push(
-          "citacoes.json está fora de sincronia com dados/*.md. Execute `node scripts/sync-markdown.mjs`."
+          "citacoes.json está fora de sincronia com dados/*.md / dados/autores.json. Execute `node scripts/sync-markdown.mjs`."
         );
       }
     } catch (err) {

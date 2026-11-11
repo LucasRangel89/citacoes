@@ -2,9 +2,9 @@
 
 Painel estático e instalável (**PWA offline**) em **HTML + CSS + JavaScript puro (Vanilla JS)** alimentado por [`citacoes.json`](citacoes.json), desenvolvido para consulta rápida, estudo com repetição espaçada e montagem de projetos de texto em simulados e treinos de redação.
 
-A base inicial reúne **150 citações curadas** distribuídas igualmente em **15 eixos temáticos** (10 por eixo), todas com autoria nominal/normativa, `conceito_chave` e indicação clara entre `#fonte-confirmada` e `#verificar-fonte`:
+A base atual reúne **255 citações curadas** distribuídas em **18 eixos temáticos** (15 nos 15 eixos principais e 10 nos novos eixos transversais), todas com autoria nominal/normativa, qualificação do autor (`autor_info`), `conceito_chave`, destaque tipográfico na citação e indicação clara entre `#fonte-confirmada` e `#verificar-fonte`:
 
-Educação · Saúde · Tecnologia · Meio Ambiente · Direitos Humanos · Desigualdade Social · Democracia · Administração Pública · Ética · Cultura · Trabalho · Segurança Pública · Infância e Juventude · Idoso · Pessoa com Deficiência
+Educação · Saúde · Tecnologia · Meio Ambiente · Direitos Humanos · Desigualdade Social · Democracia · Administração Pública · Ética · Cultura · Trabalho · Segurança Pública · Infância e Juventude · Idoso · Pessoa com Deficiência · Igualdade de Gênero · Urbanismo e Moradia · Comunicação e Ciência
 
 ---
 
@@ -28,7 +28,7 @@ Educação · Saúde · Tecnologia · Meio Ambiente · Direitos Humanos · Desig
 - **PWA Offline + Backup do Usuário:**
   - `manifest.webmanifest` e `sw.js` permitem instalar o painel e usá-lo offline no celular ou desktop.
   - Na aba **Backup do Usuário** em **Dados**, é possível exportar e restaurar favoritos, histórico SRS, Mesa de Redação e rascunhos locais em `.json`.
-- **Cópia Rápida, Exportação e Nova Citação:** copie em 3 formatos, exporte em `.json`, `.md` ou `.txt`, ou crie rascunhos/objetos JSON direto pelo botão **+ Nova**.
+- **Cópia Rápida, Exportação e Nova Citação:** copie em 4 formatos (incluindo **Para redação com aposto**, pronto para colar no texto dissertativo), exporte em `.json`, `.md` ou `.txt`, ou crie rascunhos/objetos JSON direto pelo botão **+ Nova**.
 
 ---
 
@@ -39,13 +39,15 @@ Educação · Saúde · Tecnologia · Meio Ambiente · Direitos Humanos · Desig
 ├── index.html                   # Interface principal do painel
 ├── styles.css                   # Estilos (tema claro/escuro, drawer e responsividade)
 ├── app.js                       # Busca, filtros na URL, SRS, Mesa, Desafio e PWA
-├── citacoes.json                # Base estruturada com as 150 citações
+├── citacoes.json                # Base estruturada com as 255 citações
 ├── manifest.webmanifest         # Manifesto PWA para instalação e uso offline
 ├── sw.js                        # Service Worker com cache offline
 ├── icon.svg                     # Ícone vetorial do app
 ├── .nojekyll                    # Garante publicação estática direta no GitHub Pages
 ├── dados/
-│   └── lote-01.md               # Tabelas Markdown curadas do 1º lote (9 colunas)
+│   ├── autores.json             # Credenciais/apostos de todos os autores e normas
+│   ├── lote-01.md               # Tabelas Markdown curadas do 1º lote (150 citações)
+│   └── lote-02.md               # Expansão (+105 citações e 3 novos eixos)
 ├── scripts/
 │   ├── sync-markdown.mjs        # Compila dados/*.md -> citacoes.json
 │   └── validate.mjs             # Valida esquema, duplicatas e sincronismo com Markdown

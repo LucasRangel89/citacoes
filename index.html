@@ -219,6 +219,7 @@
             <label for="copyFormat" class="sr-only">Formato de cópia rápida</label>
             <select id="copyFormat" title="Formato usado ao clicar em Copiar">
               <option value="citation-author">Copiar: Citação + Autor</option>
+              <option value="essay">Copiar: Para redação (com aposto)</option>
               <option value="quote-only">Copiar: Só a citação</option>
               <option value="full">Copiar: Completa + Como usar</option>
             </select>
@@ -381,6 +382,7 @@
             <div>
               <span class="fc-label">Autor</span>
               <p class="fc-value" id="fcAuthor"></p>
+              <p class="fc-subvalue" id="fcAuthorInfo"></p>
             </div>
             <div>
               <span class="fc-label">Fonte / Obra / Ano</span>
@@ -568,10 +570,14 @@
           <textarea id="nqCitacao" rows="2" required placeholder="Texto da citação sem aspas externas"></textarea>
         </div>
 
-        <div class="form-grid-3">
+        <div class="form-grid-4">
           <div class="form-group">
             <label for="nqAutor">Autor *</label>
             <input type="text" id="nqAutor" required placeholder="Ex: Paulo Freire">
+          </div>
+          <div class="form-group">
+            <label for="nqAutorInfo">Quem é / credencial</label>
+            <input type="text" id="nqAutorInfo" placeholder="Ex: pedagogo e filósofo brasileiro">
           </div>
           <div class="form-group">
             <label for="nqFonte">Fonte / Obra *</label>

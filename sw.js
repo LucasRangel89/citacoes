@@ -1,4 +1,4 @@
-const CACHE_NAME = "citacoes-cache-v2";
+const CACHE_NAME = "citacoes-cache-v4";
 const SHELL_ASSETS = [
   "./",
   "./index.html",
