@@ -1,0 +1,21 @@
+name: Validar Base de Citações
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validar citacoes.json
+        run: node scripts/validate.mjs

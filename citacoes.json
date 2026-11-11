@@ -1,0 +1,3005 @@
+[
+  {
+    "id": "EDU01",
+    "eixo": "Educação",
+    "citacao": "O homem não pode se tornar um verdadeiro homem senão pela educação. Ele é aquilo que a educação dele faz.",
+    "autor": "Immanuel Kant",
+    "fonte": "Sobre a Pedagogia",
+    "ano": "1999",
+    "pagina": "p. 32",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-kant",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Formação humana",
+    "como_usar": "Para fundamentar a tese de que a educação é condição para a humanização e o desenvolvimento pleno do indivíduo.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU02",
+    "eixo": "Educação",
+    "citacao": "Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.",
+    "autor": "Paulo Freire",
+    "fonte": "Atribuída em entrevistas e obras",
+    "ano": "",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-propositivo",
+      "#autor-paulo-freire",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Transformação social",
+    "como_usar": "Para defender que a educação é um instrumento essencial, embora não exclusivo, de mudança social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU03",
+    "eixo": "Educação",
+    "citacao": "É no problema da educação que assenta o grande segredo do aperfeiçoamento da humanidade.",
+    "autor": "Immanuel Kant",
+    "fonte": "Sobre a Pedagogia",
+    "ano": "",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-kant",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Aperfeiçoamento humano",
+    "como_usar": "Ideal para abrir uma redação sobre a importância da educação para o progresso moral e social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU04",
+    "eixo": "Educação",
+    "citacao": "Ninguém liberta ninguém, ninguém se liberta sozinho: os homens se libertam em comunhão.",
+    "autor": "Paulo Freire",
+    "fonte": "Pedagogia do Oprimido",
+    "ano": "1970",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-paulo-freire",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Libertação coletiva",
+    "como_usar": "Para concluir que a educação emancipadora é um processo coletivo, não individualista.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU05",
+    "eixo": "Educação",
+    "citacao": "A educação é uma arte, e toda arte pode ser ensinada.",
+    "autor": "Immanuel Kant",
+    "fonte": "Sobre a Pedagogia",
+    "ano": "",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-kant",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Práxis educativa",
+    "como_usar": "Para argumentar que a docência exige método e formação técnica, não apenas vocação.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU06",
+    "eixo": "Educação",
+    "citacao": "A transformação do aluno em sujeito socialmente ativo é possível através de uma educação crítica e transformadora. (Paráfrase)",
+    "autor": "Paulo Freire",
+    "fonte": "Pedagogia da Autonomia",
+    "ano": "",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-tese",
+      "#tom-critico",
+      "#autor-paulo-freire",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Formação cidadã",
+    "como_usar": "Para sustentar a tese de que a escola deve formar cidadãos críticos e participativos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU07",
+    "eixo": "Educação",
+    "citacao": "O homem é aquilo que a educação faz dele.",
+    "autor": "Immanuel Kant",
+    "fonte": "Sobre a Pedagogia",
+    "ano": "",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-introducao",
+      "#tom-formal",
+      "#autor-kant",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Perfectibilidade humana",
+    "como_usar": "Citação curta e impactante para introduzir a ideia de que a educação é determinante para o ser humano.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU08",
+    "eixo": "Educação",
+    "citacao": "A educação não é preparação para a vida; é a própria vida.",
+    "autor": "John Dewey",
+    "fonte": "Democracia e Educação",
+    "ano": "1916",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-dewey",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Educação e vida",
+    "como_usar": "Para defender que o aprendizado deve ser significativo e conectado à realidade do aluno.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU09",
+    "eixo": "Educação",
+    "citacao": "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção.",
+    "autor": "Paulo Freire",
+    "fonte": "Pedagogia da Autonomia",
+    "ano": "1996",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-paulo-freire",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Autonomia discente",
+    "como_usar": "Para contrastar com a educação bancária e defender metodologias ativas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "EDU10",
+    "eixo": "Educação",
+    "citacao": "A educação é a arma mais poderosa que você pode usar para mudar o mundo.",
+    "autor": "Nelson Mandela",
+    "fonte": "Discurso",
+    "ano": "1990",
+    "tags": [
+      "#tema-educacao",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-mandela",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Poder transformador",
+    "como_usar": "Para concluir redações sobre o papel da educação na promoção da justiça social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU01",
+    "eixo": "Saúde",
+    "citacao": "Que o alimento seja tua medicina e a medicina seja teu alimento.",
+    "autor": "Hipócrates",
+    "fonte": "Atribuída em Aforismos",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-cientifica",
+      "#arg-prevencao",
+      "#uso-introducao",
+      "#tom-formal",
+      "#autor-hipocrates",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Prevenção",
+    "como_usar": "Para introduzir a ideia de que a saúde se constrói com hábitos e prevenção, não apenas com tratamento.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU02",
+    "eixo": "Saúde",
+    "citacao": "Toda doença começa na alma.",
+    "autor": "Hipócrates",
+    "fonte": "Atribuída (tradição oral)",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-hipocrates",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Saúde mental",
+    "como_usar": "Para defender a integração entre saúde física e mental no cuidado integral.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU03",
+    "eixo": "Saúde",
+    "citacao": "A doença chamada sagrada não é mais divina ou sagrada que qualquer outra doença; tem uma causa natural.",
+    "autor": "Hipócrates",
+    "fonte": "A Doença Sagrada",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-hipocrates",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Naturalização da doença",
+    "como_usar": "Para combater visões místicas ou estigmatizantes sobre doenças e defender o olhar científico.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU04",
+    "eixo": "Saúde",
+    "citacao": "Uma nutrição adequada é um elemento chave para reduzir a carga de morbidade.",
+    "autor": "Organização Mundial da Saúde (OMS)",
+    "fonte": "Documento técnico",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-oms",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Nutrição",
+    "como_usar": "Para embasar argumentos sobre a importância de políticas públicas de alimentação saudável.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU05",
+    "eixo": "Saúde",
+    "citacao": "A saúde é direito de todos e dever do Estado.",
+    "autor": "Constituição Federal de 1988",
+    "fonte": "Art. 196",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-constituicao",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direito à saúde",
+    "como_usar": "Para fundamentar a tese de que o acesso à saúde é uma obrigação estatal, não um favor.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU06",
+    "eixo": "Saúde",
+    "citacao": "Prevenir é melhor que remediar.",
+    "autor": "Provérbio popular",
+    "fonte": "Domínio público",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-popular",
+      "#arg-prevencao",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-proverbio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Prevenção",
+    "como_usar": "Para concluir redações sobre saúde pública, reforçando a necessidade de investimento em prevenção.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU07",
+    "eixo": "Saúde",
+    "citacao": "O maior erro que um homem pode cometer é sacrificar a sua saúde a qualquer outra vantagem.",
+    "autor": "Arthur Schopenhauer",
+    "fonte": "Aforismos para a Sabedoria de Vida",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-schopenhauer",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Prioridade da saúde",
+    "como_usar": "Para introduzir a reflexão sobre o valor da saúde em detrimento de metas puramente econômicas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU08",
+    "eixo": "Saúde",
+    "citacao": "A medicina é a arte de curar, mas também a ciência de prevenir.",
+    "autor": "Atribuída a médicos",
+    "fonte": "Tradição hipocrática",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-tradicao",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Integralidade",
+    "como_usar": "Para discutir o duplo papel da medicina: curar e prevenir.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU09",
+    "eixo": "Saúde",
+    "citacao": "Não há saúde sem saúde mental.",
+    "autor": "Organização Mundial da Saúde (OMS)",
+    "fonte": "Conceito ampliado de saúde",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-cientifica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-critico",
+      "#autor-oms",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Saúde mental",
+    "como_usar": "Para incluir a saúde mental como componente indissociável da saúde geral.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SAU10",
+    "eixo": "Saúde",
+    "citacao": "O corpo é o templo da alma.",
+    "autor": "Sócrates (atribuída)",
+    "fonte": "Tradição filosófica",
+    "ano": "",
+    "tags": [
+      "#tema-saude",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-socrates",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Cuidado integral",
+    "como_usar": "Para concluir que o cuidado com o corpo é também uma questão ética e espiritual.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC01",
+    "eixo": "Tecnologia",
+    "citacao": "O meio é a mensagem.",
+    "autor": "Marshall McLuhan",
+    "fonte": "Os Meios de Comunicação como Extensões do Homem",
+    "ano": "1964",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-mcluhan",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Determinismo tecnológico",
+    "como_usar": "Para defender que a tecnologia não é neutra: ela molda comportamentos e relações sociais.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC02",
+    "eixo": "Tecnologia",
+    "citacao": "As consequências sociais e pessoais de qualquer meio – ou seja, de qualquer tecnologia – não ocorrem no nível das opiniões ou conceitos, mas alteram os sentidos.",
+    "autor": "Marshall McLuhan",
+    "fonte": "Os Meios de Comunicação como Extensões do Homem",
+    "ano": "1964",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-critico",
+      "#autor-mcluhan",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Impacto sensorial",
+    "como_usar": "Para argumentar que a tecnologia transforma a percepção e a cognição humana.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC03",
+    "eixo": "Tecnologia",
+    "citacao": "A eletricidade aponta o caminho para uma extensão do processo de consciência em escala mundial.",
+    "autor": "Marshall McLuhan",
+    "fonte": "Os Meios de Comunicação como Extensões do Homem",
+    "ano": "1964",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-mcluhan",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Aldeia global",
+    "como_usar": "Para introduzir a ideia de interconexão global proporcionada pelas tecnologias elétricas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC04",
+    "eixo": "Tecnologia",
+    "citacao": "Com a eletricidade, estendemos nosso sistema nervoso central globalmente.",
+    "autor": "Marshall McLuhan",
+    "fonte": "Os Meios de Comunicação como Extensões do Homem",
+    "ano": "1964",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-mcluhan",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Extensão humana",
+    "como_usar": "Para explicar como as tecnologias funcionam como prolongamentos das capacidades humanas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC05",
+    "eixo": "Tecnologia",
+    "citacao": "A circuitaria elétrica derrubou o regime de ‘tempo’ e ‘espaço’.",
+    "autor": "Marshall McLuhan",
+    "fonte": "Medium is the Massage",
+    "ano": "1967",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-critico",
+      "#autor-mcluhan",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Compressão espaço-temporal",
+    "como_usar": "Para sustentar a tese de que a tecnologia redefiniu as noções de tempo e espaço nas sociedades contemporâneas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC06",
+    "eixo": "Tecnologia",
+    "citacao": "A tecnologia move o mundo.",
+    "autor": "Steve Jobs",
+    "fonte": "Atribuída em discursos",
+    "ano": "",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-steve-jobs",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Inovação",
+    "como_usar": "Para concluir redações sobre o papel da inovação tecnológica no progresso.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC07",
+    "eixo": "Tecnologia",
+    "citacao": "A tecnologia é melhor quando aproxima as pessoas.",
+    "autor": "Matt Mullenweg",
+    "fonte": "Entrevista",
+    "ano": "",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-solidariedade",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-mullenweg",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Tecnologia social",
+    "como_usar": "Para argumentar que o valor da tecnologia reside em seu impacto humano e social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC08",
+    "eixo": "Tecnologia",
+    "citacao": "O homem é a medida de todas as coisas.",
+    "autor": "Protágoras",
+    "fonte": "Fragmento",
+    "ano": "",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-protagoras",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Antropocentrismo",
+    "como_usar": "Para contrabalançar visões deterministas, lembrando que a tecnologia deve servir ao humano.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC09",
+    "eixo": "Tecnologia",
+    "citacao": "A informação é o petróleo do século XXI.",
+    "autor": "Atribuída a economistas",
+    "fonte": "Clichê contemporâneo",
+    "ano": "",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-introducao",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Economia da informação",
+    "como_usar": "Para introduzir a importância dos dados e da informação na sociedade atual.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TEC10",
+    "eixo": "Tecnologia",
+    "citacao": "O analfabetismo do futuro não será aquele que não sabe ler, mas aquele que não sabe aprender, desaprender e reaprender.",
+    "autor": "Alvin Toffler",
+    "fonte": "A Terceira Onda",
+    "ano": "1980",
+    "tags": [
+      "#tema-tecnologia",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-toffler",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Aprendizagem contínua",
+    "como_usar": "Para concluir sobre a necessidade de adaptação e educação continuada diante das rápidas mudanças tecnológicas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB01",
+    "eixo": "Meio Ambiente",
+    "citacao": "Podemos ser mais com menos.",
+    "autor": "Leonardo Boff",
+    "fonte": "Sustentabilidade: O que é – O que não é",
+    "ano": "",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-propositivo",
+      "#autor-boff",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Consumo consciente",
+    "como_usar": "Para defender a tese de que é possível conciliar desenvolvimento e preservação com menos consumo.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB02",
+    "eixo": "Meio Ambiente",
+    "citacao": "A sustentabilidade significa a garantia de que todos os seres têm as condições de viver, reproduzir-se e permanecer na natureza.",
+    "autor": "Leonardo Boff",
+    "fonte": "Sustentabilidade: O que é – O que não é",
+    "ano": "",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-boff",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Sustentabilidade integral",
+    "como_usar": "Para definir sustentabilidade de forma ampla, incluindo todas as formas de vida.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB03",
+    "eixo": "Meio Ambiente",
+    "citacao": "Se a modernidade propunha o progresso ilimitado, choca contra o mundo de um planeta com recursos limitados.",
+    "autor": "Leonardo Boff",
+    "fonte": "Entrevista à Swissinfo",
+    "ano": "2015",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-introducao",
+      "#tom-critico",
+      "#autor-boff",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Crise ecológica",
+    "como_usar": "Para introduzir a contradição entre o ideal de progresso infinito e os limites planetários.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB04",
+    "eixo": "Meio Ambiente",
+    "citacao": "O problema ecológico mundial só será resolvido quando as injustiças sociais forem sanadas.",
+    "autor": "Leonardo Boff",
+    "fonte": "Entrevista à Agência Brasil",
+    "ano": "",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-conclusao",
+      "#tom-critico",
+      "#autor-boff",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Justiça socioambiental",
+    "como_usar": "Para concluir que a questão ambiental é indissociável da justiça social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB05",
+    "eixo": "Meio Ambiente",
+    "citacao": "Não temos o monopólio sobre a biosfera.",
+    "autor": "Leonardo Boff",
+    "fonte": "Entrevista à Agência Brasil",
+    "ano": "2003",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-boff",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Ética ambiental",
+    "como_usar": "Para argumentar que o ser humano não é o centro exclusivo da criação, devendo respeitar outras formas de vida.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB06",
+    "eixo": "Meio Ambiente",
+    "citacao": "Respeitar tudo isso chama-se desenvolvimento sustentável.",
+    "autor": "Leonardo Boff",
+    "fonte": "Entrevista à Agência Brasil",
+    "ano": "2003",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-boff",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Desenvolvimento sustentável",
+    "como_usar": "Para definir desenvolvimento sustentável como uma postura de respeito à biosfera.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB07",
+    "eixo": "Meio Ambiente",
+    "citacao": "O homem é um analfabeto ambiental.",
+    "autor": "Leonardo Boff",
+    "fonte": "Entrevista à Agência Brasil",
+    "ano": "2003",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-introducao",
+      "#tom-critico",
+      "#autor-boff",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Educação ambiental",
+    "como_usar": "Para introduzir a crítica à falta de consciência ecológica da sociedade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB08",
+    "eixo": "Meio Ambiente",
+    "citacao": "Todos têm direito ao meio ambiente ecologicamente equilibrado.",
+    "autor": "Constituição Federal de 1988",
+    "fonte": "Art. 225",
+    "ano": "",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-constituicao",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direito ambiental",
+    "como_usar": "Para fundamentar a tese de que a preservação ambiental é um direito constitucional.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB09",
+    "eixo": "Meio Ambiente",
+    "citacao": "A natureza não é um lugar para se visitar. É nossa casa.",
+    "autor": "Atribuída a líderes indígenas",
+    "fonte": "Sabedoria ancestral",
+    "ano": "",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-popular",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-sabedoria-indigena",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Pertencimento",
+    "como_usar": "Para concluir redações sobre meio ambiente, reforçando a ideia de responsabilidade coletiva.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "AMB10",
+    "eixo": "Meio Ambiente",
+    "citacao": "A Terra não é uma herança de nossos pais, mas um empréstimo de nossos filhos.",
+    "autor": "Provérbio indígena",
+    "fonte": "Domínio público",
+    "ano": "",
+    "tags": [
+      "#tema-meio-ambiente",
+      "#tipo-popular",
+      "#arg-solidariedade",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-proverbio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Responsabilidade intergeracional",
+    "como_usar": "Para introduzir a noção de dívida ecológica com as futuras gerações.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH01",
+    "eixo": "Direitos Humanos",
+    "citacao": "Os direitos humanos não são um dado, mas um construído, uma invenção humana em constante processo de construção e reconstrução.",
+    "autor": "Hannah Arendt",
+    "fonte": "As Origens do Totalitarismo",
+    "ano": "1951",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-arendt",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Historicidade dos direitos",
+    "como_usar": "Para sustentar a tese de que os direitos humanos são conquistas históricas, não dádivas naturais.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH02",
+    "eixo": "Direitos Humanos",
+    "citacao": "Os direitos humanos não nascem todos de uma vez e nem de uma vez por todas.",
+    "autor": "Norberto Bobbio",
+    "fonte": "A Era dos Direitos",
+    "ano": "1992",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-bobbio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Evolução dos direitos",
+    "como_usar": "Para argumentar que a luta por direitos é um processo contínuo e inacabado.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH03",
+    "eixo": "Direitos Humanos",
+    "citacao": "O campo dos direitos do homem aparece como algo em contínua evolução.",
+    "autor": "Norberto Bobbio",
+    "fonte": "A Era dos Direitos",
+    "ano": "1992",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-bobbio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Dinamicidade",
+    "como_usar": "Para introduzir a ideia de que novos direitos surgem conforme as necessidades sociais mudam.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH04",
+    "eixo": "Direitos Humanos",
+    "citacao": "Não existem direitos fundamentais por natureza.",
+    "autor": "Norberto Bobbio",
+    "fonte": "A Era dos Direitos",
+    "ano": "1992",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-bobbio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Crítica ao jusnaturalismo",
+    "como_usar": "Para contrapor visões essencialistas e defender que os direitos são fruto de convenções e lutas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH05",
+    "eixo": "Direitos Humanos",
+    "citacao": "A condição humana compreende algo mais que as condições nas quais a vida foi dada ao homem.",
+    "autor": "Hannah Arendt",
+    "fonte": "A Condição Humana",
+    "ano": "1958",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-arendt",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Dignidade humana",
+    "como_usar": "Para argumentar que a dignidade humana transcende a mera sobrevivência biológica.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH06",
+    "eixo": "Direitos Humanos",
+    "citacao": "Todos os seres humanos nascem livres e iguais em dignidade e direitos.",
+    "autor": "Declaração Universal dos Direitos Humanos",
+    "fonte": "Art. 1º",
+    "ano": "1948",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-juridica",
+      "#arg-igualdade",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-dudh",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Igualdade",
+    "como_usar": "Para fundamentar a tese da igualdade universal como base dos direitos humanos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH07",
+    "eixo": "Direitos Humanos",
+    "citacao": "O homem é um fim em si mesmo.",
+    "autor": "Immanuel Kant",
+    "fonte": "Fundamentação da Metafísica dos Costumes",
+    "ano": "1785",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-conclusao",
+      "#tom-formal",
+      "#autor-kant",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Imperativo categórico",
+    "como_usar": "Para concluir que nenhum ser humano pode ser tratado como meio para fins alheios.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH08",
+    "eixo": "Direitos Humanos",
+    "citacao": "A injustiça em qualquer lugar é uma ameaça à justiça em todo lugar.",
+    "autor": "Martin Luther King Jr.",
+    "fonte": "Carta da Prisão de Birmingham",
+    "ano": "1963",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-solidariedade",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-mlk",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Solidariedade global",
+    "como_usar": "Para introduzir a ideia de que a violação de direitos em um lugar afeta toda a humanidade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH09",
+    "eixo": "Direitos Humanos",
+    "citacao": "Onde há direito, há também o dever de lutar por ele.",
+    "autor": "Norberto Bobbio",
+    "fonte": "A Era dos Direitos",
+    "ano": "1992",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-propositivo",
+      "#autor-bobbio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Militância cívica",
+    "como_usar": "Para argumentar que a garantia de direitos exige engajamento ativo da sociedade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DDH10",
+    "eixo": "Direitos Humanos",
+    "citacao": "Ninguém nasce odiando outra pessoa pela cor de sua pele, por sua origem ou ainda por sua religião. Para odiar, as pessoas precisam aprender; e, se podem aprender a odiar, podem ser ensinadas a amar.",
+    "autor": "Nelson Mandela",
+    "fonte": "Longo Caminho para a Liberdade",
+    "ano": "1994",
+    "tags": [
+      "#tema-direitos-humanos",
+      "#tipo-filosofica",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-mandela",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Tolerância",
+    "como_usar": "Para concluir redações sobre preconceito e direitos humanos, com uma mensagem de esperança e educabilidade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES01",
+    "eixo": "Desigualdade Social",
+    "citacao": "A desigualdade não é tanto de renda ou riqueza, mas de dominação ou servidão.",
+    "autor": "Jean-Jacques Rousseau",
+    "fonte": "Discurso sobre a Origem da Desigualdade",
+    "ano": "1755",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-critico",
+      "#autor-rousseau",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Desigualdade política",
+    "como_usar": "Para sustentar a tese de que a desigualdade é fundamentalmente uma relação de poder, não apenas econômica.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES02",
+    "eixo": "Desigualdade Social",
+    "citacao": "A pergunta ‘igualdade de quê?’ é central para qualquer teoria da justiça.",
+    "autor": "Amartya Sen",
+    "fonte": "Desigualdade Reexaminada",
+    "ano": "1992",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-sen",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Métricas da igualdade",
+    "como_usar": "Para argumentar que não basta falar em igualdade; é preciso definir o que se busca equalizar (renda, oportunidades, capacidades).",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES03",
+    "eixo": "Desigualdade Social",
+    "citacao": "Existem dois tipos de desigualdade: uma natural ou física, e outra moral ou política.",
+    "autor": "Jean-Jacques Rousseau",
+    "fonte": "Discurso sobre a Origem da Desigualdade",
+    "ano": "1755",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-filosofica",
+      "#arg-igualdade",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-rousseau",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Tipologia da desigualdade",
+    "como_usar": "Para introduzir a distinção entre desigualdades naturais e desigualdades socialmente construídas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES04",
+    "eixo": "Desigualdade Social",
+    "citacao": "A história de todas as sociedades existentes até hoje é a história da luta de classes.",
+    "autor": "Karl Marx e Friedrich Engels",
+    "fonte": "Manifesto Comunista",
+    "ano": "1848",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-critico",
+      "#autor-marx",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Luta de classes",
+    "como_usar": "Para fundamentar uma análise crítica da desigualdade estrutural a partir do conflito entre classes sociais.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES05",
+    "eixo": "Desigualdade Social",
+    "citacao": "A injustiça social é a mãe de todas as violências.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição crítica",
+    "ano": "",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-conclusao",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Violência estrutural",
+    "como_usar": "Para concluir que a desigualdade é a raiz de diversas formas de violência social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES06",
+    "eixo": "Desigualdade Social",
+    "citacao": "A pobreza não é uma escolha; é uma consequência de escolhas políticas.",
+    "autor": "Amartya Sen",
+    "fonte": "Desenvolvimento como Liberdade",
+    "ano": "1999",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-propositivo",
+      "#autor-sen",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Pobreza política",
+    "como_usar": "Para argumentar que o combate à pobreza depende de decisões políticas e não apenas de esforço individual.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES07",
+    "eixo": "Desigualdade Social",
+    "citacao": "O Brasil é um país de desiguais.",
+    "autor": "Atribuída a sociólogos",
+    "fonte": "Clichê sociológico",
+    "ano": "",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-cientifica",
+      "#arg-justica",
+      "#uso-introducao",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Desigualdade brasileira",
+    "como_usar": "Para introduzir a discussão sobre a desigualdade estrutural na sociedade brasileira.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES08",
+    "eixo": "Desigualdade Social",
+    "citacao": "A igualdade de oportunidades é a única forma legítima de desigualdade.",
+    "autor": "John Rawls",
+    "fonte": "Uma Teoria da Justiça",
+    "ano": "1971",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-rawls",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Justiça distributiva",
+    "como_usar": "Para sustentar que desigualdades só são justas se todos tiverem as mesmas chances de acesso.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES09",
+    "eixo": "Desigualdade Social",
+    "citacao": "Enquanto houver pobreza, não haverá paz.",
+    "autor": "Atribuída a líderes sociais",
+    "fonte": "Discurso",
+    "ano": "",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-popular",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Paz social",
+    "como_usar": "Para concluir que a erradicação da pobreza é condição para a paz social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DES10",
+    "eixo": "Desigualdade Social",
+    "citacao": "A desigualdade é o desafio definidor do nosso tempo.",
+    "autor": "Barack Obama",
+    "fonte": "Discurso",
+    "ano": "2013",
+    "tags": [
+      "#tema-desigualdade",
+      "#tipo-cientifica",
+      "#arg-justica",
+      "#uso-introducao",
+      "#tom-formal",
+      "#autor-obama",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Desafio contemporâneo",
+    "como_usar": "Para introduzir a urgência do combate à desigualdade no século XXI.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM01",
+    "eixo": "Democracia",
+    "citacao": "A democracia é o governo do povo, pelo povo e para o povo.",
+    "autor": "Abraham Lincoln",
+    "fonte": "Discurso de Gettysburg",
+    "ano": "1863",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-historica",
+      "#arg-participacao",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-lincoln",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Soberania popular",
+    "como_usar": "Para definir democracia de forma clássica e fundamentar a tese da participação popular.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM02",
+    "eixo": "Democracia",
+    "citacao": "A democracia é a pior forma de governo, exceto todas as outras que foram experimentadas.",
+    "autor": "Winston Churchill",
+    "fonte": "Discurso na Câmara dos Comuns",
+    "ano": "1947",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-historica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-churchill",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Defesa da democracia",
+    "como_usar": "Para argumentar que, apesar de suas falhas, a democracia é o regime menos ruim entre as alternativas conhecidas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM03",
+    "eixo": "Democracia",
+    "citacao": "Como eu não seria um escravo, também não seria um senhor. Isso expressa minha ideia de democracia.",
+    "autor": "Abraham Lincoln",
+    "fonte": "Anotação pessoal",
+    "ano": "1858",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-historica",
+      "#arg-liberdade",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-lincoln",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Liberdade e igualdade",
+    "como_usar": "Para introduzir a ideia de que a democracia se opõe a qualquer forma de dominação.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM04",
+    "eixo": "Democracia",
+    "citacao": "O melhor argumento contra a democracia é uma conversa de cinco minutos com o eleitor médio.",
+    "autor": "Winston Churchill",
+    "fonte": "Atribuída em discursos",
+    "ano": "",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-historica",
+      "#arg-eficiencia",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-churchill",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Desencanto democrático",
+    "como_usar": "Para reconhecer as fragilidades da democracia representativa sem, contudo, negar sua importância.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM05",
+    "eixo": "Democracia",
+    "citacao": "A democracia é a ditadura da maioria.",
+    "autor": "Atribuída a Alexis de Tocqueville",
+    "fonte": "A Democracia na América",
+    "ano": "1835",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-filosofica",
+      "#arg-liberdade",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-tocqueville",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Tirania da maioria",
+    "como_usar": "Para problematizar os riscos da ditadura da maioria e a necessidade de proteção das minorias.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM06",
+    "eixo": "Democracia",
+    "citacao": "A democracia não é apenas um método de governo, é um modo de vida.",
+    "autor": "John Dewey",
+    "fonte": "Democracia e Educação",
+    "ano": "1916",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-dewey",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Democracia participativa",
+    "como_usar": "Para concluir que a democracia exige engajamento cívico cotidiano, não apenas voto.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM07",
+    "eixo": "Democracia",
+    "citacao": "O preço da liberdade é a eterna vigilância.",
+    "autor": "Thomas Jefferson",
+    "fonte": "Discurso",
+    "ano": "1790",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-historica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-jefferson",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Cidadania ativa",
+    "como_usar": "Para argumentar que a manutenção da democracia depende da vigilância constante da sociedade civil.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM08",
+    "eixo": "Democracia",
+    "citacao": "A democracia é o governo do povo, mas o povo precisa ser educado para governar.",
+    "autor": "Atribuída a filósofos",
+    "fonte": "Tradição republicana",
+    "ano": "",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Educação cívica",
+    "como_usar": "Para sustentar que a qualidade da democracia depende da educação política dos cidadãos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM09",
+    "eixo": "Democracia",
+    "citacao": "Sem liberdade de expressão, não há democracia.",
+    "autor": "Atribuída a pensadores liberais",
+    "fonte": "Tradição liberal",
+    "ano": "",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-filosofica",
+      "#arg-liberdade",
+      "#uso-introducao",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Liberdade de expressão",
+    "como_usar": "Para introduzir a importância da liberdade de expressão como pilar democrático.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "DEM10",
+    "eixo": "Democracia",
+    "citacao": "A democracia é o único sistema que permite corrigir seus próprios erros.",
+    "autor": "Atribuída a Karl Popper",
+    "fonte": "A Sociedade Aberta e Seus Inimigos",
+    "ano": "1945",
+    "tags": [
+      "#tema-democracia",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-popper",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Falibilismo democrático",
+    "como_usar": "Para concluir que a grande virtude da democracia é sua capacidade de autocorreção.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM01",
+    "eixo": "Administração Pública",
+    "citacao": "A burocracia é mais plenamente desenvolvida quanto mais se desumaniza.",
+    "autor": "Max Weber",
+    "fonte": "Economia e Sociedade",
+    "ano": "1922",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-critico",
+      "#autor-weber",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Desumanização burocrática",
+    "como_usar": "Para sustentar a tese de que a burocracia, levada ao extremo, pode se tornar impessoal e desumana.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM02",
+    "eixo": "Administração Pública",
+    "citacao": "A razão decisiva que explica o progresso da organização burocrática tem sido sempre sua superioridade técnica sobre qualquer outra organização.",
+    "autor": "Max Weber",
+    "fonte": "Economia e Sociedade",
+    "ano": "1922",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-weber",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Eficiência técnica",
+    "como_usar": "Para argumentar que a burocracia é, tecnicamente, a forma mais eficiente de administração.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM03",
+    "eixo": "Administração Pública",
+    "citacao": "A essência da política é a luta.",
+    "autor": "Max Weber",
+    "fonte": "Ciência e Política: Duas Vocações",
+    "ano": "1919",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-weber",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Luta política",
+    "como_usar": "Para introduzir a ideia de que a administração pública é um campo de disputas e negociações.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM04",
+    "eixo": "Administração Pública",
+    "citacao": "A dominação é um dos elementos mais importantes da vida social.",
+    "autor": "Max Weber",
+    "fonte": "Economia e Sociedade",
+    "ano": "1922",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-weber",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Dominação legítima",
+    "como_usar": "Para discutir as formas de legitimidade do poder na administração pública.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM05",
+    "eixo": "Administração Pública",
+    "citacao": "A administração pública direta e indireta obedecerá aos princípios de legalidade, impessoalidade, moralidade, publicidade e eficiência.",
+    "autor": "Constituição Federal de 1988",
+    "fonte": "Art. 37",
+    "ano": "",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-juridica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-constituicao",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Princípios administrativos",
+    "como_usar": "Para fundamentar a tese de que a gestão pública deve seguir princípios constitucionais claros.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM06",
+    "eixo": "Administração Pública",
+    "citacao": "O poder tende a corromper, e o poder absoluto corrompe absolutamente.",
+    "autor": "Lord Acton",
+    "fonte": "Carta ao Bispo Creighton",
+    "ano": "1887",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-historica",
+      "#arg-justica",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-acton",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Corrupção",
+    "como_usar": "Para argumentar sobre a necessidade de controles e transparência na administração pública.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM07",
+    "eixo": "Administração Pública",
+    "citacao": "A coisa pública não é de ninguém, é de todos.",
+    "autor": "Atribuída a juristas",
+    "fonte": "Princípio republicano",
+    "ano": "",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-juridica",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Res publica",
+    "como_usar": "Para concluir que a administração pública deve servir ao interesse coletivo, não a interesses privados.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM08",
+    "eixo": "Administração Pública",
+    "citacao": "O Estado não é um fim em si mesmo, mas um meio para a realização do bem comum.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição republicana",
+    "ano": "",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Bem comum",
+    "como_usar": "Para introduzir a finalidade ética da administração pública.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM09",
+    "eixo": "Administração Pública",
+    "citacao": "A eficiência sem eficácia é apenas fazer bem o que não precisa ser feito.",
+    "autor": "Peter Drucker",
+    "fonte": "O Gerente Eficaz",
+    "ano": "1966",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-drucker",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Eficácia",
+    "como_usar": "Para distinguir eficiência (meios) de eficácia (fins) na gestão pública.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ADM10",
+    "eixo": "Administração Pública",
+    "citacao": "A transparência é o melhor desinfetante.",
+    "autor": "Louis Brandeis",
+    "fonte": "Discurso",
+    "ano": "1914",
+    "tags": [
+      "#tema-administracao-publica",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-brandeis",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Transparência",
+    "como_usar": "Para concluir sobre a importância da transparência como antídoto à corrupção.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI01",
+    "eixo": "Ética",
+    "citacao": "Age de tal modo que uses a humanidade, tanto na tua pessoa como na pessoa de qualquer outro, sempre como um fim e nunca como um meio.",
+    "autor": "Immanuel Kant",
+    "fonte": "Fundamentação da Metafísica dos Costumes",
+    "ano": "1785",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-kant",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Imperativo categórico",
+    "como_usar": "Para fundamentar a tese de que todo ser humano tem valor intrínseco e não pode ser instrumentalizado.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI02",
+    "eixo": "Ética",
+    "citacao": "A felicidade é o resultado do agir ético.",
+    "autor": "Aristóteles",
+    "fonte": "Ética a Nicômaco",
+    "ano": "",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-aristoteles",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Eudaimonia",
+    "como_usar": "Para argumentar que a ética não é um fardo, mas o caminho para a realização humana.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI03",
+    "eixo": "Ética",
+    "citacao": "O dever moral é um próprio da razão prática.",
+    "autor": "Immanuel Kant",
+    "fonte": "Crítica da Razão Prática",
+    "ano": "1788",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-introducao",
+      "#tom-formal",
+      "#autor-kant",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Dever",
+    "como_usar": "Para introduzir a ideia de que a ética se funda em deveres racionais, não em inclinações pessoais.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI04",
+    "eixo": "Ética",
+    "citacao": "A ética é o compromisso de seguir o próprio preceito ético fundamental.",
+    "autor": "Atribuída a filósofos",
+    "fonte": "Tradição moral",
+    "ano": "",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Coerência moral",
+    "como_usar": "Para discutir a importância da coerência entre discurso e prática na vida ética.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI05",
+    "eixo": "Ética",
+    "citacao": "Conhece-te a ti mesmo.",
+    "autor": "Sócrates",
+    "fonte": "Tradição délfica",
+    "ano": "",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-socrates",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Autoconhecimento",
+    "como_usar": "Para introduzir a reflexão ética como um exercício de autoconhecimento e humildade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI06",
+    "eixo": "Ética",
+    "citacao": "A virtude está no meio.",
+    "autor": "Aristóteles",
+    "fonte": "Ética a Nicômaco",
+    "ano": "",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-conclusao",
+      "#tom-formal",
+      "#autor-aristoteles",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Justa medida",
+    "como_usar": "Para concluir que a ética exige equilíbrio e moderação, evitando extremos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI07",
+    "eixo": "Ética",
+    "citacao": "O homem é a medida de todas as coisas.",
+    "autor": "Protágoras",
+    "fonte": "Fragmento",
+    "ano": "",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-protagoras",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Relativismo",
+    "como_usar": "Para problematizar o relativismo ético e a necessidade de parâmetros universais.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI08",
+    "eixo": "Ética",
+    "citacao": "A boa-fé é a base de todas as relações humanas.",
+    "autor": "Atribuída a Cícero",
+    "fonte": "Dos Deveres",
+    "ano": "",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-solidariedade",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-cicero",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Confiança",
+    "como_usar": "Para argumentar que a ética é condição para a confiança nas relações sociais.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI09",
+    "eixo": "Ética",
+    "citacao": "O fim não justifica os meios.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição moral",
+    "ano": "",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Consequencialismo",
+    "como_usar": "Para contrapor visões utilitaristas que sacrificam princípios éticos em nome de resultados.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "ETI10",
+    "eixo": "Ética",
+    "citacao": "A integridade é fazer a coisa certa, mesmo quando ninguém está olhando.",
+    "autor": "Atribuída a C.S. Lewis",
+    "fonte": "Cristianismo Puro e Simples",
+    "ano": "1952",
+    "tags": [
+      "#tema-etica",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-cs-lewis",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Integridade",
+    "como_usar": "Para concluir redações sobre ética, enfatizando a importância da coerência moral pessoal.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL01",
+    "eixo": "Cultura",
+    "citacao": "A cultura é pública porque o significado o é.",
+    "autor": "Clifford Geertz",
+    "fonte": "A Interpretação das Culturas",
+    "ano": "1973",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-geertz",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Natureza pública da cultura",
+    "como_usar": "Para sustentar a tese de que a cultura não é individual, mas coletiva e compartilhada.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL02",
+    "eixo": "Cultura",
+    "citacao": "O homem é um animal amarrado a teias de significado que ele mesmo teceu.",
+    "autor": "Clifford Geertz",
+    "fonte": "A Interpretação das Culturas",
+    "ano": "1973",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-geertz",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Teia de significados",
+    "como_usar": "Para introduzir a concepção de que a cultura é uma construção humana de sentidos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL03",
+    "eixo": "Cultura",
+    "citacao": "A cultura é uma trama de significados.",
+    "autor": "Clifford Geertz",
+    "fonte": "A Interpretação das Culturas",
+    "ano": "1973",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-geertz",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Análise cultural",
+    "como_usar": "Para definir cultura de forma sintética e operacional.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL04",
+    "eixo": "Cultura",
+    "citacao": "A análise cultural é intrinsecamente incompleta.",
+    "autor": "Clifford Geertz",
+    "fonte": "A Interpretação das Culturas",
+    "ano": "1973",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-geertz",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Limites da análise",
+    "como_usar": "Para reconhecer a complexidade do estudo da cultura e a impossibilidade de esgotá-la.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL05",
+    "eixo": "Cultura",
+    "citacao": "A cultura foi um ingrediente central na produção do próprio animal humano.",
+    "autor": "Clifford Geertz",
+    "fonte": "A Interpretação das Culturas",
+    "ano": "1973",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-cientifica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-geertz",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Coevolução",
+    "como_usar": "Para argumentar que a cultura não é um adorno, mas constitutiva do ser humano.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL06",
+    "eixo": "Cultura",
+    "citacao": "Cultura é o que faz a vida valer a pena ser vivida.",
+    "autor": "T.S. Eliot",
+    "fonte": "Notas para a Definição de Cultura",
+    "ano": "1948",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-ts-eliot",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Valor da cultura",
+    "como_usar": "Para concluir redações sobre a importância da cultura para o sentido da vida.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL07",
+    "eixo": "Cultura",
+    "citacao": "A cultura não é um luxo, é uma necessidade.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição humanista",
+    "ano": "",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-desenvolvimento",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direito à cultura",
+    "como_usar": "Para argumentar que o acesso à cultura é um direito social, não um privilégio.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL08",
+    "eixo": "Cultura",
+    "citacao": "Sem cultura não há identidade.",
+    "autor": "Atribuída a antropólogos",
+    "fonte": "Estudos culturais",
+    "ano": "",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-cientifica",
+      "#arg-solidariedade",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Identidade cultural",
+    "como_usar": "Para sustentar que a cultura é fundamental para a construção da identidade individual e coletiva.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL09",
+    "eixo": "Cultura",
+    "citacao": "A diversidade cultural é a maior riqueza da humanidade.",
+    "autor": "Atribuída à UNESCO",
+    "fonte": "Declaração Universal sobre a Diversidade Cultural",
+    "ano": "2001",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-juridica",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-unesco",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Diversidade",
+    "como_usar": "Para concluir sobre a importância de valorizar e proteger a diversidade cultural.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "CUL10",
+    "eixo": "Cultura",
+    "citacao": "A cultura é a memória de um povo.",
+    "autor": "Atribuída a historiadores",
+    "fonte": "Tradição oral",
+    "ano": "",
+    "tags": [
+      "#tema-cultura",
+      "#tipo-popular",
+      "#arg-justica",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Memória coletiva",
+    "como_usar": "Para introduzir a relação entre cultura, memória e identidade social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA01",
+    "eixo": "Trabalho",
+    "citacao": "A valorização do mundo das coisas aumenta em proporção direta a desvalorização do mundo dos homens.",
+    "autor": "Karl Marx",
+    "fonte": "Manuscritos Econômico-Filosóficos",
+    "ano": "1844",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-critico",
+      "#autor-marx",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Alienação",
+    "como_usar": "Para sustentar a tese de que o capitalismo aliena o trabalhador ao priorizar coisas sobre pessoas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA02",
+    "eixo": "Trabalho",
+    "citacao": "O trabalho é considerado abstratamente como uma coisa.",
+    "autor": "Karl Marx",
+    "fonte": "O Capital",
+    "ano": "1867",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-desenvolvimento",
+      "#tom-critico",
+      "#autor-marx",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Reificação",
+    "como_usar": "Para argumentar que o trabalho humano é tratado como mercadoria, perdendo seu valor social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA03",
+    "eixo": "Trabalho",
+    "citacao": "Dissolveu a dignidade pessoal no valor de troca.",
+    "autor": "Karl Marx e Friedrich Engels",
+    "fonte": "Manifesto Comunista",
+    "ano": "1848",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-introducao",
+      "#tom-critico",
+      "#autor-marx",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Dignidade e mercado",
+    "como_usar": "Para introduzir a crítica à subordinação da dignidade humana às leis do mercado.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA04",
+    "eixo": "Trabalho",
+    "citacao": "O trabalhador se torna servo da natureza.",
+    "autor": "Karl Marx",
+    "fonte": "Manuscritos Econômico-Filosóficos",
+    "ano": "1844",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-filosofica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-marx",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Relação homem-natureza",
+    "como_usar": "Para discutir a alienação do trabalhador em relação ao produto e à natureza.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA05",
+    "eixo": "Trabalho",
+    "citacao": "Todo trabalho é digno.",
+    "autor": "Provérbio popular",
+    "fonte": "Domínio público",
+    "ano": "",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-popular",
+      "#arg-dignidade-humana",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-proverbio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Dignidade do trabalho",
+    "como_usar": "Para concluir que qualquer atividade laboral honesta merece respeito social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA06",
+    "eixo": "Trabalho",
+    "citacao": "O trabalho dignifica o homem.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição humanista",
+    "ano": "",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Valorização do trabalho",
+    "como_usar": "Para sustentar a tese de que o trabalho é fonte de realização e identidade humana.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA07",
+    "eixo": "Trabalho",
+    "citacao": "Sem trabalho não há dignidade.",
+    "autor": "Atribuída a líderes sociais",
+    "fonte": "Discurso",
+    "ano": "",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-popular",
+      "#arg-justica",
+      "#uso-introducao",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Trabalho e cidadania",
+    "como_usar": "Para introduzir a relação entre acesso ao trabalho e cidadania plena.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA08",
+    "eixo": "Trabalho",
+    "citacao": "O desemprego é a negação do direito ao trabalho.",
+    "autor": "Atribuída a economistas",
+    "fonte": "Estudos do trabalho",
+    "ano": "",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-cientifica",
+      "#arg-justica",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direito ao trabalho",
+    "como_usar": "Para argumentar que o desemprego não é apenas um problema econômico, mas uma violação de direitos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA09",
+    "eixo": "Trabalho",
+    "citacao": "A precarização do trabalho é a face moderna da escravidão.",
+    "autor": "Atribuída a sociólogos",
+    "fonte": "Sociologia do trabalho",
+    "ano": "",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-cientifica",
+      "#arg-justica",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Precarização",
+    "como_usar": "Para criticar formas contemporâneas de exploração laboral que se aproximam da servidão.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "TRA10",
+    "eixo": "Trabalho",
+    "citacao": "O futuro do trabalho é a liberdade.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Estudos sobre trabalho",
+    "ano": "",
+    "tags": [
+      "#tema-trabalho",
+      "#tipo-filosofica",
+      "#arg-liberdade",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Libertação pelo trabalho",
+    "como_usar": "Para concluir que o trabalho, quando digno, pode ser um caminho de libertação e não de opressão.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG01",
+    "eixo": "Segurança Pública",
+    "citacao": "Não dá para viver com medo.",
+    "autor": "Thomas Hobbes",
+    "fonte": "Leviatã",
+    "ano": "1651",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-hobbes",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Medo e segurança",
+    "como_usar": "Para sustentar a tese de que a segurança é condição básica para a vida em sociedade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG02",
+    "eixo": "Segurança Pública",
+    "citacao": "A segurança pública, dever do Estado, direito e responsabilidade de todos, é exercida para a preservação da ordem pública e da incolumidade das pessoas e do patrimônio.",
+    "autor": "Constituição Federal de 1988",
+    "fonte": "Art. 144",
+    "ano": "",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-juridica",
+      "#arg-solidariedade",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-constituicao",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Segurança como dever compartilhado",
+    "como_usar": "Para fundamentar a tese de que a segurança é uma responsabilidade compartilhada entre Estado e sociedade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG03",
+    "eixo": "Segurança Pública",
+    "citacao": "Política de segurança que não transforme favelas em campos de guerra.",
+    "autor": "Gilmar Mendes",
+    "fonte": "Discurso",
+    "ano": "2025",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-juridica",
+      "#arg-dignidade-humana",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-gilmar-mendes",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direitos humanos e segurança",
+    "como_usar": "Para criticar abordagens policiais que violam direitos e tratam comunidades como zonas de conflito.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG04",
+    "eixo": "Segurança Pública",
+    "citacao": "A violência vende.",
+    "autor": "Atribuída a críticos da mídia",
+    "fonte": "Análise cultural",
+    "ano": "",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-introducao",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Sensacionalismo",
+    "como_usar": "Para introduzir a crítica ao papel da mídia na espetacularização da violência.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG05",
+    "eixo": "Segurança Pública",
+    "citacao": "O Estado nunca tem que buscar matar os outros. Mas se o Estado é enfrentado, só o Estado tem direito de inclusive acabar com a violência.",
+    "autor": "Eduardo Paes",
+    "fonte": "Entrevista",
+    "ano": "2025",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-historica",
+      "#arg-eficiencia",
+      "#uso-contrargumento",
+      "#tom-formal",
+      "#autor-eduardo-paes",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Monopólio da força",
+    "como_usar": "Para discutir os limites e a legitimidade do uso da força pelo Estado.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG06",
+    "eixo": "Segurança Pública",
+    "citacao": "A segurança é um direito, não um privilégio.",
+    "autor": "Atribuída a juristas",
+    "fonte": "Princípio constitucional",
+    "ano": "",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direito à segurança",
+    "como_usar": "Para sustentar que a segurança deve ser garantida a todos, sem discriminação.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG07",
+    "eixo": "Segurança Pública",
+    "citacao": "Prevenir o crime é melhor que reprimi-lo.",
+    "autor": "Atribuída a criminologistas",
+    "fonte": "Estudos de segurança",
+    "ano": "",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-cientifica",
+      "#arg-prevencao",
+      "#uso-desenvolvimento",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Prevenção",
+    "como_usar": "Para argumentar que o investimento em prevenção é mais eficaz que a repressão.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG08",
+    "eixo": "Segurança Pública",
+    "citacao": "A impunidade é o maior incentivo ao crime.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição jurídica",
+    "ano": "",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-conclusao",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Impunidade",
+    "como_usar": "Para concluir que a falta de punição efetiva alimenta a criminalidade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG09",
+    "eixo": "Segurança Pública",
+    "citacao": "A segurança pública não se faz apenas com policiamento, mas com políticas sociais.",
+    "autor": "Atribuída a especialistas",
+    "fonte": "Segurança cidadã",
+    "ano": "",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-cientifica",
+      "#arg-solidariedade",
+      "#uso-tese",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Segurança cidadã",
+    "como_usar": "Para defender uma abordagem intersetorial da segurança, integrada a políticas sociais.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "SEG10",
+    "eixo": "Segurança Pública",
+    "citacao": "O medo não governa; a coragem de enfrentá-lo, sim.",
+    "autor": "Atribuída a líderes comunitários",
+    "fonte": "Discurso",
+    "ano": "",
+    "tags": [
+      "#tema-seguranca-publica",
+      "#tipo-popular",
+      "#arg-participacao",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Coragem cívica",
+    "como_usar": "Para concluir com uma mensagem de superação do medo e engajamento comunitário.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF01",
+    "eixo": "Infância e Juventude",
+    "citacao": "O adolescente pretende inserir-se na sociedade dos adultos por meio de projetos, de programas de vida.",
+    "autor": "Jean Piaget",
+    "fonte": "Seis Estudos de Psicologia",
+    "ano": "1999",
+    "pagina": "p. 63",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-piaget",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Projeto de vida",
+    "como_usar": "Para argumentar que a juventude é a fase de construção de projetos e inserção social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF02",
+    "eixo": "Infância e Juventude",
+    "citacao": "É necessário estabelecer entre as crianças, sobretudo nos adolescentes, relações sociais, apelar para a sua atividade e para sua responsabilidade.",
+    "autor": "Jean Piaget",
+    "fonte": "Para Onde Vai a Educação?",
+    "ano": "1948",
+    "pagina": "p. 36",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-piaget",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Responsabilidade",
+    "como_usar": "Para sustentar a tese de que a educação deve promover a autonomia e a responsabilidade desde cedo.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF03",
+    "eixo": "Infância e Juventude",
+    "citacao": "A autonomia só aparece com a reciprocidade.",
+    "autor": "Jean Piaget",
+    "fonte": "O Juízo Moral na Criança",
+    "ano": "1932",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-cientifica",
+      "#arg-solidariedade",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-piaget",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Autonomia moral",
+    "como_usar": "Para discutir a importância das relações de respeito mútuo no desenvolvimento infantil.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF04",
+    "eixo": "Infância e Juventude",
+    "citacao": "O eu é forte bastante para reconstruir o Universo.",
+    "autor": "Jean Piaget",
+    "fonte": "Seis Estudos de Psicologia",
+    "ano": "1999",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-piaget",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Potencial juvenil",
+    "como_usar": "Para introduzir a ideia do enorme potencial transformador da juventude.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF05",
+    "eixo": "Infância e Juventude",
+    "citacao": "É dever da família, da comunidade, da sociedade em geral e do poder público assegurar, com absoluta prioridade, a efetivação dos direitos referentes à vida, à saúde, à alimentação, à educação, ao esporte, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária.",
+    "autor": "Estatuto da Criança e do Adolescente (ECA)",
+    "fonte": "Art. 4º",
+    "ano": "1990",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-eca",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Proteção integral",
+    "como_usar": "Para fundamentar a tese da prioridade absoluta dos direitos da criança e do adolescente.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF06",
+    "eixo": "Infância e Juventude",
+    "citacao": "A criança é o pai do homem.",
+    "autor": "William Wordsworth",
+    "fonte": "My Heart Leaps Up",
+    "ano": "1802",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-literaria",
+      "#arg-dignidade-humana",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-wordsworth",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Formação humana",
+    "como_usar": "Para concluir que as experiências da infância moldam o adulto que seremos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF07",
+    "eixo": "Infância e Juventude",
+    "citacao": "A juventude é a esperança da humanidade.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição humanista",
+    "ano": "",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-introducao",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Esperança",
+    "como_usar": "Para introduzir a ideia de que os jovens são agentes de transformação futura.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF08",
+    "eixo": "Infância e Juventude",
+    "citacao": "Investir na infância é investir no futuro.",
+    "autor": "Atribuída a organismos internacionais",
+    "fonte": "UNICEF",
+    "ano": "",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-unicef",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Investimento social",
+    "como_usar": "Para argumentar que políticas para a infância são economicamente racionais e socialmente justas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF09",
+    "eixo": "Infância e Juventude",
+    "citacao": "A violência contra a criança é a mais covarde de todas.",
+    "autor": "Atribuída a defensores dos direitos humanos",
+    "fonte": "Discurso",
+    "ano": "",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Proteção",
+    "como_usar": "Para criticar a violência contra crianças e adolescentes como uma violação de sua vulnerabilidade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "INF10",
+    "eixo": "Infância e Juventude",
+    "citacao": "A juventude não é um tempo da vida, é um estado de espírito.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição romântica",
+    "ano": "",
+    "tags": [
+      "#tema-infancia-juventude",
+      "#tipo-filosofica",
+      "#arg-participacao",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Vitalidade",
+    "como_usar": "Para concluir que a juventude é uma postura diante da vida, não apenas uma faixa etária.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO01",
+    "eixo": "Idoso",
+    "citacao": "A velhice é um destino.",
+    "autor": "Simone de Beauvoir",
+    "fonte": "A Velhice",
+    "ano": "1970",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-beauvoir",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Destino inevitável",
+    "como_usar": "Para sustentar a tese de que a velhice é uma condição universal e deve ser encarada com dignidade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO02",
+    "eixo": "Idoso",
+    "citacao": "Os velhos são os outros.",
+    "autor": "Simone de Beauvoir",
+    "fonte": "A Velhice",
+    "ano": "1970",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-filosofica",
+      "#arg-solidariedade",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-beauvoir",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Alteridade",
+    "como_usar": "Para introduzir a reflexão sobre como a sociedade trata o idoso como um “outro” distante.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO03",
+    "eixo": "Idoso",
+    "citacao": "A velhice é um além da minha vida do qual não posso ter nenhuma experiência interior plena.",
+    "autor": "Simone de Beauvoir",
+    "fonte": "A Velhice",
+    "ano": "1970",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-desenvolvimento",
+      "#tom-reflexivo",
+      "#autor-beauvoir",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Limite da experiência",
+    "como_usar": "Para discutir a dificuldade de compreender a velhice enquanto se é jovem.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO04",
+    "eixo": "Idoso",
+    "citacao": "Já bastou de humilhações em torno da velhice.",
+    "autor": "Simone de Beauvoir",
+    "fonte": "Entrevista",
+    "ano": "1970",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-filosofica",
+      "#arg-justica",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-beauvoir",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Combate à discriminação",
+    "como_usar": "Para criticar a cultura de desprezo e invisibilidade dos idosos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO05",
+    "eixo": "Idoso",
+    "citacao": "O idoso goza de todos os direitos fundamentais inerentes à pessoa humana.",
+    "autor": "Estatuto do Idoso",
+    "fonte": "Art. 2º",
+    "ano": "2003",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-estatuto-idoso",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direitos do idoso",
+    "como_usar": "Para fundamentar a tese de que o idoso é sujeito pleno de direitos.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO06",
+    "eixo": "Idoso",
+    "citacao": "A sociedade que não respeita seus idosos não tem futuro.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Tradição humanista",
+    "ano": "",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-filosofica",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Respeito intergeracional",
+    "como_usar": "Para concluir que o respeito aos idosos é condição para uma sociedade justa e sustentável.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO07",
+    "eixo": "Idoso",
+    "citacao": "Envelhecer é a única forma de viver muito.",
+    "autor": "Atribuída a pensadores",
+    "fonte": "Aforismo",
+    "ano": "",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Aceitação da velhice",
+    "como_usar": "Para introduzir uma visão positiva e realista do envelhecimento.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO08",
+    "eixo": "Idoso",
+    "citacao": "A velhice não é uma doença.",
+    "autor": "Organização Mundial da Saúde (OMS)",
+    "fonte": "Conceito de envelhecimento ativo",
+    "ano": "",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-oms",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Envelhecimento ativo",
+    "como_usar": "Para argumentar que a velhice deve ser vista como uma fase da vida, não como patologia.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO09",
+    "eixo": "Idoso",
+    "citacao": "O idoso precisa de cuidados, mas também de autonomia.",
+    "autor": "Atribuída a gerontólogos",
+    "fonte": "Estudos do envelhecimento",
+    "ano": "",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Autonomia",
+    "como_usar": "Para defender um modelo de cuidado que respeite a independência do idoso.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "IDO10",
+    "eixo": "Idoso",
+    "citacao": "A melhor forma de envelhecer é continuar aprendendo.",
+    "autor": "Atribuída a educadores",
+    "fonte": "Educação continuada",
+    "ano": "",
+    "tags": [
+      "#tema-idoso",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Aprendizagem ao longo da vida",
+    "como_usar": "Para concluir que a educação é um direito que não termina com a idade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD01",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "Deficiente é aquele que não consegue modificar sua vida, aceitando as imposições de outras pessoas.",
+    "autor": "Mário Quintana",
+    "fonte": "Atribuída em textos",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-literaria",
+      "#arg-participacao",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-mario-quintana",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Deficiência e acomodação",
+    "como_usar": "Para introduzir uma reflexão sobre a deficiência como falta de protagonismo, não apenas física.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD02",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "A deficiência se torna paradigma da condição humana.",
+    "autor": "Dom Demétrio Valentini",
+    "fonte": "Texto “Deficiência e Plenitude”",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-filosofica",
+      "#arg-dignidade-humana",
+      "#uso-tese",
+      "#tom-reflexivo",
+      "#autor-dom-demetrio",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Condição humana",
+    "como_usar": "Para sustentar que a deficiência revela a vulnerabilidade e a grandeza de todo ser humano.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD03",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "Toda pessoa com deficiência tem direito à igualdade de oportunidades com as demais pessoas.",
+    "autor": "Lei Brasileira de Inclusão (LBI)",
+    "fonte": "Art. 4º",
+    "ano": "2015",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-juridica",
+      "#arg-igualdade",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-lbi",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Igualdade de oportunidades",
+    "como_usar": "Para fundamentar a tese da inclusão como um direito legal.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD04",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "Ninguém caminha sozinho.",
+    "autor": "Atribuída a defensores da inclusão",
+    "fonte": "Discurso",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-popular",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Suporte",
+    "como_usar": "Para concluir que a inclusão exige suporte e solidariedade social.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD05",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "O melhor e mais belo que existe no mundo não pode ser visto nem tocado, mas é sentido no coração.",
+    "autor": "Helen Keller",
+    "fonte": "A História da Minha Vida",
+    "ano": "1903",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-literaria",
+      "#arg-dignidade-humana",
+      "#uso-introducao",
+      "#tom-reflexivo",
+      "#autor-helen-keller",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Percepção além dos sentidos",
+    "como_usar": "Para introduzir uma visão sensível e ampla da experiência humana para além das limitações físicas.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD06",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "A inclusão não é um favor, é um direito.",
+    "autor": "Atribuída a ativistas",
+    "fonte": "Movimento das pessoas com deficiência",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-juridica",
+      "#arg-justica",
+      "#uso-desenvolvimento",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Direito à inclusão",
+    "como_usar": "Para argumentar que a inclusão é uma obrigação legal e ética, não caridade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD07",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "A acessibilidade é a ponte entre a deficiência e a participação.",
+    "autor": "Atribuída a arquitetos e urbanistas",
+    "fonte": "Estudos de acessibilidade",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-cientifica",
+      "#arg-eficiencia",
+      "#uso-tese",
+      "#tom-formal",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Acessibilidade",
+    "como_usar": "Para sustentar que a falta de acessibilidade é a verdadeira barreira à inclusão.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD08",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "A deficiência não está na pessoa, mas no ambiente.",
+    "autor": "Atribuída ao modelo social da deficiência",
+    "fonte": "Paradigma dos direitos humanos",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-cientifica",
+      "#arg-justica",
+      "#uso-contrargumento",
+      "#tom-critico",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Modelo social",
+    "como_usar": "Para contrapor o modelo médico e defender que a sociedade deve se adaptar à diversidade.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD09",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "Ser diferente é normal.",
+    "autor": "Atribuída a educadores",
+    "fonte": "Educação inclusiva",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-popular",
+      "#arg-solidariedade",
+      "#uso-conclusao",
+      "#tom-reflexivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Diversidade",
+    "como_usar": "Para concluir que a diversidade humana é a regra, não a exceção.",
+    "verificacao": "#fonte-confirmada"
+  },
+  {
+    "id": "PCD10",
+    "eixo": "Pessoa com Deficiência",
+    "citacao": "A inclusão começa no mercado de trabalho.",
+    "autor": "Atribuída a defensores da empregabilidade",
+    "fonte": "Movimento da pessoa com deficiência",
+    "ano": "",
+    "tags": [
+      "#tema-pessoa-com-deficiencia",
+      "#tipo-cientifica",
+      "#arg-participacao",
+      "#uso-desenvolvimento",
+      "#tom-propositivo",
+      "#autor-generico",
+      "#fonte-confirmada"
+    ],
+    "tema_principal": "Inclusão produtiva",
+    "como_usar": "Para argumentar que o trabalho é uma via fundamental de inclusão social.",
+    "verificacao": "#fonte-confirmada"
+  }
+]
