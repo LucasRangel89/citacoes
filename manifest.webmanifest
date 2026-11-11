@@ -1,0 +1,19 @@
+{
+  "name": "Banco de Citações — Painel de Repertório",
+  "short_name": "Citações",
+  "description": "Painel interativo de repertório sociocultural para redação, treinos e simulados.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ec",
+  "theme_color": "#1d3557",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

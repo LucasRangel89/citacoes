@@ -1,12 +1,15 @@
-name: Validar Base de Citações
+name: Validar e Sincronizar Base de Citações
 
 on:
   push:
     branches: ["main", "master"]
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
-  validate:
+  validate-and-sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório
@@ -17,5 +20,22 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Validar citacoes.json
-        run: node scripts/validate.mjs
+      - name: Sincronizar dados/*.md para citacoes.json (em push na main)
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        run: node scripts/sync-markdown.mjs
+
+      - name: Validar citacoes.json e sincronismo com Markdown
+        run: node scripts/validate.mjs --check-sync
+
+      - name: Publicar atualização de citacoes.json se houver mudanças
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        run: |
+          if ! git diff --quiet citacoes.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add citacoes.json
+            git commit -m "chore: sincronizar citacoes.json a partir de dados/*.md"
+            git push
+          else
+            echo "citacoes.json já está atualizado."
+          fi

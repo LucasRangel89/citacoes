@@ -7,7 +7,35 @@
     view: "citacoes_view_v1",
     copyFormat: "citacoes_copy_format_v1",
     drafts: "citacoes_rascunhos_v1",
+    srs: "citacoes_srs_v1",
+    mesa: "citacoes_mesa_v1",
   };
+
+  const MESA_SLOTS = [
+    { key: "intro", label: "Introdução", hint: "Contextualização e abertura do tema" },
+    { key: "d1", label: "Desenvolvimento 1", hint: "Tese e primeiro eixo argumentativo" },
+    { key: "d2", label: "Desenvolvimento 2", hint: "Segundo argumento ou contrargumento" },
+    { key: "conc", label: "Conclusão", hint: "Síntese e proposta de intervenção" },
+  ];
+
+  const CHALLENGE_PROMPTS = [
+    "Desafios da saúde mental e o esgotamento profissional no Brasil contemporâneo",
+    "Caminhos para combater o etarismo e assegurar o envelhecimento digno no Brasil",
+    "Capitalismo de vigilância, algoritmos e proteção de dados na democracia",
+    "Invisibilidade periférica e desafios para erradicar a insegurança alimentar",
+    "Acessibilidade urbana, digital e o combate ao capacitismo na sociedade brasileira",
+    "Os limites éticos da inteligência artificial no mercado de trabalho",
+    "Desastres socioambientais e justiça climática diante dos limites planetários",
+    "O papel da escola pública e da educação crítica na redução das desigualdades",
+    "Uberização do trabalho e proteção social na era das plataformas digitais",
+    "Segurança pública cidadã e os desafios do sistema prisional brasileiro",
+    "A persistência da violência contra crianças e adolescentes no Brasil",
+    "Democratização do acesso à cultura e combate à intolerância no Brasil",
+    "Transparência pública, impessoalidade e enfrentamento ao patrimonialismo no Estado",
+    "Desinformação, esfera pública e preservação da democracia participativa",
+    "Efetivação dos direitos humanos diante do racismo estrutural no Brasil",
+    "Inclusão produtiva e garantia de autonomia para a pessoa idosa e com deficiência",
+  ];
 
   const TAG_LABELS = {
     "#uso-introducao": "Introdução",
@@ -67,7 +95,22 @@
     favorites: new Set(),
     copyFormat: "citation-author",
 
+    srs: {},
+    mesa: {
+      theme: "",
+      slots: { intro: null, d1: null, d2: null, conc: null },
+    },
+
+    challenge: {
+      active: false,
+      running: false,
+      secondsLeft: 300,
+      intervalId: null,
+      prompt: "",
+    },
+
     flashcards: {
+      sourceMode: "filtered",
       deck: [],
       index: 0,
       revealed: false,
@@ -81,13 +124,28 @@
   function cacheDom() {
     const ids = [
       "poolBadge",
+      "offlineBadge",
       "btnFavoritesFilter",
       "favoritesCount",
+      "btnOpenMesa",
+      "mesaCount",
+      "btnToggleChallenge",
       "btnStartFlashcards",
+      "srsDueHeaderCount",
+      "btnOpenProgress",
       "btnOpenNewModal",
       "btnOpenExportModal",
       "btnThemeToggle",
       "themeIcon",
+      "challengeBar",
+      "challengePromptInput",
+      "btnDrawPrompt",
+      "challengeClock",
+      "btnTimerToggle",
+      "btnTimerAddMin",
+      "btnTimerReset",
+      "btnFinishChallenge",
+      "btnCloseChallenge",
       "searchInput",
       "btnClearSearch",
       "btnToggleFilters",
@@ -102,6 +160,7 @@
       "sortOrder",
       "activeFiltersBar",
       "activeFiltersList",
+      "btnCopyFilterLink",
       "btnClearAllFilters",
       "resultsCounter",
       "toggleSimulado",
@@ -120,8 +179,16 @@
       "emptyState",
       "btnResetFromEmpty",
       "toast",
+      "mesaDrawer",
+      "btnCloseMesa",
+      "mesaThemeInput",
+      "mesaSlots",
+      "btnClearMesa",
+      "btnDownloadMesa",
+      "btnCopyMesa",
       "flashcardModal",
       "flashcardDeckInfo",
+      "fcDeckSource",
       "btnShuffleDeck",
       "btnCloseFlashcards",
       "fcProgressLabel",
@@ -131,11 +198,13 @@
       "fcStage",
       "fcId",
       "fcAxis",
+      "fcSrsInfo",
       "fcQuote",
       "fcTags",
       "fcAnswer",
       "fcAuthor",
       "fcSource",
+      "fcConcept",
       "fcTheme",
       "fcHowToUse",
       "btnFcReveal",
@@ -148,19 +217,35 @@
       "btnFcRetryWrong",
       "btnFcRestart",
       "btnFcFinish",
+      "progressModal",
+      "btnCloseProgress",
+      "btnCloseProgressFooter",
+      "progressKpis",
+      "progressAxesList",
+      "btnResetSrs",
+      "btnTrainDueFromProgress",
       "exportModal",
       "btnCloseExport",
+      "tabExportQuotes",
+      "tabUserBackup",
+      "panelExportQuotes",
+      "panelUserBackup",
       "exportScope",
       "exportFormat",
       "exportPreview",
       "btnCopyExport",
       "btnDownloadExport",
+      "backupSummary",
+      "btnDownloadBackup",
+      "backupMergeMode",
+      "backupFileInput",
       "newQuoteModal",
       "btnCloseNewQuote",
       "newQuoteForm",
       "nqId",
       "nqEixo",
       "eixosDatalist",
+      "nqConceito",
       "nqCitacao",
       "nqAutor",
       "nqFonte",
@@ -196,7 +281,7 @@
 
   function formatTagLabel(tag) {
     if (TAG_LABELS[tag]) return TAG_LABELS[tag];
-    const clean = tag.replace(/^#(tema|tipo|arg|uso|tom|autor|fonte)-/, "");
+    const clean = tag.replace(/^#(tema|tipo|arg|uso|tom|autor|fonte|verificar)-/, "");
     return clean
       .split("-")
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -221,12 +306,11 @@
     return parts.join(" ");
   }
 
+  /* Preferences & Persistent Stores */
   function loadPreferences() {
     try {
       const savedFavs = JSON.parse(localStorage.getItem(STORAGE_KEYS.favorites) || "[]");
-      if (Array.isArray(savedFavs)) {
-        state.favorites = new Set(savedFavs);
-      }
+      if (Array.isArray(savedFavs)) state.favorites = new Set(savedFavs);
     } catch {
       state.favorites = new Set();
     }
@@ -238,6 +322,30 @@
       }
     } catch {
       state.draftQuotes = [];
+    }
+
+    try {
+      const savedSrs = JSON.parse(localStorage.getItem(STORAGE_KEYS.srs) || "{}");
+      if (savedSrs && typeof savedSrs === "object") state.srs = savedSrs;
+    } catch {
+      state.srs = {};
+    }
+
+    try {
+      const savedMesa = JSON.parse(localStorage.getItem(STORAGE_KEYS.mesa) || "null");
+      if (savedMesa && typeof savedMesa === "object") {
+        state.mesa = {
+          theme: String(savedMesa.theme || ""),
+          slots: {
+            intro: savedMesa.slots?.intro || null,
+            d1: savedMesa.slots?.d1 || null,
+            d2: savedMesa.slots?.d2 || null,
+            conc: savedMesa.slots?.conc || null,
+          },
+        };
+      }
+    } catch {
+      state.mesa = { theme: "", slots: { intro: null, d1: null, d2: null, conc: null } };
     }
 
     const savedView = localStorage.getItem(STORAGE_KEYS.view);
@@ -257,12 +365,65 @@
     applyTheme(savedTheme || (prefersDark ? "dark" : "light"), false);
   }
 
+  function applyUrlParams() {
+    if (!window.location || !window.location.search) return;
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has("q")) {
+      state.search = params.get("q") || "";
+      dom.searchInput.value = state.search;
+      dom.btnClearSearch.hidden = state.search.length === 0;
+    }
+    if (params.has("eixo")) state.eixo = params.get("eixo") || "";
+    if (params.has("uso")) state.uso = params.get("uso") || "";
+    if (params.has("tipo")) state.tipo = params.get("tipo") || "";
+    if (params.has("arg")) state.arg = params.get("arg") || "";
+    if (params.has("tom")) state.tom = params.get("tom") || "";
+    if (params.has("autor")) state.autor = params.get("autor") || "";
+    if (params.has("verif")) state.verificacao = params.get("verif") || "";
+    if (params.has("tag")) state.extraTag = params.get("tag") || "";
+    if (params.get("fav") === "1") state.onlyFavorites = true;
+    if (params.get("simulado") === "1") {
+      state.simulado = true;
+      dom.toggleSimulado.checked = true;
+      dom.simuladoBanner.hidden = false;
+    }
+    if (params.get("view") === "table" || params.get("view") === "cards") {
+      state.view = params.get("view");
+    }
+    if (params.has("sort")) {
+      state.sortOrder = params.get("sort") || "default";
+      dom.sortOrder.value = state.sortOrder;
+    }
+  }
+
+  function syncUrlParams() {
+    if (!window.history || !window.history.replaceState || !window.location) return;
+    const params = new URLSearchParams();
+
+    if (state.search.trim()) params.set("q", state.search.trim());
+    if (state.eixo) params.set("eixo", state.eixo);
+    if (state.uso) params.set("uso", state.uso);
+    if (state.tipo) params.set("tipo", state.tipo);
+    if (state.arg) params.set("arg", state.arg);
+    if (state.tom) params.set("tom", state.tom);
+    if (state.autor) params.set("autor", state.autor);
+    if (state.verificacao) params.set("verif", state.verificacao);
+    if (state.extraTag) params.set("tag", state.extraTag);
+    if (state.onlyFavorites) params.set("fav", "1");
+    if (state.simulado) params.set("simulado", "1");
+    if (state.view !== "cards") params.set("view", state.view);
+    if (state.sortOrder !== "default") params.set("sort", state.sortOrder);
+
+    const qs = params.toString();
+    const newUrl = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+    window.history.replaceState(null, "", newUrl);
+  }
+
   function applyTheme(theme, persist = true) {
     document.documentElement.setAttribute("data-theme", theme);
     dom.themeIcon.textContent = theme === "dark" ? "☀" : "☾";
-    if (persist) {
-      localStorage.setItem(STORAGE_KEYS.theme, theme);
-    }
+    if (persist) localStorage.setItem(STORAGE_KEYS.theme, theme);
   }
 
   function saveFavorites() {
@@ -272,6 +433,14 @@
   function saveDrafts() {
     const clean = state.draftQuotes.map(({ _isDraft, ...rest }) => rest);
     localStorage.setItem(STORAGE_KEYS.drafts, JSON.stringify(clean));
+  }
+
+  function saveSrs() {
+    localStorage.setItem(STORAGE_KEYS.srs, JSON.stringify(state.srs));
+  }
+
+  function saveMesa() {
+    localStorage.setItem(STORAGE_KEYS.mesa, JSON.stringify(state.mesa));
   }
 
   let toastTimer = null;
@@ -284,9 +453,9 @@
     }, 2600);
   }
 
-  function copyToClipboard(text, buttonEl = null) {
+  function copyToClipboard(text, buttonEl = null, customMessage = "Copiado para a área de transferência!") {
     const finish = () => {
-      showToast("Copiado para a área de transferência!");
+      showToast(customMessage);
       if (buttonEl) {
         const original = buttonEl.textContent;
         buttonEl.textContent = "✓ Copiado";
@@ -328,9 +497,16 @@
       return `“${q.citacao}”`;
     }
     if (state.copyFormat === "full") {
-      return `“${q.citacao}” — ${q.autor}${sourceText ? ` (${sourceText})` : ""}\nTema: ${q.tema_principal}\nComo usar: ${q.como_usar}`;
+      return `“${q.citacao}” — ${q.autor}${sourceText ? ` (${sourceText})` : ""}\nConceito-chave: ${q.conceito_chave || q.tema_principal}\nComo usar: ${q.como_usar}`;
     }
     return `“${q.citacao}” — ${q.autor}${sourceText ? ` (${sourceText})` : ""}`;
+  }
+
+  /* Data Normalization */
+  function inferEixoFromTags(tags) {
+    if (!Array.isArray(tags)) return "";
+    const t = tags.find((tag) => tag.startsWith("#tema-"));
+    return t ? formatTagLabel(t) : "";
   }
 
   function normalizeQuoteRecord(item, index) {
@@ -338,10 +514,11 @@
       id: String(item.id || `CIT${index + 1}`),
       eixo: String(item.eixo || inferEixoFromTags(item.tags) || "Geral"),
       citacao: String(item.citacao || ""),
-      autor: String(item.autor || "Autor desconhecido"),
+      autor: String(item.autor || "Autor"),
       fonte: String(item.fonte || ""),
       ano: item.ano != null ? String(item.ano) : "",
       pagina: item.pagina != null ? String(item.pagina) : "",
+      conceito_chave: String(item.conceito_chave || item.tema_principal || ""),
       tags: Array.isArray(item.tags) ? item.tags.map(String) : [],
       tema_principal: String(item.tema_principal || ""),
       como_usar: String(item.como_usar || ""),
@@ -349,12 +526,6 @@
       _isDraft: Boolean(item._isDraft),
       _order: index,
     };
-  }
-
-  function inferEixoFromTags(tags) {
-    if (!Array.isArray(tags)) return "";
-    const t = tags.find((tag) => tag.startsWith("#tema-"));
-    return t ? formatTagLabel(t) : "";
   }
 
   function mergeAndIndexQuotes(rawArray) {
@@ -375,6 +546,7 @@
           q.autor,
           q.fonte,
           q.ano,
+          q.conceito_chave,
           q.tema_principal,
           q.como_usar,
           q.tags.join(" "),
@@ -387,9 +559,68 @@
     renderAxesStrip();
     updatePoolBadge();
     updateFavoritesBadge();
+    updateSrsBadges();
+    updateMesaBadge();
     applyFilters();
   }
 
+  /* SRS Logic */
+  function getSrsStatus(id) {
+    const rec = state.srs[id];
+    if (!rec) return "new";
+    if (rec.lastResult === "review") return "due";
+    if (rec.nextReviewAt && rec.nextReviewAt <= Date.now()) return "due";
+    return "known";
+  }
+
+  function recordSrsReview(id, isKnown) {
+    const now = Date.now();
+    const prev = state.srs[id] || { reps: 0, lapses: 0, intervalDays: 0 };
+
+    let next;
+    if (isKnown) {
+      const reps = (prev.reps || 0) + 1;
+      let intervalDays = 1;
+      if (reps === 2) intervalDays = 3;
+      else if (reps === 3) intervalDays = 7;
+      else if (reps > 3) intervalDays = Math.min(60, Math.round((prev.intervalDays || 7) * 2));
+
+      next = {
+        reps,
+        lapses: prev.lapses || 0,
+        intervalDays,
+        lastResult: "known",
+        lastReviewedAt: now,
+        nextReviewAt: now + intervalDays * 86400000,
+      };
+    } else {
+      next = {
+        reps: 0,
+        lapses: (prev.lapses || 0) + 1,
+        intervalDays: 0,
+        lastResult: "review",
+        lastReviewedAt: now,
+        nextReviewAt: now,
+      };
+    }
+
+    state.srs[id] = next;
+    saveSrs();
+    updateSrsBadges();
+    return next;
+  }
+
+  function getDueQuotes() {
+    return state.allQuotes.filter((q) => getSrsStatus(q.id) === "due");
+  }
+
+  function updateSrsBadges() {
+    const dueCount = getDueQuotes().length;
+    dom.srsDueHeaderCount.textContent = String(dueCount);
+    dom.srsDueHeaderCount.hidden = dueCount === 0;
+  }
+
+  /* Badges & Facets */
   function updatePoolBadge() {
     const eixosCount = new Set(state.allQuotes.map((q) => q.eixo)).size;
     dom.poolBadge.textContent = `${state.allQuotes.length} citações · ${eixosCount} eixos`;
@@ -401,13 +632,16 @@
     dom.btnFavoritesFilter.setAttribute("aria-pressed", String(state.onlyFavorites));
   }
 
+  function updateMesaBadge() {
+    const filled = MESA_SLOTS.filter((s) => Boolean(state.mesa.slots[s.key])).length;
+    dom.mesaCount.textContent = `${filled}/4`;
+  }
+
   function buildTagFacetCounts(prefix) {
     const counts = new Map();
     for (const q of state.allQuotes) {
       for (const tag of q.tags) {
-        if (tag.startsWith(prefix)) {
-          counts.set(tag, (counts.get(tag) || 0) + 1);
-        }
+        if (tag.startsWith(prefix)) counts.set(tag, (counts.get(tag) || 0) + 1);
       }
     }
     return [...counts.entries()].sort((a, b) =>
@@ -500,6 +734,7 @@
     }
   }
 
+  /* Filtering & Sorting */
   function applyFilters() {
     const queryNorm = normalizeText(state.search.trim());
     const terms = queryNorm ? queryNorm.split(/\s+/).filter(Boolean) : [];
@@ -528,6 +763,7 @@
     results = sortQuotes(results);
     state.filteredQuotes = results;
 
+    syncUrlParams();
     renderAxesStrip();
     renderActiveFilters();
     renderResultsCounter();
@@ -555,6 +791,11 @@
     }
 
     switch (state.sortOrder) {
+      case "srs-due": {
+        const rank = { due: 0, new: 1, known: 2 };
+        arr.sort((a, b) => rank[getSrsStatus(a.id)] - rank[getSrsStatus(b.id)] || a._order - b._order);
+        break;
+      }
       case "author":
         arr.sort((a, b) => a.autor.localeCompare(b.autor, "pt-BR") || a._order - b._order);
         break;
@@ -660,6 +901,7 @@
         : `Exibindo ${shown} de ${total} citações`;
   }
 
+  /* Safe DOM Highlighting */
   function appendHighlightedText(parentEl, text, rawQuery) {
     const cleanText = String(text || "");
     const q = normalizeText(rawQuery.trim());
@@ -729,6 +971,7 @@
     }
   }
 
+  /* Tags & Mesa Helpers */
   function handleTagClick(tag) {
     if (tag.startsWith("#uso-")) {
       state.uso = state.uso === tag ? "" : tag;
@@ -796,16 +1039,52 @@
   }
 
   function toggleFavorite(id) {
-    if (state.favorites.has(id)) {
-      state.favorites.delete(id);
-    } else {
-      state.favorites.add(id);
-    }
+    if (state.favorites.has(id)) state.favorites.delete(id);
+    else state.favorites.add(id);
     saveFavorites();
     updateFavoritesBadge();
     applyFilters();
   }
 
+  function findQuoteSlotInMesa(id) {
+    for (const s of MESA_SLOTS) {
+      if (state.mesa.slots[s.key] === id) return s.key;
+    }
+    return null;
+  }
+
+  function inferPreferredSlot(q) {
+    if (q.tags.includes("#uso-introducao") && !state.mesa.slots.intro) return "intro";
+    if ((q.tags.includes("#uso-tese") || q.tags.includes("#uso-desenvolvimento")) && !state.mesa.slots.d1) return "d1";
+    if (q.tags.includes("#uso-contrargumento") && !state.mesa.slots.d2) return "d2";
+    if (q.tags.includes("#uso-conclusao") && !state.mesa.slots.conc) return "conc";
+    const firstEmpty = MESA_SLOTS.find((s) => !state.mesa.slots[s.key]);
+    return firstEmpty ? firstEmpty.key : "d1";
+  }
+
+  function toggleMesaQuote(q) {
+    const existingSlot = findQuoteSlotInMesa(q.id);
+    if (existingSlot) {
+      state.mesa.slots[existingSlot] = null;
+      saveMesa();
+      updateMesaBadge();
+      renderResults();
+      if (!dom.mesaDrawer.hidden) renderMesaDrawer();
+      showToast(`${q.id} removida da Mesa de Redação.`);
+      return;
+    }
+
+    const targetSlot = inferPreferredSlot(q);
+    state.mesa.slots[targetSlot] = q.id;
+    saveMesa();
+    updateMesaBadge();
+    renderResults();
+    if (!dom.mesaDrawer.hidden) renderMesaDrawer();
+    const slotLabel = MESA_SLOTS.find((s) => s.key === targetSlot)?.label || targetSlot;
+    showToast(`${q.id} adicionada à Mesa (${slotLabel})!`);
+  }
+
+  /* Render Views */
   function renderResults() {
     const list = state.filteredQuotes;
     const isEmpty = list.length === 0 && state.allQuotes.length > 0;
@@ -836,6 +1115,8 @@
       const card = document.createElement("article");
       card.className = "quote-card";
 
+      const hiddenBySimulado = state.simulado && !state.revealedIds.has(q.id);
+
       const top = document.createElement("div");
       top.className = "card-top";
 
@@ -865,6 +1146,21 @@
         metaLeft.appendChild(draftBadge);
       }
 
+      if (!hiddenBySimulado) {
+        const srsStatus = getSrsStatus(q.id);
+        if (srsStatus === "known") {
+          const srsBadge = document.createElement("span");
+          srsBadge.className = "srs-pill is-known";
+          srsBadge.textContent = "✓ Dominada";
+          metaLeft.appendChild(srsBadge);
+        } else if (srsStatus === "due") {
+          const srsBadge = document.createElement("span");
+          srsBadge.className = "srs-pill is-review";
+          srsBadge.textContent = "↻ Revisar";
+          metaLeft.appendChild(srsBadge);
+        }
+      }
+
       const verifSpan = document.createElement("span");
       const isConfirmed = q.verificacao === "#fonte-confirmada";
       verifSpan.className = `verif-badge ${isConfirmed ? "verif-confirmed" : "verif-pending"}`;
@@ -884,6 +1180,14 @@
       favBtn.title = isFav ? "Remover dos favoritos" : "Favoritar citação";
       favBtn.addEventListener("click", () => toggleFavorite(q.id));
 
+      const mesaSlotKey = findQuoteSlotInMesa(q.id);
+      const mesaBtn = document.createElement("button");
+      mesaBtn.type = "button";
+      mesaBtn.className = `btn btn-secondary btn-mesa${mesaSlotKey ? " is-in-mesa" : ""}`;
+      mesaBtn.textContent = mesaSlotKey ? `✓ Mesa (${mesaSlotKey.toUpperCase()})` : "+ Mesa";
+      mesaBtn.title = mesaSlotKey ? "Remover da Mesa de Redação" : "Adicionar à Mesa de Redação";
+      mesaBtn.addEventListener("click", () => toggleMesaQuote(q));
+
       const copyBtn = document.createElement("button");
       copyBtn.type = "button";
       copyBtn.className = "btn btn-secondary btn-copy";
@@ -891,6 +1195,7 @@
       copyBtn.addEventListener("click", () => copyToClipboard(formatQuoteForCopy(q), copyBtn));
 
       actions.appendChild(favBtn);
+      actions.appendChild(mesaBtn);
       actions.appendChild(copyBtn);
       top.appendChild(metaLeft);
       top.appendChild(actions);
@@ -903,14 +1208,12 @@
       blockquote.appendChild(document.createTextNode("”"));
       card.appendChild(blockquote);
 
-      const hiddenBySimulado = state.simulado && !state.revealedIds.has(q.id);
-
       if (hiddenBySimulado) {
         const hiddenBox = document.createElement("div");
         hiddenBox.className = "simulado-hidden-box";
 
         const label = document.createElement("span");
-        label.textContent = "Autor, fonte e uso na redação ocultos no Modo Simulado.";
+        label.textContent = "Autor, fonte, conceito e uso na redação ocultos no Modo Simulado.";
 
         const revealBtn = document.createElement("button");
         revealBtn.type = "button";
@@ -969,15 +1272,26 @@
         const usageBox = document.createElement("div");
         usageBox.className = "usage-box";
 
+        const usageHeader = document.createElement("div");
+        usageHeader.className = "usage-header";
+
         const themeDiv = document.createElement("div");
         themeDiv.className = "usage-theme";
         appendHighlightedText(themeDiv, q.tema_principal, state.search);
+        usageHeader.appendChild(themeDiv);
+
+        if (q.conceito_chave) {
+          const conceptSpan = document.createElement("span");
+          conceptSpan.className = "concept-pill";
+          appendHighlightedText(conceptSpan, q.conceito_chave, state.search);
+          usageHeader.appendChild(conceptSpan);
+        }
 
         const descP = document.createElement("p");
         descP.className = "usage-desc";
         appendHighlightedText(descP, q.como_usar, state.search);
 
-        usageBox.appendChild(themeDiv);
+        usageBox.appendChild(usageHeader);
         usageBox.appendChild(descP);
         card.appendChild(usageBox);
       }
@@ -1062,16 +1376,16 @@
       }
       tr.appendChild(tdSource);
 
-      const tdTheme = document.createElement("td");
+      const tdConcept = document.createElement("td");
       if (hiddenBySimulado) {
         const note = document.createElement("span");
         note.className = "hidden-cell-note";
         note.textContent = "[Oculto]";
-        tdTheme.appendChild(note);
+        tdConcept.appendChild(note);
       } else {
-        appendHighlightedText(tdTheme, q.tema_principal, state.search);
+        appendHighlightedText(tdConcept, q.conceito_chave || q.tema_principal, state.search);
       }
-      tr.appendChild(tdTheme);
+      tr.appendChild(tdConcept);
 
       const tdUsage = document.createElement("td");
       tdUsage.className = "table-usage-cell";
@@ -1115,6 +1429,13 @@
       favBtn.setAttribute("aria-label", isFav ? "Remover dos favoritos" : "Favoritar");
       favBtn.addEventListener("click", () => toggleFavorite(q.id));
 
+      const mesaSlotKey = findQuoteSlotInMesa(q.id);
+      const mesaBtn = document.createElement("button");
+      mesaBtn.type = "button";
+      mesaBtn.className = `btn btn-secondary btn-mesa${mesaSlotKey ? " is-in-mesa" : ""}`;
+      mesaBtn.textContent = mesaSlotKey ? `✓ ${mesaSlotKey.toUpperCase()}` : "+ Mesa";
+      mesaBtn.addEventListener("click", () => toggleMesaQuote(q));
+
       const copyBtn = document.createElement("button");
       copyBtn.type = "button";
       copyBtn.className = "btn btn-secondary btn-copy";
@@ -1122,6 +1443,7 @@
       copyBtn.addEventListener("click", () => copyToClipboard(formatQuoteForCopy(q), copyBtn));
 
       actionsWrap.appendChild(favBtn);
+      actionsWrap.appendChild(mesaBtn);
       actionsWrap.appendChild(copyBtn);
       tdActions.appendChild(actionsWrap);
       tr.appendChild(tdActions);
@@ -1132,7 +1454,169 @@
     dom.tableBody.appendChild(frag);
   }
 
-  /* Flashcards Modal */
+  /* Mesa de Redação Drawer */
+  function openMesaDrawer() {
+    dom.mesaThemeInput.value = state.mesa.theme || state.challenge.prompt || "";
+    renderMesaDrawer();
+    dom.mesaDrawer.hidden = false;
+  }
+
+  function getMesaQuotes() {
+    return MESA_SLOTS.map((slot) => {
+      const id = state.mesa.slots[slot.key];
+      const quote = id ? state.allQuotes.find((q) => q.id === id) || null : null;
+      return { slot, quote };
+    });
+  }
+
+  function renderMesaDrawer() {
+    dom.mesaSlots.textContent = "";
+
+    for (const { slot, quote } of getMesaQuotes()) {
+      const card = document.createElement("div");
+      card.className = `mesa-slot-card${quote ? "" : " is-empty"}`;
+
+      const header = document.createElement("div");
+      header.className = "mesa-slot-header";
+
+      const title = document.createElement("span");
+      title.className = "mesa-slot-title";
+      title.textContent = slot.label;
+      header.appendChild(title);
+
+      if (quote) {
+        const controls = document.createElement("div");
+        controls.className = "mesa-slot-controls";
+
+        const moveSelect = document.createElement("select");
+        moveSelect.className = "mesa-slot-select";
+        moveSelect.setAttribute("aria-label", `Mover ${quote.id} para outro parágrafo`);
+        for (const optSlot of MESA_SLOTS) {
+          const opt = document.createElement("option");
+          opt.value = optSlot.key;
+          opt.textContent = optSlot.label;
+          opt.selected = optSlot.key === slot.key;
+          moveSelect.appendChild(opt);
+        }
+        moveSelect.addEventListener("change", (e) => {
+          const destKey = e.target.value;
+          if (destKey === slot.key) return;
+          const displacedId = state.mesa.slots[destKey];
+          state.mesa.slots[destKey] = quote.id;
+          state.mesa.slots[slot.key] = displacedId || null;
+          saveMesa();
+          updateMesaBadge();
+          renderMesaDrawer();
+          renderResults();
+        });
+
+        const removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.className = "btn btn-sm btn-ghost";
+        removeBtn.textContent = "Remover";
+        removeBtn.addEventListener("click", () => {
+          state.mesa.slots[slot.key] = null;
+          saveMesa();
+          updateMesaBadge();
+          renderMesaDrawer();
+          renderResults();
+        });
+
+        controls.appendChild(moveSelect);
+        controls.appendChild(removeBtn);
+        header.appendChild(controls);
+        card.appendChild(header);
+
+        const pQuote = document.createElement("p");
+        pQuote.className = "mesa-slot-quote";
+        pQuote.textContent = `“${quote.citacao}”`;
+        card.appendChild(pQuote);
+
+        const pMeta = document.createElement("div");
+        pMeta.className = "mesa-slot-meta";
+        pMeta.textContent = `${quote.id} · ${quote.autor} (${quote.conceito_chave || quote.tema_principal})`;
+        card.appendChild(pMeta);
+      } else {
+        card.appendChild(header);
+        const hint = document.createElement("p");
+        hint.className = "mesa-empty-hint";
+        hint.textContent = `${slot.hint}. Clique em "+ Mesa" em qualquer citação do painel para preencher.`;
+        card.appendChild(hint);
+      }
+
+      dom.mesaSlots.appendChild(card);
+    }
+  }
+
+  function formatMesaMarkdown() {
+    const theme = dom.mesaThemeInput.value.trim() || state.mesa.theme || "Projeto de Redação";
+    const lines = [`# ${theme}`, ""];
+    for (const { slot, quote } of getMesaQuotes()) {
+      lines.push(`## ${slot.label}`);
+      if (!quote) {
+        lines.push("_Nenhuma citação selecionada._", "");
+        continue;
+      }
+      const src = formatSourceFull(quote);
+      lines.push(`- **Repertório (${quote.id} — ${quote.eixo}):** “${quote.citacao}”`);
+      lines.push(`- **Autor/Fonte:** ${quote.autor}${src ? ` (${src})` : ""}`);
+      lines.push(`- **Conceito-chave:** ${quote.conceito_chave || quote.tema_principal}`);
+      lines.push(`- **Como aplicar:** ${quote.como_usar}`, "");
+    }
+    return lines.join("\n");
+  }
+
+  /* Desafio Cronometrado */
+  function formatClock(totalSeconds) {
+    const mins = Math.floor(totalSeconds / 60);
+    const secs = totalSeconds % 60;
+    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  }
+
+  function updateChallengeClockUi() {
+    const s = state.challenge.secondsLeft;
+    dom.challengeClock.textContent = formatClock(s);
+    dom.challengeClock.classList.toggle("is-urgent", s > 0 && s <= 60);
+    dom.challengeClock.classList.toggle("is-done", s === 0);
+    dom.btnTimerToggle.textContent = state.challenge.running ? "Pausar" : s < 300 && s > 0 ? "Retomar" : "Iniciar";
+  }
+
+  function stopChallengeTimer() {
+    if (state.challenge.intervalId) {
+      clearInterval(state.challenge.intervalId);
+      state.challenge.intervalId = null;
+    }
+    state.challenge.running = false;
+    updateChallengeClockUi();
+  }
+
+  function startChallengeTimer() {
+    if (state.challenge.secondsLeft <= 0) state.challenge.secondsLeft = 300;
+    if (state.challenge.running) return;
+    state.challenge.running = true;
+    updateChallengeClockUi();
+
+    state.challenge.intervalId = setInterval(() => {
+      state.challenge.secondsLeft = Math.max(0, state.challenge.secondsLeft - 1);
+      updateChallengeClockUi();
+      if (state.challenge.secondsLeft === 0) {
+        stopChallengeTimer();
+        showToast("Tempo esgotado! Confira seu projeto na Mesa de Redação.");
+      }
+    }, 1000);
+  }
+
+  function drawChallengePrompt() {
+    const current = state.challenge.prompt;
+    const pool = CHALLENGE_PROMPTS.filter((p) => p !== current);
+    const picked = pool[Math.floor(Math.random() * pool.length)] || CHALLENGE_PROMPTS[0];
+    state.challenge.prompt = picked;
+    dom.challengePromptInput.value = picked;
+    state.mesa.theme = picked;
+    saveMesa();
+  }
+
+  /* Flashcards & SRS */
   function shuffleArray(arr) {
     const copy = [...arr];
     for (let i = copy.length - 1; i > 0; i--) {
@@ -1142,14 +1626,36 @@
     return copy;
   }
 
-  function startFlashcards(customDeck = null) {
-    const source = customDeck || state.filteredQuotes;
-    if (source.length === 0) {
-      showToast("Nenhuma citação selecionada para treinar.");
+  function getSourceQuotesForFlashcards(mode) {
+    if (mode === "due") {
+      const due = getDueQuotes();
+      return due.length > 0 ? due : [];
+    }
+    if (mode === "unseen") {
+      return state.allQuotes.filter((q) => getSrsStatus(q.id) === "new");
+    }
+    return state.filteredQuotes;
+  }
+
+  function startFlashcards(customDeck = null, sourceMode = null) {
+    if (sourceMode) {
+      state.flashcards.sourceMode = sourceMode;
+      dom.fcDeckSource.value = sourceMode;
+    }
+
+    const deckSource = customDeck || getSourceQuotesForFlashcards(state.flashcards.sourceMode);
+    if (deckSource.length === 0) {
+      const emptyMsg =
+        state.flashcards.sourceMode === "due"
+          ? "Nenhuma citação pendente de revisão no momento!"
+          : state.flashcards.sourceMode === "unseen"
+          ? "Você já estudou todas as citações do acervo!"
+          : "Nenhuma citação selecionada para treinar.";
+      showToast(emptyMsg);
       return;
     }
 
-    state.flashcards.deck = shuffleArray(source);
+    state.flashcards.deck = shuffleArray(deckSource);
     state.flashcards.index = 0;
     state.flashcards.revealed = false;
     state.flashcards.knownIds = new Set();
@@ -1178,7 +1684,7 @@
       const known = fc.knownIds.size;
       const review = fc.reviewIds.size;
       const pct = total > 0 ? Math.round((known / total) * 100) : 0;
-      dom.fcSummaryText.textContent = `Você dominou ${known} de ${total} citações (${pct}%) e marcou ${review} para revisão.`;
+      dom.fcSummaryText.textContent = `Você dominou ${known} de ${total} citações (${pct}%) e marcou ${review} para revisão. O cronograma de repetição espaçada (SRS) foi atualizado.`;
       dom.btnFcRetryWrong.hidden = review === 0;
       dom.btnFcRetryWrong.textContent = `Revisar apenas as marcadas (${review})`;
       return;
@@ -1192,11 +1698,29 @@
 
     dom.fcId.textContent = q.id;
     dom.fcAxis.textContent = q.eixo;
+
+    const srsRec = state.srs[q.id];
+    if (srsRec) {
+      const status = getSrsStatus(q.id);
+      dom.fcSrsInfo.hidden = false;
+      dom.fcSrsInfo.className = `srs-pill ${status === "known" ? "is-known" : "is-review"}`;
+      dom.fcSrsInfo.textContent =
+        status === "known"
+          ? `Revisada (${srsRec.reps}x · interv. ${srsRec.intervalDays}d)`
+          : "Pendente de revisão";
+    } else {
+      dom.fcSrsInfo.hidden = true;
+    }
+
     dom.fcQuote.textContent = `“${q.citacao}”`;
 
     dom.fcTags.textContent = "";
     const hintTags = q.tags.filter(
-      (t) => !t.startsWith("#autor-") && !t.startsWith("#fonte-") && !t.startsWith("#verificar-") && !t.startsWith("#tema-")
+      (t) =>
+        !t.startsWith("#autor-") &&
+        !t.startsWith("#fonte-") &&
+        !t.startsWith("#verificar-") &&
+        !t.startsWith("#tema-")
     );
     for (const tag of hintTags) {
       const span = document.createElement("span");
@@ -1207,6 +1731,7 @@
 
     dom.fcAuthor.textContent = q.autor;
     dom.fcSource.textContent = formatSourceFull(q) || "Sem fonte específica";
+    dom.fcConcept.textContent = q.conceito_chave || q.tema_principal;
     dom.fcTheme.textContent = q.tema_principal;
     dom.fcHowToUse.textContent = q.como_usar;
 
@@ -1224,9 +1749,12 @@
     const fc = state.flashcards;
     if (fc.index >= fc.deck.length) return;
     const q = fc.deck[fc.index];
+    const updatedSrs = recordSrsReview(q.id, known);
+
     if (known) {
       fc.knownIds.add(q.id);
       fc.reviewIds.delete(q.id);
+      showToast(`${q.id}: próxima revisão em ${updatedSrs.intervalDays} dia(s).`);
     } else {
       fc.reviewIds.add(q.id);
       fc.knownIds.delete(q.id);
@@ -1234,14 +1762,108 @@
     fc.index += 1;
     fc.revealed = false;
     renderFlashcard();
+    renderResults();
   }
 
-  /* Export Modal */
+  /* Progress & SRS Modal */
+  function renderProgressModal() {
+    let known = 0;
+    let due = 0;
+    let unseen = 0;
+    let totalReps = 0;
+
+    const perAxis = new Map();
+    for (const q of state.allQuotes) {
+      const status = getSrsStatus(q.id);
+      if (status === "known") known += 1;
+      else if (status === "due") due += 1;
+      else unseen += 1;
+
+      const rec = state.srs[q.id];
+      if (rec) totalReps += (rec.reps || 0) + (rec.lapses || 0);
+
+      if (!perAxis.has(q.eixo)) {
+        perAxis.set(q.eixo, { total: 0, known: 0, due: 0, quotes: [] });
+      }
+      const bucket = perAxis.get(q.eixo);
+      bucket.total += 1;
+      if (status === "known") bucket.known += 1;
+      if (status === "due") bucket.due += 1;
+      bucket.quotes.push(q);
+    }
+
+    dom.progressKpis.textContent = "";
+    const kpis = [
+      { value: known, label: "Dominadas em dia" },
+      { value: due, label: "Pendentes de revisão" },
+      { value: unseen, label: "Ainda não estudadas" },
+      { value: totalReps, label: "Revisões registradas" },
+    ];
+    for (const item of kpis) {
+      const card = document.createElement("div");
+      card.className = "kpi-card";
+      const val = document.createElement("span");
+      val.className = "kpi-value";
+      val.textContent = String(item.value);
+      const lbl = document.createElement("span");
+      lbl.className = "kpi-label";
+      lbl.textContent = item.label;
+      card.appendChild(val);
+      card.appendChild(lbl);
+      dom.progressKpis.appendChild(card);
+    }
+
+    dom.progressAxesList.textContent = "";
+    for (const [eixo, bucket] of perAxis.entries()) {
+      const row = document.createElement("div");
+      row.className = "progress-axis-row";
+
+      const info = document.createElement("div");
+      const name = document.createElement("div");
+      name.className = "progress-axis-name";
+      name.textContent = eixo;
+      const meta = document.createElement("div");
+      meta.className = "progress-axis-meta";
+      meta.textContent = `${bucket.known}/${bucket.total} dominadas${bucket.due ? ` · ${bucket.due} revisar` : ""}`;
+      info.appendChild(name);
+      info.appendChild(meta);
+
+      const bar = document.createElement("div");
+      bar.className = "progress-bar";
+      const fill = document.createElement("div");
+      fill.className = "progress-fill";
+      fill.style.width = `${Math.round((bucket.known / bucket.total) * 100)}%`;
+      bar.appendChild(fill);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn btn-sm btn-secondary";
+      btn.textContent = "Treinar eixo";
+      btn.addEventListener("click", () => {
+        dom.progressModal.hidden = true;
+        startFlashcards(bucket.quotes, "filtered");
+      });
+
+      row.appendChild(info);
+      row.appendChild(bar);
+      row.appendChild(btn);
+      dom.progressAxesList.appendChild(row);
+    }
+
+    dom.btnTrainDueFromProgress.disabled = due === 0;
+    dom.btnTrainDueFromProgress.textContent = `Treinar pendentes agora (${due})`;
+  }
+
+  /* Export & Backup Modal */
   function getExportItems() {
-    const scope = dom.exportScope.value;
+    const scope = dom.exportScope.value || "filtered";
     let items;
     if (scope === "favorites") {
       items = state.allQuotes.filter((q) => state.favorites.has(q.id));
+    } else if (scope === "mesa") {
+      items = getMesaQuotes()
+        .map((m) => m.quote)
+        .filter(Boolean);
     } else if (scope === "all") {
       items = state.allQuotes;
     } else {
@@ -1256,14 +1878,14 @@
 
     if (format === "markdown") {
       const lines = [
-        "| ID | Eixo | Citação | Autor | Fonte/Ano | Tags | Tema principal | Como usar na redação | Verificação |",
-        "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |",
+        "| ID | Eixo | Citação | Autor | Fonte/Ano | Conceito-chave | Tags | Tema principal | Como usar na redação | Verificação |",
+        "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |",
       ];
       for (const q of items) {
         const src = formatSourceFull(q) || "-";
         const tags = q.tags.join(" ");
         lines.push(
-          `| ${q.id} | ${q.eixo} | “${q.citacao}” | ${q.autor} | ${src} | ${tags} | ${q.tema_principal} | ${q.como_usar} | ${q.verificacao} |`
+          `| ${q.id} | ${q.eixo} | “${q.citacao}” | ${q.autor} | ${src} | ${q.conceito_chave || q.tema_principal} | ${tags} | ${q.tema_principal} | ${q.como_usar} | ${q.verificacao} |`
         );
       }
       return lines.join("\n");
@@ -1273,7 +1895,7 @@
       return items
         .map((q) => {
           const src = formatSourceFull(q);
-          return `[${q.id} · ${q.eixo}] “${q.citacao}”\nAutor: ${q.autor}${src ? ` — ${src}` : ""}\nTema: ${q.tema_principal}\nComo usar: ${q.como_usar}\nTags: ${q.tags.join(" ")}\n`;
+          return `[${q.id} · ${q.eixo}] “${q.citacao}”\nAutor: ${q.autor}${src ? ` — ${src}` : ""}\nConceito-chave: ${q.conceito_chave || q.tema_principal}\nTema: ${q.tema_principal}\nComo usar: ${q.como_usar}\nTags: ${q.tags.join(" ")}\n`;
         })
         .join("\n----------------------------------------\n\n");
     }
@@ -1283,6 +1905,105 @@
 
   function updateExportPreview() {
     dom.exportPreview.value = formatExportContent();
+  }
+
+  function renderBackupSummary() {
+    const mesaFilled = MESA_SLOTS.filter((s) => Boolean(state.mesa.slots[s.key])).length;
+    const srsCount = Object.keys(state.srs).length;
+    const cards = [
+      { value: state.favorites.size, label: "Favoritos salvos" },
+      { value: srsCount, label: "Cartas no histórico SRS" },
+      { value: `${mesaFilled}/4`, label: "Slots na Mesa" },
+      { value: state.draftQuotes.length, label: "Rascunhos locais" },
+    ];
+    dom.backupSummary.textContent = "";
+    for (const c of cards) {
+      const el = document.createElement("div");
+      el.className = "kpi-card";
+      const val = document.createElement("span");
+      val.className = "kpi-value";
+      val.textContent = String(c.value);
+      const lbl = document.createElement("span");
+      lbl.className = "kpi-label";
+      lbl.textContent = c.label;
+      el.appendChild(val);
+      el.appendChild(lbl);
+      dom.backupSummary.appendChild(el);
+    }
+  }
+
+  function buildUserBackupObject() {
+    return {
+      version: 1,
+      app: "banco-de-citacoes",
+      exportedAt: new Date().toISOString(),
+      favorites: [...state.favorites],
+      srs: state.srs,
+      mesa: state.mesa,
+      drafts: state.draftQuotes.map(({ _isDraft, ...rest }) => rest),
+      preferences: {
+        theme: document.documentElement.getAttribute("data-theme") || "light",
+        view: state.view,
+        copyFormat: state.copyFormat,
+      },
+    };
+  }
+
+  function restoreUserBackup(data, mode = "merge") {
+    if (!data || typeof data !== "object" || data.app !== "banco-de-citacoes") {
+      throw new Error("Arquivo de backup incompatível.");
+    }
+
+    const incomingFavs = Array.isArray(data.favorites) ? data.favorites.map(String) : [];
+    const incomingSrs = data.srs && typeof data.srs === "object" ? data.srs : {};
+    const incomingDrafts = Array.isArray(data.drafts) ? data.drafts : [];
+    const incomingMesa = data.mesa && typeof data.mesa === "object" ? data.mesa : null;
+
+    if (mode === "replace") {
+      state.favorites = new Set(incomingFavs);
+      state.srs = incomingSrs;
+      state.draftQuotes = incomingDrafts.map((d) => ({ ...d, _isDraft: true }));
+      if (incomingMesa) {
+        state.mesa = {
+          theme: String(incomingMesa.theme || ""),
+          slots: {
+            intro: incomingMesa.slots?.intro || null,
+            d1: incomingMesa.slots?.d1 || null,
+            d2: incomingMesa.slots?.d2 || null,
+            conc: incomingMesa.slots?.conc || null,
+          },
+        };
+      }
+    } else {
+      for (const id of incomingFavs) state.favorites.add(id);
+      for (const [id, rec] of Object.entries(incomingSrs)) {
+        const current = state.srs[id];
+        if (!current || (rec.lastReviewedAt || 0) >= (current.lastReviewedAt || 0)) {
+          state.srs[id] = rec;
+        }
+      }
+      const existingDraftIds = new Set(state.draftQuotes.map((d) => d.id));
+      for (const d of incomingDrafts) {
+        if (!existingDraftIds.has(d.id)) {
+          state.draftQuotes.push({ ...d, _isDraft: true });
+        }
+      }
+      if (incomingMesa) {
+        if (!state.mesa.theme && incomingMesa.theme) state.mesa.theme = incomingMesa.theme;
+        for (const s of MESA_SLOTS) {
+          if (!state.mesa.slots[s.key] && incomingMesa.slots?.[s.key]) {
+            state.mesa.slots[s.key] = incomingMesa.slots[s.key];
+          }
+        }
+      }
+    }
+
+    saveFavorites();
+    saveSrs();
+    saveDrafts();
+    saveMesa();
+    mergeAndIndexQuotes(state.baseQuotes);
+    renderBackupSummary();
   }
 
   function downloadFile(filename, content, mimeType) {
@@ -1301,6 +2022,7 @@
   function buildNewQuoteObject() {
     const id = dom.nqId.value.trim().toUpperCase() || "NOV01";
     const eixo = dom.nqEixo.value.trim() || "Educação";
+    const conceito_chave = dom.nqConceito.value.trim();
     const citacao = dom.nqCitacao.value.trim().replace(/^[“"]|[”"]$/g, "");
     const autor = dom.nqAutor.value.trim() || "Autor";
     const fonte = dom.nqFonte.value.trim() || "Fonte";
@@ -1314,7 +2036,7 @@
     const verificacao = dom.nqVerificacao.value;
 
     const temaTag = `#tema-${slugify(eixo) || "geral"}`;
-    const autorTag = `#autor-${slugify(autor) || "generico"}`;
+    const autorTag = `#autor-${slugify(autor) || "especifico"}`;
 
     return {
       id,
@@ -1323,6 +2045,7 @@
       autor,
       fonte,
       ano,
+      conceito_chave: conceito_chave || tema_principal,
       tags: [temaTag, tipo, arg, uso, tom, autorTag, verificacao],
       tema_principal,
       como_usar,
@@ -1428,11 +2151,15 @@
 
     dom.btnClearAllFilters.addEventListener("click", clearAllFilters);
     dom.btnResetFromEmpty.addEventListener("click", clearAllFilters);
+    dom.btnCopyFilterLink.addEventListener("click", () => {
+      copyToClipboard(window.location.href, null, "Link com os filtros atuais copiado!");
+    });
 
     dom.toggleSimulado.addEventListener("change", (e) => {
       state.simulado = e.target.checked;
       dom.simuladoBanner.hidden = !state.simulado;
       if (!state.simulado) state.revealedIds.clear();
+      syncUrlParams();
       renderResults();
     });
 
@@ -1467,8 +2194,75 @@
       });
     });
 
+    /* Mesa de Redação */
+    dom.btnOpenMesa.addEventListener("click", openMesaDrawer);
+    dom.btnCloseMesa.addEventListener("click", () => { dom.mesaDrawer.hidden = true; });
+    dom.mesaDrawer.addEventListener("click", (e) => {
+      if (e.target === dom.mesaDrawer) dom.mesaDrawer.hidden = true;
+    });
+    dom.mesaThemeInput.addEventListener("input", (e) => {
+      state.mesa.theme = e.target.value;
+      saveMesa();
+    });
+    dom.btnClearMesa.addEventListener("click", () => {
+      state.mesa.slots = { intro: null, d1: null, d2: null, conc: null };
+      saveMesa();
+      updateMesaBadge();
+      renderMesaDrawer();
+      renderResults();
+      showToast("Mesa de Redação limpa.");
+    });
+    dom.btnCopyMesa.addEventListener("click", () => {
+      copyToClipboard(formatMesaMarkdown(), null, "Projeto de texto copiado!");
+    });
+    dom.btnDownloadMesa.addEventListener("click", () => {
+      downloadFile("projeto-de-texto.md", formatMesaMarkdown(), "text/markdown;charset=utf-8");
+      showToast("Arquivo projeto-de-texto.md baixado!");
+    });
+
+    /* Challenge Bar */
+    dom.btnToggleChallenge.addEventListener("click", () => {
+      state.challenge.active = !state.challenge.active;
+      dom.challengeBar.hidden = !state.challenge.active;
+      dom.btnToggleChallenge.setAttribute("aria-pressed", String(state.challenge.active));
+      if (state.challenge.active && !state.challenge.prompt) {
+        drawChallengePrompt();
+      }
+      updateChallengeClockUi();
+    });
+    dom.btnDrawPrompt.addEventListener("click", drawChallengePrompt);
+    dom.challengePromptInput.addEventListener("input", (e) => {
+      state.challenge.prompt = e.target.value;
+      state.mesa.theme = e.target.value;
+      saveMesa();
+    });
+    dom.btnTimerToggle.addEventListener("click", () => {
+      if (state.challenge.running) stopChallengeTimer();
+      else startChallengeTimer();
+    });
+    dom.btnTimerAddMin.addEventListener("click", () => {
+      state.challenge.secondsLeft += 60;
+      updateChallengeClockUi();
+    });
+    dom.btnTimerReset.addEventListener("click", () => {
+      stopChallengeTimer();
+      state.challenge.secondsLeft = 300;
+      updateChallengeClockUi();
+    });
+    dom.btnFinishChallenge.addEventListener("click", () => {
+      stopChallengeTimer();
+      openMesaDrawer();
+    });
+    dom.btnCloseChallenge.addEventListener("click", () => {
+      stopChallengeTimer();
+      state.challenge.active = false;
+      dom.challengeBar.hidden = true;
+      dom.btnToggleChallenge.setAttribute("aria-pressed", "false");
+    });
+
     /* Flashcards */
-    dom.btnStartFlashcards.addEventListener("click", () => startFlashcards());
+    dom.btnStartFlashcards.addEventListener("click", () => startFlashcards(null, "filtered"));
+    dom.fcDeckSource.addEventListener("change", (e) => startFlashcards(null, e.target.value));
     dom.btnCloseFlashcards.addEventListener("click", () => { dom.flashcardModal.hidden = true; });
     dom.btnShuffleDeck.addEventListener("click", () => startFlashcards(state.flashcards.deck));
     dom.btnFcReveal.addEventListener("click", revealFlashcard);
@@ -1485,25 +2279,89 @@
     });
     dom.btnFcFinish.addEventListener("click", () => { dom.flashcardModal.hidden = true; });
 
-    /* Export Modal */
+    /* Progress & SRS Modal */
+    dom.btnOpenProgress.addEventListener("click", () => {
+      renderProgressModal();
+      dom.progressModal.hidden = false;
+    });
+    dom.btnCloseProgress.addEventListener("click", () => { dom.progressModal.hidden = true; });
+    dom.btnCloseProgressFooter.addEventListener("click", () => { dom.progressModal.hidden = true; });
+    dom.btnTrainDueFromProgress.addEventListener("click", () => {
+      dom.progressModal.hidden = true;
+      startFlashcards(null, "due");
+    });
+    dom.btnResetSrs.addEventListener("click", () => {
+      state.srs = {};
+      saveSrs();
+      updateSrsBadges();
+      renderProgressModal();
+      renderResults();
+      showToast("Histórico de repetições zerado.");
+    });
+
+    /* Export & Backup Modal */
     dom.btnOpenExportModal.addEventListener("click", () => {
       const favCount = state.allQuotes.filter((q) => state.favorites.has(q.id)).length;
+      const mesaCount = MESA_SLOTS.filter((s) => Boolean(state.mesa.slots[s.key])).length;
       dom.exportScope.options[0].textContent = `Seleção filtrada atual (${state.filteredQuotes.length})`;
       dom.exportScope.options[1].textContent = `Apenas favoritas (${favCount})`;
-      dom.exportScope.options[2].textContent = `Pool completo (${state.allQuotes.length})`;
+      dom.exportScope.options[2].textContent = `Mesa de Redação (${mesaCount})`;
+      dom.exportScope.options[3].textContent = `Pool completo (${state.allQuotes.length})`;
       updateExportPreview();
+      renderBackupSummary();
       dom.exportModal.hidden = false;
     });
     dom.btnCloseExport.addEventListener("click", () => { dom.exportModal.hidden = true; });
+    dom.tabExportQuotes.addEventListener("click", () => {
+      dom.tabExportQuotes.classList.add("active");
+      dom.tabExportQuotes.setAttribute("aria-selected", "true");
+      dom.tabUserBackup.classList.remove("active");
+      dom.tabUserBackup.setAttribute("aria-selected", "false");
+      dom.panelExportQuotes.hidden = false;
+      dom.panelUserBackup.hidden = true;
+    });
+    dom.tabUserBackup.addEventListener("click", () => {
+      dom.tabUserBackup.classList.add("active");
+      dom.tabUserBackup.setAttribute("aria-selected", "true");
+      dom.tabExportQuotes.classList.remove("active");
+      dom.tabExportQuotes.setAttribute("aria-selected", "false");
+      dom.panelUserBackup.hidden = false;
+      dom.panelExportQuotes.hidden = true;
+      renderBackupSummary();
+    });
+
     dom.exportScope.addEventListener("change", updateExportPreview);
     dom.exportFormat.addEventListener("change", updateExportPreview);
     dom.btnCopyExport.addEventListener("click", () => copyToClipboard(dom.exportPreview.value));
     dom.btnDownloadExport.addEventListener("click", () => {
-      const fmt = dom.exportFormat.value;
+      const fmt = dom.exportFormat.value || "json";
       const ext = fmt === "json" ? "json" : fmt === "markdown" ? "md" : "txt";
       const mime = fmt === "json" ? "application/json;charset=utf-8" : "text/plain;charset=utf-8";
       downloadFile(`citacoes-export.${ext}`, dom.exportPreview.value, mime);
       showToast(`Arquivo citacoes-export.${ext} baixado!`);
+    });
+
+    dom.btnDownloadBackup.addEventListener("click", () => {
+      const backupJson = JSON.stringify(buildUserBackupObject(), null, 2);
+      const dateStr = new Date().toISOString().slice(0, 10);
+      downloadFile(`backup-citacoes-${dateStr}.json`, backupJson, "application/json;charset=utf-8");
+      showToast("Backup pessoal baixado!");
+    });
+    dom.backupFileInput.addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(String(reader.result));
+          restoreUserBackup(parsed, dom.backupMergeMode.value);
+          showToast("Backup restaurado com sucesso!");
+        } catch (err) {
+          showToast(err.message || "Falha ao ler arquivo de backup.");
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = "";
     });
 
     /* New Quote Modal */
@@ -1537,8 +2395,8 @@
       showToast(`Citação ${obj.id} adicionada como rascunho local!`);
     });
 
-    /* Backdrop close */
-    [dom.flashcardModal, dom.exportModal, dom.newQuoteModal].forEach((backdrop) => {
+    /* Backdrop closes */
+    [dom.flashcardModal, dom.progressModal, dom.exportModal, dom.newQuoteModal].forEach((backdrop) => {
       backdrop.addEventListener("click", (e) => {
         if (e.target === backdrop) backdrop.hidden = true;
       });
@@ -1564,6 +2422,16 @@
       reader.readAsText(file);
     });
 
+    /* Offline / Online status */
+    if (typeof navigator !== "undefined" && "onLine" in navigator) {
+      const updateOnlineStatus = () => {
+        dom.offlineBadge.hidden = navigator.onLine;
+      };
+      window.addEventListener("online", updateOnlineStatus);
+      window.addEventListener("offline", updateOnlineStatus);
+      updateOnlineStatus();
+    }
+
     /* Keyboard Shortcuts */
     document.addEventListener("keydown", (e) => {
       if (!dom.flashcardModal.hidden) {
@@ -1588,10 +2456,17 @@
         return;
       }
 
-      if (!dom.exportModal.hidden || !dom.newQuoteModal.hidden) {
+      if (
+        !dom.exportModal.hidden ||
+        !dom.newQuoteModal.hidden ||
+        !dom.progressModal.hidden ||
+        !dom.mesaDrawer.hidden
+      ) {
         if (e.key === "Escape") {
           dom.exportModal.hidden = true;
           dom.newQuoteModal.hidden = true;
+          dom.progressModal.hidden = true;
+          dom.mesaDrawer.hidden = true;
         }
         return;
       }
@@ -1612,11 +2487,24 @@
     });
   }
 
+  function registerServiceWorker() {
+    if (
+      typeof navigator !== "undefined" &&
+      "serviceWorker" in navigator &&
+      window.location &&
+      (window.location.protocol === "https:" || window.location.protocol === "http:")
+    ) {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    }
+  }
+
   async function init() {
     cacheDom();
     loadPreferences();
+    applyUrlParams();
     bindEvents();
     setView(state.view);
+    registerServiceWorker();
 
     try {
       const response = await fetch("./citacoes.json", { cache: "no-store" });
